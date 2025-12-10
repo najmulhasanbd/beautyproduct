@@ -1,0 +1,68 @@
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+
+}
+
+ 
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+.header-search {
+	margin-top: 10px;
+}
+.slider_grid {
+  gap: 0px;
+}
+.product_footer {
+	display: block !important;
+}.quantity {
+	justify-content: center;
+}
+.product_footer .btn {
+	transition: var(--transition);
+	width: 100%;
+	margin-top: 10px;
+}
+.product_title {
+	padding: 5px;
+}
+}
+
+ 
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.header-search {
+	margin-top: 10px;
+}
+.slider_grid {
+  gap: 0px;
+}
+.product_footer {
+	display: block !important;
+}
+ .quantity {
+	justify-content: center;
+}
+.product_footer .btn {
+	transition: var(--transition);
+	width: 100%;
+	margin-top: 10px;
+}
+.product_title {
+	padding: 5px;
+}
+}
+ 
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container {width:450px}
+ 
+}
