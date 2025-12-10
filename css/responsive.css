@@ -34,6 +34,15 @@
 .product_title {
 	padding: 5px;
 }
+.btn {
+	padding: 10px 20px;
+}
+.view_all {
+	background: transparent;
+	color: #000;
+	border-bottom: 1px solid #000;
+	font-size: 15px;
+}
 }
 
  
@@ -58,6 +67,16 @@
 }
 .product_title {
 	padding: 5px;
+    font-size:14px
+}
+.btn {
+	padding: 10px 20px;
+}
+.view_all {
+	background: transparent;
+	color: #000;
+	border-bottom: 1px solid #000;
+	font-size: 15px;
 }
 }
  
