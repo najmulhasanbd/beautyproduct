@@ -10,7 +10,9 @@
 .footer_grid {
   grid-template-columns: repeat(2, 1fr);
 }
-
+.shopProductContent h4 {
+	font-size: 14px;
+}
 }
 
  
@@ -104,6 +106,12 @@
 }
 .footer_social_payment {
 	gap: 20px;
+}
+.shopProduct {
+	padding: 10px !important;
+}
+.shopProductContent h4 {
+	font-size: 14px;
 }
 }
  
