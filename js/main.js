@@ -63,6 +63,39 @@
         autoplayTimeout: 3000
     });
 
+    //category_slider
+$(".category_slider").owlCarousel({
+    items: 8,          // desktop default
+    loop: true,
+    margin: 0,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+
+    responsive: {
+        0: {          // Mobile
+            items: 2
+        },
+        400:{
+            items:3
+        },
+        480:{
+            items:3
+        },
+        576: {        // Tablet
+            items: 5
+        },
+        992: {        // Desktop
+            items: 6
+        },
+        1200:{
+            items:8
+        }
+    }
+});
+
+
     //product increment decrement
     $(document).ready(function () {
         const minus = $('.quantity__minus');

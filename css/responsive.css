@@ -7,7 +7,9 @@
 
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
-
+.footer_grid {
+  grid-template-columns: repeat(2, 1fr);
+}
 
 }
 
@@ -46,6 +48,12 @@
   .benifit_grid{
         grid-template-columns: repeat(3, 1fr);
     }
+	.footer_grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.footer_social_payment {
+	gap: 20px;
+}
 }
 
  
@@ -84,6 +92,19 @@
  .benifit_grid{
         grid-template-columns: repeat(2, 1fr);
     }
+	.banner_grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.footer_grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+.footer-social {
+	justify-content: center;
+}
+.footer_social_payment {
+	gap: 20px;
+}
 }
  
 /* Large Mobile :480px. */
