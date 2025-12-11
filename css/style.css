@@ -489,6 +489,15 @@ font-weight: 600;
 	align-items: center;
 }
 
+/* recommand  */
+.single_recommad_product img {
+  border-radius: 10px;
+  transition: all .5s ease-in-out;
+}
+.single_recommad_product img:hover {
+  transform: scale(1.02);
+}
+
 /* shop by look */
 
 .shopByLook{
