@@ -43,6 +43,9 @@
 	border-bottom: 1px solid #000;
 	font-size: 15px;
 }
+  .benifit_grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
  
@@ -78,6 +81,9 @@
 	border-bottom: 1px solid #000;
 	font-size: 15px;
 }
+ .benifit_grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
  
 /* Large Mobile :480px. */

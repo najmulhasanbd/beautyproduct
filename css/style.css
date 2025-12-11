@@ -185,10 +185,15 @@ color:white
 background: #FFF0F7;
 }
 .all_category {
-padding: 10px 5px;
-border-radius: 5px;
-transition: var(--transition);
-cursor: pointer;
+	padding: 10px 5px;
+	border-radius: 5px;
+	transition: var(--transition);
+	cursor: pointer;
+	background: #FFB30094;
+	width: 200px;
+}
+.all_category i {
+	font-size: 18px;
 }
 .all_category h5 {
 font-size: 16px;
@@ -312,27 +317,23 @@ overflow: hidden;
 	border: 1px solid #ddd;
 }
 .product_image {
-position: relative;
-display: block;
-overflow: hidden;
-border-radius: 10px 10px 0 0;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	padding: 10px;
 }
 .product_image span {
-position: absolute;
-left: 0;
-z-index: 99;
-background: #EB4B98;
-color: #fff;
-padding: 5px 10px;
-font-size: 12px;
-border-radius: 10px 0;
-}.product_image img {
-border-radius: 10px 10px 0 0;
-transition:var(--transition);
+	position: absolute;
+	left: 10px;
+	z-index: 99;
+	background: #EB4B98;
+	color: #fff;
+	padding: 5px 10px;
+	font-size: 12px;
+	border-radius: 10px 0;
+	top: 10px;
 }
-.product_image img:hover{
-transform: scale(1.1);
-}
+
 .product_title {
 	font-size: 16px;
 	font-weight: normal;
@@ -426,3 +427,6 @@ font-weight: 600;
   background: transparent;
   border: 1px solid var(--main-color);
 }
+
+//benifit
+
