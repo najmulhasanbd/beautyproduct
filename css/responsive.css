@@ -1,12 +1,20 @@
 /* Normal desktop :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {
-
-
+@media (min-width: 1200px) and (max-width: 1399px) {
+.category-list {
+	height: 370px;
+}
 }
 
 
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
+	.category-list {
+	overflow: hidden;
+	height: 290px;
+}
+.benifit_grid {
+	grid-template-columns: repeat(4, 1fr);
+}
 .footer_grid {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -56,6 +64,7 @@
 .footer_social_payment {
 	gap: 20px;
 }
+
 }
 
  
@@ -64,11 +73,17 @@
 .header-search {
 	margin-top: 10px;
 }
+ .benifit_grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+    }
 .slider_grid {
   gap: 0px;
 }
 .product_footer {
 	display: block !important;
+	margin: 0;
 }
  .quantity {
 	justify-content: center;
@@ -112,6 +127,26 @@
 }
 .shopProductContent h4 {
 	font-size: 14px;
+}
+
+.single-benifit img {
+  width: 24px !important;
+}
+.single-benifit span {
+  font-size: 13px;
+}
+.campaign_slider .owl-nav {
+	position: absolute;
+	bottom: -45px;
+	width: auto;
+	left: 0;
+	top: auto;
+}
+.campaign_slider .owl-nav .owl-prev, .campaign_slider .owl-nav .owl-next {
+	border-radius: inherit;
+}
+.campaign_slider .owl-nav .owl-next {
+	margin-left: 10px;
 }
 }
  

@@ -11,46 +11,46 @@
     });
 
     // see more/less
-    $(document).ready(function () {
-        function applyLimit() {
-            let mainItems = $(".category-list > li").not(":has(.subcategory)");
-            let toggleBtn = $("#toggleBtn");
+    // $(document).ready(function () {
+    //     function applyLimit() {
+    //         let mainItems = $(".category-list > li").not(":has(.subcategory)");
+    //         let toggleBtn = $("#toggleBtn");
 
-            mainItems.show();
+    //         mainItems.show();
 
-            let w = $(window).width();
+    //         let w = $(window).width();
 
-            if (w >= 991 && w <= 1200) {
-                mainItems.slice(5).hide();
+    //         if (w >= 991 && w <= 1200) {
+    //             mainItems.slice(5).hide();
 
-            } else if (w > 1400) {
-                mainItems.slice(9).hide();
+    //         } else if (w > 1400) {
+    //             mainItems.slice(9).hide();
 
-            } else {
-                mainItems.slice(7).hide();
-            }
+    //         } else {
+    //             mainItems.slice(7).hide();
+    //         }
 
-            toggleBtn.text("See More");
-        }
+    //         toggleBtn.text("See More");
+    //     }
 
-        applyLimit();
+    //     applyLimit();
 
-        $(window).resize(function () {
-            applyLimit();
-        });
+    //     $(window).resize(function () {
+    //         applyLimit();
+    //     });
 
-        $("#toggleBtn").click(function () {
-            let mainItems = $(".category-list > li").not(":has(.subcategory)");
+    //     $("#toggleBtn").click(function () {
+    //         let mainItems = $(".category-list > li").not(":has(.subcategory)");
 
-            if ($(this).text() === "See More") {
-                mainItems.show();
-                $(this).text("See Less");
-            } else {
-                applyLimit();
-            }
-        });
+    //         if ($(this).text() === "See More") {
+    //             mainItems.show();
+    //             $(this).text("See Less");
+    //         } else {
+    //             applyLimit();
+    //         }
+    //     });
 
-    });
+    // });
 
     //slider
     $(".banner_slider").owlCarousel({
@@ -63,37 +63,110 @@
         autoplayTimeout: 3000
     });
 
-    //category_slider
-$(".category_slider").owlCarousel({
-    items: 8,          // desktop default
-    loop: true,
-    margin: 0,
-    nav: false,
-    dots: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
+    // benifit carusal
+    $(document).ready(function () {
 
-    responsive: {
-        0: {          // Mobile
-            items: 2
-        },
-        400:{
-            items:3
-        },
-        480:{
-            items:3
-        },
-        576: {        // Tablet
-            items: 5
-        },
-        992: {        // Desktop
-            items: 6
-        },
-        1200:{
-            items:8
+        function benifitCarousel() {
+            if ($(window).width() <= 768) {
+                if (!$('.benifit_grid').hasClass('owl-loaded')) {
+                    $('.benifit_grid').owlCarousel({
+                        items: 2,
+                        margin: 15,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        dots: false,
+                        nav: false,
+                        responsive: {
+                            0: {
+                                items: 2
+                            },
+                            768: {
+                                items: 3
+                            },
+                        }
+                    });
+                }
+            } else {
+                if ($('.benifit_grid').hasClass('owl-loaded')) {
+                    $('.benifit_grid').trigger('destroy.owl.carousel');
+                    $('.benifit_grid').removeClass('owl-carousel owl-loaded');
+                    $('.benifit_grid').find('.owl-stage-outer').children().unwrap();
+                }
+            }
         }
-    }
-});
+
+        benifitCarousel();
+        $(window).resize(benifitCarousel);
+
+    });
+
+    //category_slider
+    $(".category_slider").owlCarousel({
+        items: 8,
+        loop: true,
+        margin: 0,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+
+        responsive: {
+            0: {
+                items: 2
+            },
+            400: {
+                items: 3
+            },
+            480: {
+                items: 3
+            },
+            576: {
+                items: 5
+            },
+            992: {
+                items: 6
+            },
+            1200: {
+                items: 8
+            }
+        }
+    });
+    //category_slider
+    $(".campaign_slider").owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 13,
+        nav: true,
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+
+        responsive: {
+            0: {
+                items: 2
+            },
+            400: {
+                items: 2
+            },
+            480: {
+                items: 2
+            },
+            576: {
+                items: 2
+            },
+            768:{
+                items: 3
+            },
+            992: {
+                items: 3
+            },
+            1200: {
+                items: 4
+            }
+        }
+    });
 
 
     //product increment decrement
