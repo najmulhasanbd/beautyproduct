@@ -2530,41 +2530,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hotspots = document.querySelectorAll('.look-hotspot');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // এলিমেন্টগুলো সিলেক্ট করা
+        const hotspots = document.querySelectorAll('.look-hotspot');
+        const productItems = document.querySelectorAll('.shopSingleProduct');
 
-            hotspots.forEach(hotspot => {
-                // যখন মাউস পয়েন্টের ওপর যাবে
-                hotspot.addEventListener('mouseenter', function () {
-                    const targetId = this.getAttribute('data-target-product');
-                    const targetProduct = document.getElementById(targetId);
+        // --- পার্ট ১: ইমেজের পয়েন্টে হোভার করলে প্রোডাক্ট হাইলাইট ---
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('mouseenter', function() {
+                const targetId = this.getAttribute('data-target-product');
+                const targetProduct = document.getElementById(targetId);
 
-                    if (targetProduct) {
-                        // আগের কোনো হাইলাইট থাকলে সরিয়ে ফেলা (সেফটির জন্য)
-                        document.querySelectorAll('.shopSingleProduct.active-highlight').forEach(el => {
-                            el.classList.remove('active-highlight');
-                        });
+                if (targetProduct) {
+                    // সেফটি: অন্য কোনো প্রোডাক্ট হাইলাইট থাকলে সরিয়ে ফেলা
+                    document.querySelectorAll('.shopSingleProduct.active-highlight').forEach(el => {
+                        el.classList.remove('active-highlight');
+                    });
+                    targetProduct.classList.add('active-highlight');
+                    // অপশনাল: লিস্টে স্ক্রল করে দেখানো
+                    // targetProduct.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
 
-                        // নতুন প্রোডাক্ট হাইলাইট করা
-                        targetProduct.classList.add('active-highlight');
-
-                        // অপশনাল: লিস্ট বড় হলে হাইলাইট হওয়া প্রোডাক্টটি স্ক্রল করে সামনে আনা
-                        // targetProduct.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }
-                });
-
-                // যখন মাউস পয়েন্ট থেকে সরে যাবে
-                hotspot.addEventListener('mouseleave', function () {
-                    const targetId = this.getAttribute('data-target-product');
-                    const targetProduct = document.getElementById(targetId);
-                    if (targetProduct) {
-                        targetProduct.classList.remove('active-highlight');
-                    }
-                });
+            hotspot.addEventListener('mouseleave', function() {
+                 const targetId = this.getAttribute('data-target-product');
+                 const targetProduct = document.getElementById(targetId);
+                 if (targetProduct) {
+                     targetProduct.classList.remove('active-highlight');
+                 }
             });
         });
-    </script>
+
+
+        // --- পার্ট ২ (নতুন): প্রোডাক্টে হোভার করলে ইমেজের পয়েন্ট বাউন্স ---
+        productItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                // প্রোডাক্টের ID নেওয়া
+                const productId = this.id; 
+                
+                // সেই ID এর সাথে ম্যাচ করে এমন hotspot খুঁজে বের করা
+                // [data-target-product="prod-1"] এই ধরনের সিলেক্টর ব্যবহার করে
+                const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
+                
+                if (matchingHotspot) {
+                    // সেফটি: অন্য কোনো hotspot অ্যাক্টিভ থাকলে বন্ধ করা
+                    document.querySelectorAll('.look-hotspot.is-active').forEach(el => {
+                       el.classList.remove('is-active'); 
+                    });
+
+                    // কাঙ্ক্ষিত hotspot এ 'is-active' ক্লাস যোগ করা (যা CSS এ অ্যানিমেশন ট্রিগার করবে)
+                    matchingHotspot.classList.add('is-active');
+                }
+            });
+
+            item.addEventListener('mouseleave', function() {
+                const productId = this.id;
+                const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
+                
+                if (matchingHotspot) {
+                    matchingHotspot.classList.remove('is-active');
+                }
+            });
+        });
+
+    });
+</script>
 </body>
 
 </html>

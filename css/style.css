@@ -748,11 +748,13 @@ padding-top: 10px;
 }
 
 /* Hover on Hotspot -> Animate Circle */
-.look-hotspot:hover .hotspot-circle {
+.look-hotspot:hover .hotspot-circle,
+.look-hotspot.is-active .hotspot-circle {
     animation: smoothBounce 1s ease-in-out infinite;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3); /* একটু উজ্জ্বল করলাম */
+    /* অ্যাক্টিভ হলে গ্লো একটু বাড়িয়ে দেওয়া হলো যাতে সহজে চোখে পড়ে */
+    box-shadow: 0 0 12px 4px rgba(255, 165, 0, 0.9), inset 0 0 6px rgba(255, 165, 0, 0.6);
 }
-
 /* The Hover Card (Tooltip) */
 .hotspot-card {
     position: absolute;
