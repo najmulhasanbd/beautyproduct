@@ -577,17 +577,17 @@ font-weight: 600;
 }
 
 /* combos */
-.combosProduct {
+.combosProduct, .concernProduct {
   border: 0;
   display: flex;
   gap: 10px;
   justify-content: center;
 }
-.combosProduct li {
+.combosProduct li, .concernProduct li {
   border: 1px solid #ddd;
   border-radius: 0 !important;
 }
-.combosProduct li button {
+.combosProduct li button, .concernProduct li button {
 	border-radius: 0 !important;
 	padding: 10px 30px;
 	line-height: 1;
@@ -597,7 +597,7 @@ font-weight: 600;
 	font-weight: 600;
 }
 
-.combosProduct li button.nav-link.active {
+.combosProduct li button.nav-link.active, .concernProduct li button.nav-link.active {
   background: #FFDEEE !important;
   border: 1px solid #FFDEEE !important;
   color: #472786;
@@ -649,58 +649,168 @@ font-size: 16px;
 padding-top: 10px;
 }
 /* shop by look */
-
-.shopByLook{
-position: relative;
-display: block;
+.shopByLook {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
-.shopByLook .look-img{
-width: 100%;
-display: block;
+.shopByLook .look-img {
+    width: 100%;
+    display: block;
+    height: auto; 
 }
+
 .shopProduct {
-border: 1px solid var(--main-color);
-border-radius: 20px;
-height: 100%;
+    border: 1px solid var(--main-color);
+    border-radius: 20px;
+    height: 100%;
+    overflow-y: auto;
 }
+
 .shopSingleProduct {
-display: flex;
-gap: 10px;
-padding: 10px;
-transition: all .5s ease-in-out;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    transition: all .3s ease-in-out; 
+    border-bottom: 1px solid #eee;
+    border-radius: 10px;
 }
-.shopSingleProduct:hover {
-background: #FFDEEE;
-cursor: pointer;
-border-radius: 10px;
+/* শেষ আইটেমের বর্ডার বাদ */
+.shopSingleProduct:last-child {
+    border-bottom: none;
 }
-.shopByProduct button {
-margin-top: 20px;
+
+.shopSingleProduct:hover,
+.shopSingleProduct.active-highlight {
+    background: #FFDEEE;
+    cursor: pointer;
+    transform: translateX(5px);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.shopProduct button {
-margin-top: 10px;
-transition: all .5s ease-in-out;
+
+.shopSingleProduct .shop_image img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
 }
-.shopProduct button:hover {
-border: 1px solid var(--main-color);
-}
+
 .shopProductContent span {
-color: var(--main-color);
-display: flex;
-align-items: center;
-gap: 5px;
-font-size: 15px;
-font-weight: 500;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 500;
 }
+
 .shopProductContent h4 {
-font-size: 18px;
-overflow: hidden;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical;
-line-clamp: 2;
-box-orient: vertical;
+    font-size: 16px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+}
+
+/* --- নতুন CSS (Hotspots, Animation, Cards) --- */
+
+/* Hotspot Container */
+.look-hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    /* পয়েন্টের কেন্দ্রকে নির্দিষ্ট স্থানে বসানোর জন্য */
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* The visible circle */
+.hotspot-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* ইমেজের মতো সবুজ বর্ডার এবং কমলা গ্লো */
+    border: 2px solid #4CAF50; /* Green */
+    box-shadow: 0 0 4px 1px rgba(255, 165, 0, 0.8), inset 0 0 4px rgba(255, 165, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Smooth Bounce Animation Definition */
+@keyframes smoothBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); box-shadow: 0 0 8px 2px rgba(255, 165, 0, 0.9); }
+}
+
+/* Hover on Hotspot -> Animate Circle */
+.look-hotspot:hover .hotspot-circle {
+    animation: smoothBounce 1s ease-in-out infinite;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* The Hover Card (Tooltip) */
+.hotspot-card {
+    position: absolute;
+    /* পয়েন্টের উপরে দেখাবে */
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* শুরুতে একটু নিচে থাকবে */
+    width: 180px;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* শুরুতে লুকিয়ে রাখা */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth easing */
+    z-index: 20;
+    pointer-events: none; /* কার্ডের ওপর মাউস গেলে যাতে ফ্লিকার না করে */
+}
+/* কার্ডের নিচের ছোট তীর চিহ্ন (Optional) */
+.hotspot-card::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Hover on Hotspot -> Show Card */
+.look-hotspot:hover .hotspot-card {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* সঠিক জায়গায় উঠে আসবে */
+}
+
+/* Card Inner Styles */
+.hotspot-card img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.hotspot-card-content h6 {
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.2;
+}
+.hotspot-card-content span {
+    font-size: 12px;
+    color: var(--main-color);
+    font-weight: bold;
 }
 /* footer */
 
