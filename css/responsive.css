@@ -21,6 +21,12 @@
 .shopProductContent h4 {
 	font-size: 14px;
 }
+.footer_widget {
+	margin-bottom: 20px;
+}
+.footer_widget h5 {
+	margin-bottom: 10px;
+}
 }
 
  
@@ -63,6 +69,12 @@
 }
 .footer_social_payment {
 	gap: 20px;
+}
+.footer_widget {
+	margin-bottom: 20px;
+}
+.footer_widget h5 {
+	margin-bottom: 10px;
 }
 
 }
@@ -147,6 +159,13 @@
 }
 .campaign_slider .owl-nav .owl-next {
 	margin-left: 10px;
+}
+
+.footer_widget {
+	margin-bottom: 20px;
+}
+.footer_widget h5 {
+	margin-bottom: 10px;
 }
 }
  
