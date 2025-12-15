@@ -167,6 +167,10 @@
 .footer_widget h5 {
 	margin-bottom: 10px;
 }
+.ingredients_tabs li .nav-link {
+	font-size: 15px;
+	padding: 10px;
+}
 }
  
 /* Large Mobile :480px. */

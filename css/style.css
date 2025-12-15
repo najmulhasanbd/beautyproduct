@@ -576,7 +576,33 @@ font-weight: 600;
 	padding: 10px;
 }
 
+/* combos */
+.combosProduct {
+  border: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.combosProduct li {
+  border: 1px solid #ddd;
+  border-radius: 0 !important;
+}
+.combosProduct li button {
+	border-radius: 0 !important;
+	padding: 10px 30px;
+	line-height: 1;
+	font-size: 18px;
+	color: #636363;
+	text-transform: capitalize;
+	font-weight: 600;
+}
 
+.combosProduct li button.nav-link.active {
+  background: #FFDEEE !important;
+  border: 1px solid #FFDEEE !important;
+  color: #472786;
+  font-weight: 600;
+}
 /* recommand */
 .single_recommad_product img {
 border-radius: 10px;
@@ -592,12 +618,13 @@ box-shadow: var(--box-shadow);
 padding:10px;
 gap:10px
 }
-
 .ingredients_tabs li .nav-link {
-background: transparent;
-font-weight: 500;
-color: #000 !important;
-cursor: pointer;
+	background: transparent;
+	font-weight: normal;
+	color: #000 !important;
+	cursor: pointer;
+	font-size: 20px;
+	text-transform: capitalize;
 }
 .ingredients_tabs li .nav-link.active {
 background: #FFDEEE;
