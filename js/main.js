@@ -10,48 +10,6 @@
         }
     });
 
-    // see more/less
-    // $(document).ready(function () {
-    //     function applyLimit() {
-    //         let mainItems = $(".category-list > li").not(":has(.subcategory)");
-    //         let toggleBtn = $("#toggleBtn");
-
-    //         mainItems.show();
-
-    //         let w = $(window).width();
-
-    //         if (w >= 991 && w <= 1200) {
-    //             mainItems.slice(5).hide();
-
-    //         } else if (w > 1400) {
-    //             mainItems.slice(9).hide();
-
-    //         } else {
-    //             mainItems.slice(7).hide();
-    //         }
-
-    //         toggleBtn.text("See More");
-    //     }
-
-    //     applyLimit();
-
-    //     $(window).resize(function () {
-    //         applyLimit();
-    //     });
-
-    //     $("#toggleBtn").click(function () {
-    //         let mainItems = $(".category-list > li").not(":has(.subcategory)");
-
-    //         if ($(this).text() === "See More") {
-    //             mainItems.show();
-    //             $(this).text("See Less");
-    //         } else {
-    //             applyLimit();
-    //         }
-    //     });
-
-    // });
-
     //slider
     $(".banner_slider").owlCarousel({
         items: 1,
@@ -138,7 +96,7 @@
         loop: true,
         margin: 13,
         nav: true,
-            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
         dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
@@ -156,7 +114,7 @@
             576: {
                 items: 2
             },
-            768:{
+            768: {
                 items: 3
             },
             992: {
@@ -191,5 +149,137 @@
         })
     });
 
+    // Countdown timer
+    function updateCountdown() {
+        const countdownItems = document.querySelectorAll(".countdown-item");
+        if (countdownItems.length > 0) {
+            let days = parseInt(
+                countdownItems[0].querySelector(".countdown-value").textContent
+            );
+            let hours = parseInt(
+                countdownItems[1].querySelector(".countdown-value").textContent
+            );
+            let minutes = parseInt(
+                countdownItems[2].querySelector(".countdown-value").textContent
+            );
+            let seconds = parseInt(
+                countdownItems[3].querySelector(".countdown-value").textContent
+            );
+
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    if (hours < 0) {
+                        hours = 23;
+                        days--;
+                        if (days < 0) {
+                            days = 0;
+                            hours = 0;
+                            minutes = 0;
+                            seconds = 0;
+                        }
+                    }
+                }
+            }
+
+            countdownItems[0].querySelector(".countdown-value").textContent =
+                String(days).padStart(2, "0");
+            countdownItems[1].querySelector(".countdown-value").textContent =
+                String(hours).padStart(2, "0");
+            countdownItems[2].querySelector(".countdown-value").textContent =
+                String(minutes).padStart(2, "0");
+            countdownItems[3].querySelector(".countdown-value").textContent =
+                String(seconds).padStart(2, "0");
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // shop by product
+    document.addEventListener('DOMContentLoaded', function () {
+        const hotspots = document.querySelectorAll('.look-hotspot');
+        const productItems = document.querySelectorAll('.shopSingleProduct');
+
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('mouseenter', function () {
+                const targetId = this.getAttribute('data-target-product');
+                const targetProduct = document.getElementById(targetId);
+
+                if (targetProduct) {
+                    document.querySelectorAll('.shopSingleProduct.active-highlight').forEach(el => {
+                        el.classList.remove('active-highlight');
+                    });
+                    targetProduct.classList.add('active-highlight');
+                }
+            });
+
+            hotspot.addEventListener('mouseleave', function () {
+                const targetId = this.getAttribute('data-target-product');
+                const targetProduct = document.getElementById(targetId);
+                if (targetProduct) {
+                    targetProduct.classList.remove('active-highlight');
+                }
+            });
+        });
+
+
+        productItems.forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                const productId = this.id;
+
+                const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
+
+                if (matchingHotspot) {
+                    document.querySelectorAll('.look-hotspot.is-active').forEach(el => {
+                        el.classList.remove('is-active');
+                    });
+
+                    matchingHotspot.classList.add('is-active');
+                }
+            });
+
+            item.addEventListener('mouseleave', function () {
+                const productId = this.id;
+                const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
+
+                if (matchingHotspot) {
+                    matchingHotspot.classList.remove('is-active');
+                }
+            });
+        });
+    });
+
+    // scroll to
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            if (mobileSidebar && mobileSidebar.classList.contains("active")) {
+                mobileSidebar.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+            if (
+                mobileSearchBar &&
+                mobileSearchBar.classList.contains("active")
+            ) {
+                mobileSearchBar.classList.remove("active");
+            }
+        }
+    });
+
+
+    // scrollToTop
+    $.scrollUp({
+        scrollName: 'scrollUp',
+        topDistance: '300',
+        topSpeed: 300,
+        animation: 'fade',
+        animationInSpeed: 200,
+        animationOutSpeed: 200,
+        scrollText: '<i class="fa-solid fa-arrow-turn-up"></i>',
+        activeOverlay: false,
+    });
 
 })(jQuery);

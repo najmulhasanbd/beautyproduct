@@ -3,6 +3,9 @@
 .category-list {
 	height: 370px;
 }
+.header-sticky.sticky_category.sticky .header-search {
+	width: 920px;
+}
 }
 
 
@@ -27,6 +30,13 @@
 .footer_widget h5 {
 	margin-bottom: 10px;
 }
+.header-sticky.sticky_category.sticky .all_category {
+	width: 230px;
+}
+.header-sticky.sticky_category.sticky .header-search {
+	width: 700px;
+}
+
 }
 
  
@@ -76,7 +86,9 @@
 .footer_widget h5 {
 	margin-bottom: 10px;
 }
-
+.header-sticky.sticky_category.sticky {
+	display: none !important;
+}
 }
 
  
@@ -170,6 +182,9 @@
 .ingredients_tabs li .nav-link {
 	font-size: 15px;
 	padding: 10px;
+}
+.header-sticky.sticky_category.sticky {
+	display: none !important;
 }
 }
  
