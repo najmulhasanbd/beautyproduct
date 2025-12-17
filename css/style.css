@@ -155,7 +155,7 @@ padding:0
 }
 .header_navbar.header-sticky.sticky .all_category:hover .category_sidebar.hover_sidebar_category {
 	display: block;
-	z-index: 99999;
+	z-index: 999;
 	position: absolute;
 }
 
@@ -230,7 +230,7 @@ transform: scale(1.1);
 .header_navbar.header-sticky.sticky {
     position: fixed;
     top: 58px;
-    z-index: 9999;
+    z-index: 999;
     width: 100%;
     background: #FFF0F7;
     transform: translateY(0);
@@ -239,7 +239,7 @@ transform: scale(1.1);
 .header_bottom.header-sticky.sticky {
     position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 999;
     width: 100%;
     transform: translateY(0);
 }
@@ -1204,7 +1204,7 @@ justify-content: end;
         width: 100%;
         height: 80px;
         background: #fff;
-        z-index: 9999;
+        z-index: 999;
     }
 
     /* কার্ভড ব্যাকগ্রাউন্ড মেকিং */
