@@ -136,71 +136,8 @@ margin:0;
 padding:0
 }
 /* header */
-.header-sticky.sticky_category.sticky {
-	display: flex !important;
-	position: fixed;
-	z-index: 9999;
-	top: 0;
-	transition: all .5s ease-in-out;
-	background: #fff;
-	padding: 10px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	border-radius: 5px;
-	width: auto;
-	gap: 10px;
-}
 
-.header-sticky.sticky_category.sticky .header-search {
-  width: 1090px;
-}
 
-.header-search.header-sticky.sticky {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.header-search.header-sticky.sticky .hambargur {
-  background: var(--main-color);
-  padding: 8px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.header-search.header-sticky.sticky .hambargur i {
-  color: #fff;
-  font-size: 20px;
-  line-height: 1;
-}
-.header-search.header-sticky .hambargur, .header-search.header-sticky .header_cart {
-	display: none !important;
-}
-.header-search.header-sticky.sticky .hambargur, .header-search.header-sticky.sticky .header_cart {
-	display: block !important;
-}
-.header-search.header-sticky.sticky .header_cart {
-  display: flex !important;
-}
-.header-search.header-sticky.sticky .header_cart .header_cart_count {
-  display: flex;
-}
-
-.header-search.header-sticky.sticky .header_cart .header_cart_count {
-  display: block;
-}
-.header-search.header-sticky.sticky .header_cart .header_cart_count span {
-  display: flex;
-}
-.header-search.header-sticky.sticky {
-  position: fixed;
-  z-index: 9999;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 100%;
-  left: 0;
-  padding: 10px;
-  top: 0;
-  margin-top: 0;
-  background: #fff;
-}
 .header-area{
 background:var(--secondary-color);
 }
@@ -720,6 +657,13 @@ font-weight: 600;
   color: #472786;
   font-weight: 600;
 }
+.moreButton a:hover {
+    border: 1px solid #ddd;
+}
+
+.moreButton a {
+    transition: all .5s ease-in-out;
+}
 /* recommand */
 .single_recommad_product img {
 border-radius: 10px;
@@ -1001,8 +945,8 @@ margin-top: 30px;
 	background: #7DBA2F;
 	height: 35px;
 	width: 35px;
-	right: 50px;
-	bottom: 77px;
+	right: 100px;
+	bottom: 30px;
 	color: #fff;
 	font-size: 20px;
 	text-align: center;
@@ -1013,3 +957,66 @@ margin-top: 30px;
 #scrollUp:hover {
 	background: #444;
 }
+
+
+
+/* Floating container */
+.social-menu{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+/* Main toggle button */
+.toggle-btn{
+    width:35px;
+    height:35px;
+    background:#ff3b3b;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+/* Social icons */
+.social-icons{
+    position:absolute;
+    bottom:45px;
+    right:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    opacity:0;
+    pointer-events:none;
+    transform:scale(0.8);
+    transition:0.3s ease;
+}
+
+.social-icons.active{
+    opacity:1;
+    pointer-events:auto;
+    transform:scale(1);
+}
+
+.social-icons a{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+/* Individual colors */
+.whatsapp{background:#25D366;}
+.messenger{background:#0084FF;}
+.app{background:#111;}

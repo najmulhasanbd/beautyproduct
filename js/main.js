@@ -282,4 +282,20 @@
         activeOverlay: false,
     });
 
+    //social toggle
+
+    const toggleBtn = document.getElementById('toggleBtn');
+    const socialIcons = document.getElementById('socialIcons');
+
+    toggleBtn.addEventListener('click', () => {
+        socialIcons.classList.toggle('active');
+
+        if (socialIcons.classList.contains('active')) {
+            toggleBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        } else {
+            toggleBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+        }
+    });
+
+
 })(jQuery);
