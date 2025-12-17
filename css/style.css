@@ -13,7 +13,15 @@
 --transition:all 0.3s ease-in-out;
 
 --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+--csc-primary: #522d86;
+    --csc-bg-pink: #FFF5F9; 
+    --csc-gray-text: #6c757d;
+    
 }
+html{
+    scroll-behavior: smooth;
+}
+
 *{
 font-family: var(--font);
 margin:0;
@@ -136,8 +144,35 @@ margin:0;
 padding:0
 }
 /* header */
+.category_sidebar.hover_sidebar_category {
+	display: none;
+	transition: all .5s ease-in-out;
+	background: #fff;
+	width: 200px;
+	position: absolute;
+	margin-left: -7px;
+	margin-top: 9px;
+}
+.header_navbar.header-sticky.sticky .all_category:hover .category_sidebar.hover_sidebar_category {
+	display: block;
+	z-index: 99999;
+	position: absolute;
+}
 
-
+.mobile_navbar {
+  background: var(--main-color);
+}
+.hamburgar_mobile_nav i {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.mobile_navbar_grid .cart_plus i {
+  color: #fff;
+}
+.mobile_navbar_grid .header_cart_count, .mobile_navbar_grid .header_cart_count span {
+  color: #fff !important;
+}
 .header-area{
 background:var(--secondary-color);
 }
@@ -170,7 +205,45 @@ transform: scale(1.1);
 }
 
 
+.header-search form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #fff;
+}
+.header-search form i {
+  padding: 12px;
+  background: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+}
 /* navbar */
+/* default: first load এ দেখাবে */
+.header_navbar.header-sticky,
+.header_bottom.header-sticky {
+    opacity: 1;
+    transition: all 0.35s ease;
+}
+
+/* sticky হলে animation */
+.header_navbar.header-sticky.sticky {
+    position: fixed;
+    top: 58px;
+    z-index: 9999;
+    width: 100%;
+    background: #FFF0F7;
+    transform: translateY(0);
+}
+
+.header_bottom.header-sticky.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    transform: translateY(0);
+}
+
 .header_bottom {
 background: var(--main-color);
 }
@@ -934,10 +1007,11 @@ display: flex;
 justify-content: end;
 }
 .copyright {
-display: flex;
-flex-wrap:wrap;
-justify-content: space-between;
-margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 30px;
+	padding-bottom: 30px;
 }
 
 /* scrollUp */
@@ -1020,3 +1094,192 @@ margin-top: 30px;
 .whatsapp{background:#25D366;}
 .messenger{background:#0084FF;}
 .app{background:#111;}
+
+/* Offcanvas Layout Fix */
+.offcanvas-body {
+    padding: 1rem;
+    overflow-y: auto; 
+}
+
+/* আইটেম কার্ড ডিজাইন */
+.csc-cart-item {
+    background-color: var(--csc-bg-pink);
+    border-radius: 12px; /* রাউন্ডেড কর্নার */
+    padding: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* ডিলিট বাটন ডিজাইন (সার্কেল) */
+.csc-delete-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #787878; /* ছবির মতো ছাই কালার */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.csc-delete-btn:hover {
+    background-color: #dc3545; /* হোভার করলে লাল হবে */
+}
+
+/* টেক্সট কালার */
+.csc-text-primary {
+    color: var(--csc-primary) !important;
+    font-weight: 700;
+}
+
+/* ফুটার এরিয়া ফিক্সড রাখার জন্য */
+.csc-footer {
+    background: #fff;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    margin-top: auto; /* এটি ফুটারকে নিচে ঠেলে দেবে */
+}
+
+/* ড্যাশ বর্ডার বক্স (শিপিং এরিয়া) */
+.csc-shipping-box {
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* বুটস্ট্র্যাপ প্রোগ্রেস বার কাস্টমাইজেশন */
+.progress {
+    height: 10px;
+    background-color: #E9ECEF;
+    border-radius: 20px;
+    margin-top: 8px;
+}
+.progress-bar-custom {
+    background-color: var(--csc-primary) !important;
+    border-radius: 20px;
+}
+
+/* বাটন ডিজাইন (একদম ছবির মতো) */
+.btn-csc-outline {
+    border: 1px solid var(--csc-primary);
+    color: var(--csc-primary);
+    background: white;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.btn-csc-outline:hover {
+    background: #f3f0ff;
+    color: var(--csc-primary);
+}
+
+.btn-csc-fill {
+    background-color: var(--csc-primary);
+    color: white;
+    border: 1px solid var(--csc-primary);
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.btn-csc-fill:hover {
+    background-color: #3e2068;
+    color: white;
+}
+.csc-cart-item p a {
+	font-size: 16px;
+	color: #000;
+}
+
+.gemini-nav-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        z-index: 9999;
+    }
+
+    /* কার্ভড ব্যাকগ্রাউন্ড মেকিং */
+    .gemini-nav-bar {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        background: var(--nav-bg);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+        box-shadow: 0 -2px 15px rgba(0,0,0,0.05);
+        /* কার্ভ ইফেক্ট তৈরির জন্য ক্লিপ পাথ বা বর্ডার রেডিয়াস */
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    /* সাধারণ লিঙ্ক স্টাইল */
+    .gemini-nav-link {
+        text-decoration: none;
+        color: var(--inactive-gray);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        flex: 1;
+    }
+
+    .gemini-nav-link i {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    /* একটিভ স্টেট */
+    .active-link {
+        color: var(--primary-purple) !important;
+        font-weight: 600;
+    }
+
+    /* ফ্লোটিং কার্ট বাটন এরিয়ার ডিজাইন */
+    .gemini-floating-wrapper {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+    }
+
+.gemini-fab-button {
+	width: 65px;
+	height: 65px;
+	background-color: var(--main-color);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 24px;
+	border: 6px solid #f1f1f1;
+	box-shadow: 0 4px 10px rgba(74, 20, 140, 0.3);
+}
+
+    .gemini-fab-text {
+        color: var(--inactive-gray);
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    /* মাঝখানে গ্যাপ রাখার জন্য */
+    .nav-link-gap {
+        flex: 1;
+        pointer-events: none;
+    }
