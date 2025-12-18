@@ -166,10 +166,10 @@ background:var(--secondary-color);
   background: var(--main-color);
 }
 
-.mobileOffMenu ul li {
+.mobileOffMenu ul li, .mobileOffCategory ul li {
   border: 1px solid #ddd;
 }
-.mobileOffMenu ul li a {
+.mobileOffMenu ul li a, .mobileOffCategory ul li a {
   padding: 10px;
   display: block;
   color: var(--main-color);
@@ -177,9 +177,70 @@ background:var(--secondary-color);
   text-transform: capitalize;
   transition: all .5s ease-in-out;
 }
-.mobileOffMenu ul li a:hover {
+.mobileOffMenu ul li a:hover, .mobileOffCategory ul li a:hover {
   margin-left: 10px;
 }
+
+.mobileOffCategory {
+    position: relative;
+}
+#mobileManuCategory .offcanvas-body {
+	padding: 0;
+}
+
+
+/* Nested menus */
+.mobileSubCategory,
+.mobileChildCategory {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.mobileSubCategory.active,
+.mobileChildCategory.active {
+    left: 0;
+    z-index: 2;
+}
+
+.previous {
+    left: -100%;
+}
+
+/* Menu items */
+.mobileCategory li,
+.mobileSubCategory li,
+.mobileChildCategory li {
+    padding: 0 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+}
+
+/* Arrow */
+.arrow {
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Back button */
+.backBtn {
+    padding: 12px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
 .hamburgar_mobile_nav i {
   color: #fff;
   font-size: 20px;
@@ -1350,3 +1411,5 @@ justify-content: end;
   height: 50px;
   object-fit: cover;
 }
+
+
