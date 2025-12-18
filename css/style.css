@@ -243,7 +243,12 @@ transform: scale(1.1);
     width: 100%;
     transform: translateY(0);
 }
-
+.mobile_navbar.header-sticky.sticky {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	top: 0;
+}
 .header_bottom {
 background: var(--main-color);
 }
