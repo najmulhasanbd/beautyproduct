@@ -334,37 +334,25 @@
                         aria-labelledby="mobileManuCategoryLabel">
                         <div class="offcanvas-header">
                             <!-- <h5 class="offcanvas-title" id="mobileManuCategoryLabel">Offcanvas</h5> -->
-                             <img src="images/loog.png" alt="logo" loading="lazy">
+                            <a href=""><img src="images/loog.png" alt="logo" loading="lazy"></a>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
                             <ul class="nav nav-tabs" id="offcanvasMenu" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active " id="menu" data-bs-toggle="tab"
-                                        data-bs-target="#menu-pane" type="button" role="tab" aria-controls="menu-pane"
-                                        aria-selected="true">Menu</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link " id="category" data-bs-toggle="tab"
+                                    <button class="nav-link active" id="category" data-bs-toggle="tab"
                                         data-bs-target="#category-pane" type="button" role="tab"
                                         aria-controls="category-pane" aria-selected="false">Category</button>
                                 </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  " id="menu" data-bs-toggle="tab"
+                                        data-bs-target="#menu-pane" type="button" role="tab" aria-controls="menu-pane"
+                                        aria-selected="true">Menu</button>
+                                </li>
                             </ul>
                             <div class="tab-content" id="offcanvasMenuContent">
-                                <div class="tab-pane fade show active mobileOffMenu" id="menu-pane" role="tabpanel"
-                                    aria-labelledby="menu" tabindex="0">
-                                    <ul>
-                                        <li><a href="">Home</a></l1>
-                                        <li><a href="">Shop</a></l1>
-                                        <li><a href="">Beauty Tips</a></l1>
-                                        <li><a href="">About US</a></l1>
-                                        <li><a href="">contact us</a></l1>
-                                        <li><a href="">tracking order</a></l1>
-                                        <li><a href="">contact</a></l1>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade mobileOffCategory" id="category-pane" role="tabpanel"
+                                <div class="tab-pane fade show active mobileOffCategory" id="category-pane" role="tabpanel"
                                     aria-labelledby="category" tabindex="0">
                                     <ul class="mobileCategory">
                                         <li>
@@ -389,6 +377,18 @@
                                         </li>
                                         <li><a href="#">MAKEUP</a></li>
                                         <li><a href="#">HAIRCARE</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade mobileOffMenu" id="menu-pane" role="tabpanel"
+                                    aria-labelledby="menu" tabindex="0">
+                                    <ul>
+                                        <li><a href="">Home</a></l1>
+                                        <li><a href="">Shop</a></l1>
+                                        <li><a href="">Beauty Tips</a></l1>
+                                        <li><a href="">About US</a></l1>
+                                        <li><a href="">contact us</a></l1>
+                                        <li><a href="">tracking order</a></l1>
+                                        <li><a href="">contact</a></l1>
                                     </ul>
                                 </div>
                             </div>
@@ -496,7 +496,7 @@
         <!-- slider end -->
 
         <!-- new product start -->
-        <section class="new_product_area mt-3 mb-5">
+        <section class="new_product_area pb-5 pt-2">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>New Product</h4>
@@ -508,7 +508,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -539,7 +539,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot</a>
                             <div class="product_ratting">
@@ -569,7 +569,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -600,7 +600,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -666,7 +666,7 @@
         <!-- benifit end -->
 
         <!-- offer banner start -->
-        <section class="offer-banner-area mt-5">
+        <section class="offer-banner-area py-5">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Our Latest Offers</h4>
@@ -696,16 +696,15 @@
         <!-- offer banner end -->
 
         <!-- adds start -->
-        <section class="adds mt-5">
+        <section class="adds">
             <div class="container">
                 <img src="images/adds1.png" alt="adds" loading="lazy" class="w-100">
             </div>
         </section>
         <!-- adds end -->
 
-
         <!-- campaign start  -->
-        <section class="campaign-area my-5">
+        <section class="campaign-area py-5">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Offers!!!</h4>
@@ -715,7 +714,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -744,7 +743,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -773,7 +772,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -802,7 +801,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -831,7 +830,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -860,7 +859,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -892,7 +891,7 @@
         <!-- campaign end -->
 
         <!-- offer product start  -->
-        <section class="offer-product-area my-5">
+        <section class="offer-product-area pb-3 pt-4">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3 flex-wrap">
                     <h4>Offer Products</h4>
@@ -919,7 +918,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -948,7 +947,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -977,7 +976,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -1006,7 +1005,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -1035,7 +1034,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -1064,7 +1063,7 @@
                     <div class="single_product">
                         <a href="" class="product_image d-lock">
                             <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                            <span>  380 off</span>
+                            <span> 380 off</span>
                         </a>
                         <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                         <div class="product_ratting">
@@ -1096,7 +1095,7 @@
         <!-- offer product end -->
 
         <!-- category start -->
-        <section class="featured_category py-5 my-5">
+        <section class="featured_category py-5">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Featured Categories</h4>
@@ -1168,7 +1167,7 @@
         <!-- category end -->
 
         <!-- featured start -->
-        <section class="featurea-area mt-3 mb-5">
+        <section class="featurea-area">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Featured Products</h4>
@@ -1180,7 +1179,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1211,7 +1210,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot</a>
                             <div class="product_ratting">
@@ -1241,7 +1240,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1272,7 +1271,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1303,7 +1302,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1334,7 +1333,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot</a>
                             <div class="product_ratting">
@@ -1364,7 +1363,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1395,7 +1394,7 @@
                         <div class="single_product">
                             <a href="" class="product_image d-lock">
                                 <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span>  380 off</span>
+                                <span> 380 off</span>
                             </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
@@ -1428,7 +1427,7 @@
         <!-- featured end -->
 
         <!-- combos start -->
-        <div class="combos-area">
+        <div class="combos-area py-5">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Combos For You</h4>
@@ -1458,7 +1457,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1492,7 +1491,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -1525,7 +1524,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1559,7 +1558,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1600,7 +1599,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1634,7 +1633,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -1667,7 +1666,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1701,7 +1700,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1742,7 +1741,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1776,7 +1775,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -1809,7 +1808,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1843,7 +1842,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -1884,7 +1883,7 @@
         <!-- combos end -->
 
         <!-- recommand product start -->
-        <section class="recommand_product mt-5">
+        <section class="recommand_product">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Recommended Products</h4>
@@ -1914,7 +1913,7 @@
         <!-- recommand product end -->
 
         <!-- ingredients start -->
-        <section class="ingredients-area mt-5">
+        <section class="ingredients-area py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-4 col-xl-3 col-12">
@@ -2065,7 +2064,7 @@
         <!-- ingredients end -->
 
         <!-- concern start -->
-        <section class="concern-area mt-5">
+        <section class="concern-area">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>What Do You Have Concern With?</h4>
@@ -2097,7 +2096,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2131,7 +2130,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -2164,7 +2163,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2198,7 +2197,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2240,7 +2239,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2274,7 +2273,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -2307,7 +2306,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2341,7 +2340,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2383,7 +2382,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/prodouct.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2417,7 +2416,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot</a>
                                     <div class="product_ratting">
@@ -2450,7 +2449,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2484,7 +2483,7 @@
                                     <a href="" class="product_image d-lock">
                                         <img src="images/product/2.png" alt="product image" class="w-100"
                                             loading="lazy">
-                                        <span>  380 off</span>
+                                        <span> 380 off</span>
                                     </a>
                                     <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                                     <div class="product_ratting">
@@ -2524,7 +2523,7 @@
         <!-- concern end -->
 
         <!-- shop look start -->
-        <section class="shop-look-area py-5 my-5">
+        <section class="shop-look-area py-5">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <h4>Shop By Look</h4>
@@ -2710,7 +2709,7 @@
     <!-- main end -->
 
     <!-- footer start -->
-    <footer>
+    <footer class="pt-5">
         <div class="footer-area">
             <div class="container">
                 <div class="row">
@@ -2838,7 +2837,6 @@
         </div>
         </div>
 
-
     </footer>
     <!-- footer end -->
 
@@ -2856,7 +2854,7 @@
             </a>
 
             <div class="gemini-floating-wrapper" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                        aria-controls="offcanvasCart">
+                aria-controls="offcanvasCart">
                 <div class="gemini-fab-button">
                     <i class="fa-solid fa-cart-plus"></i>
                 </div>

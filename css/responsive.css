@@ -208,7 +208,14 @@
 .quantity {
 	border: transparent;
 }
-
+.campaign_slider .owl-nav .owl-prev, .campaign_slider .owl-nav .owl-next {
+	width: 30px;
+	height: 35px;
+	border-radius: 5px !important;
+}
+.adds .container {
+	padding: 0;
+}
 }
 
 /* Large Mobile :480px. */

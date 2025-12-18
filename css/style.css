@@ -594,7 +594,7 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 transition: all .5s ease-in-out;
-height: 65px;
+height: 55px;
 font-weight: 600;
 }
 .product_title:hover {
@@ -703,6 +703,7 @@ display: flex;
 align-items: center;
 gap: 5px;
 border: 1px solid #4727860F;
+justify-content: center;
 padding: 10px;
 border-radius: 5px;
 }
@@ -712,13 +713,13 @@ color: var(--main-color);
 }
 
 /* campaign */
-.campaign-area{
+/* .campaign-area{
 background-image: url(../images/section-bg.png);
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 padding: 40px 0;
-}
+} */
 .campaign_slider .owl-nav {
 position: absolute;
 top: 50%;
@@ -1401,7 +1402,7 @@ justify-content: end;
 	color: #fff;
 }
 #toggleBtn img {
-	width: 50px;
+	width: 45px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 50%;
 }
