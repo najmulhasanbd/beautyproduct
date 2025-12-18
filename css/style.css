@@ -186,6 +186,7 @@ background:var(--secondary-color);
 }
 #mobileManuCategory .offcanvas-body {
 	padding: 0;
+    overflow:hidden
 }
 
 #mobileManuCategory .offcanvas-header {
@@ -1158,12 +1159,6 @@ justify-content: end;
 
 #scrollUp {
 	z-index: 99 !important;
-}
-
-/* Offcanvas Layout Fix */
-.offcanvas-body {
-    padding: 1rem;
-    overflow-y: auto; 
 }
 
 /* .csc-cart-item {
