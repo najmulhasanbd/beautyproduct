@@ -292,50 +292,50 @@
 
         if (isHidden) {
             socialIcons.classList.add('hide');
-            toggleBtn.innerHTML = '<img src="images/contact.jpeg" alt="">';
+            toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
         } else {
             socialIcons.classList.remove('hide');
-            toggleBtn.innerHTML = '<img src="images/contact.jpeg" alt="">';
+            toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
         }
     });
 
 
     // mobile categoroy
-// Function to initialize menu
-function initNestedMenu(container) {
-    container.querySelectorAll('li').forEach(li => {
-        const submenu = li.querySelector('ul');
-        if (submenu) {
-            // Add arrow
-            const arrow = document.createElement('span');
-            arrow.classList.add('arrow');
-            arrow.innerText = '➜';
-            li.appendChild(arrow);
+    // Function to initialize menu
+    function initNestedMenu(container) {
+        container.querySelectorAll('li').forEach(li => {
+            const submenu = li.querySelector('ul');
+            if (submenu) {
+                // Add arrow
+                const arrow = document.createElement('span');
+                arrow.classList.add('arrow');
+                arrow.innerText = '➜';
+                li.appendChild(arrow);
 
-            // Click arrow to open submenu
-            arrow.addEventListener('click', e => {
-                e.stopPropagation();
+                // Click arrow to open submenu
+                arrow.addEventListener('click', e => {
+                    e.stopPropagation();
 
-                // Show submenu
-                submenu.classList.add('active');
+                    // Show submenu
+                    submenu.classList.add('active');
 
-                // Add back button if not exists
-                if (!submenu.querySelector('.backBtn')) {
-                    const back = document.createElement('div');
-                    back.classList.add('backBtn');
-                    back.innerText = '← Back';
-                    submenu.insertBefore(back, submenu.firstChild);
+                    // Add back button if not exists
+                    if (!submenu.querySelector('.backBtn')) {
+                        const back = document.createElement('div');
+                        back.classList.add('backBtn');
+                        back.innerText = '← Back';
+                        submenu.insertBefore(back, submenu.firstChild);
 
-                    back.addEventListener('click', () => {
-                        submenu.classList.remove('active');
-                    });
-                }
-            });
-        }
-    });
-}
+                        back.addEventListener('click', () => {
+                            submenu.classList.remove('active');
+                        });
+                    }
+                });
+            }
+        });
+    }
 
-// Initialize
-initNestedMenu(document.querySelector('.mobileOffCategory'));
+    // Initialize
+    initNestedMenu(document.querySelector('.mobileOffCategory'));
 
 })(jQuery);
