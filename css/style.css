@@ -1300,3 +1300,10 @@ justify-content: end;
 #toggleBtn img {
 	width: 45px;
 }
+
+#socialIcons .mobile img {
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+}
