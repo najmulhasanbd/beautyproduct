@@ -1164,7 +1164,7 @@ justify-content: end;
 	z-index: 99 !important;
 }
 
-/* .csc-cart-item {
+ .csc-cart-item {
     background-color: var(--csc-bg-pink);
     border-radius: 12px; 
     padding: 10px;
@@ -1194,7 +1194,7 @@ justify-content: end;
 .csc-text-primary {
     color: var(--csc-primary) !important;
     font-weight: 700;
-} */
+} 
 
 /* ফুটার এরিয়া ফিক্সড রাখার জন্য */
 .csc-footer {
@@ -1403,6 +1403,7 @@ justify-content: end;
 #toggleBtn img {
 	width: 50px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	border-radius: 50%;
 }
 
 #socialIcons .mobile img {
