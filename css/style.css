@@ -1415,3 +1415,13 @@ justify-content: end;
 }
 
 
+
+.single_product .wishlist_system {
+  position: absolute;
+  display: block;
+  top: 15px;
+  right: 15px;
+}
+.single_product .wishlist_system i {
+  font-size: 20px;
+}
