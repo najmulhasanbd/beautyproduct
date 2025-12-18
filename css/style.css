@@ -188,7 +188,9 @@ background:var(--secondary-color);
 	padding: 0;
 }
 
-
+#mobileManuCategory .offcanvas-header {
+	background: var(--main-color);
+}
 /* Nested menus */
 .mobileSubCategory,
 .mobileChildCategory {
