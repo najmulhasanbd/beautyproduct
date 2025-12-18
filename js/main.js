@@ -292,10 +292,10 @@
 
         if (isHidden) {
             socialIcons.classList.add('hide');
-            toggleBtn.innerHTML = '<i class="fas fa-angle-left"></i>';
+            toggleBtn.innerHTML = '<img src="images/contact.jpeg" alt="">';
         } else {
             socialIcons.classList.remove('hide');
-            toggleBtn.innerHTML = '<i class="fas fa-angle-right"></i>';
+            toggleBtn.innerHTML = '<img src="images/contact.jpeg" alt="">';
         }
     });
 
