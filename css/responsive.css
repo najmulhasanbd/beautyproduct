@@ -200,7 +200,9 @@
   }
   .header-area .container {
 	padding: 0;
+	overflow:hidden
 }
+
 }
 
 /* Large Mobile :480px. */

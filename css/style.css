@@ -1037,16 +1037,22 @@ justify-content: end;
 	background: #444;
 }
 
-
+#scrollUp {
+	z-index: 99 !important;
+}
 
 /* Floating container */
 .social-menu{
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 999;
+    z-index: 99;
 }
-
+#toggleBtn img {
+	/* border-radius: 50%; */
+	width: 35px;
+	height: 35px;
+}
 /* Main toggle button */
 .toggle-btn{
     width:35px;
@@ -1209,7 +1215,7 @@ justify-content: end;
         width: 100%;
         height: 80px;
         background: #fff;
-        z-index: 999;
+        z-index: 99;
     }
 
     /* কার্ভড ব্যাকগ্রাউন্ড মেকিং */

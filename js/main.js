@@ -293,7 +293,7 @@
         if (socialIcons.classList.contains('active')) {
             toggleBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         } else {
-            toggleBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+            toggleBtn.innerHTML = '<img src="images/footer-contact.png" alt="footer contact" loading="lazy">';
         }
     });
 
