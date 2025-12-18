@@ -282,18 +282,20 @@
         activeOverlay: false,
     });
 
-    //social toggle
-
+    // sidebar social
     const toggleBtn = document.getElementById('toggleBtn');
     const socialIcons = document.getElementById('socialIcons');
+    let isHidden = false;
 
     toggleBtn.addEventListener('click', () => {
-        socialIcons.classList.toggle('active');
+        isHidden = !isHidden;
 
-        if (socialIcons.classList.contains('active')) {
-            toggleBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        if (isHidden) {
+            socialIcons.classList.add('hide');
+            toggleBtn.innerHTML = '<i class="fas fa-angle-left"></i>';
         } else {
-            toggleBtn.innerHTML = '<img src="images/footer-contact.png" alt="footer contact" loading="lazy">';
+            socialIcons.classList.remove('hide');
+            toggleBtn.innerHTML = '<i class="fas fa-angle-right"></i>';
         }
     });
 

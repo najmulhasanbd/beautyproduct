@@ -86,6 +86,9 @@
     bottom: 100px;
     right: 30px;
   }
+  .quantity {
+	border: transparent;
+}
 }
 
 /* small mobile :320px. */
@@ -201,6 +204,9 @@
   .header-area .container {
 	padding: 0;
 	overflow:hidden
+}
+.quantity {
+	border: transparent;
 }
 
 }
