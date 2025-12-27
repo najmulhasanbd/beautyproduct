@@ -143,6 +143,9 @@ ul{
 margin:0;
 padding:0
 }
+.section-space {
+	padding: 50px 0;
+}
 /* header */
 .header-area{
 background:var(--secondary-color);
@@ -754,8 +757,47 @@ gap: 20px;
 }
 .banner_grid img {
 border-radius: 10px;
+transition:all .5s ease-in-out;
+}
+.holographic-card {
+  background: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
 }
 
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
 /* offer */
 
 .countdown {
@@ -1176,20 +1218,9 @@ justify-content: end;
 }
 
 .csc-delete-btn {
-    width: 30px;
-    height: 30px;
-    background-color: #787878;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.csc-delete-btn:hover {
-    background-color: #dc3545; 
+	border: none;
+	background: transparent;
+	color: var(--main-color);
 }
 
 .csc-text-primary {
