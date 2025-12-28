@@ -111,14 +111,16 @@
   .quantity {
     justify-content: center;
   }
-  .product_footer .btn {
-    transition: var(--transition);
-    width: 100%;
-    margin-top: 10px;
-  }
+.product_footer .btn {
+	transition: var(--transition);
+	width: 100%;
+	margin-top: 10px;
+	border-radius: 0 0 5px 5px;
+}
   .product_title {
     padding: 5px;
     font-size: 14px;
+    height:45px
   }
   .btn {
     padding: 10px 20px;
@@ -126,7 +128,7 @@
   .view_all {
     background: transparent;
     color: #000;
-    border-bottom: 1px solid #000;
+    border: 1px solid #000;
     font-size: 15px;
   }
   .benifit_grid {
@@ -158,20 +160,9 @@
   .single-benifit span {
     font-size: 13px;
   }
-  .campaign_slider .owl-nav {
-    position: absolute;
-    bottom: -45px;
-    width: auto;
-    left: 0;
-    top: auto;
-  }
-  .campaign_slider .owl-nav .owl-prev,
-  .campaign_slider .owl-nav .owl-next {
-    border-radius: inherit;
-  }
-  .campaign_slider .owl-nav .owl-next {
-    margin-left: 10px;
-  }
+.campaign_slider .owl-nav {
+	display: none;
+}
 
   .footer_widget {
     margin-bottom: 20px;
@@ -215,6 +206,9 @@
 }
 .adds .container {
 	padding: 0;
+}
+.section-space {
+	padding: 40px 0;
 }
 }
 

@@ -199,6 +199,26 @@
 
     setInterval(updateCountdown, 1000);
 
+
+    $(document).ready(function() {
+    $('.mobileCategory li a.has-child').on('click', function(e) {
+        e.preventDefault();
+        
+        var $this = $(this);
+        var $parent = $this.parent();
+        var $nextUl = $this.next('ul');
+
+        // Jodi onno kono menu open thake oita close hoye jabe
+        if (!$parent.hasClass('active')) {
+            $parent.siblings().removeClass('active').find('ul').slideUp();
+        }
+
+        // Toggle current menu
+        $parent.toggleClass('active');
+        $nextUl.stop().slideToggle(300); // 300ms smooth animation
+    });
+});
+
     // shop by product
     document.addEventListener('DOMContentLoaded', function () {
         const hotspots = document.querySelectorAll('.look-hotspot');
@@ -300,40 +320,6 @@
     });
 
 
-    // mobile categoroy
-    // Function to initialize menu
-    function initNestedMenu(container) {
-        container.querySelectorAll('li').forEach(li => {
-            const submenu = li.querySelector('ul');
-            if (submenu) {
-                // Add arrow
-                const arrow = document.createElement('span');
-                arrow.classList.add('arrow');
-                arrow.innerText = '➜';
-                li.appendChild(arrow);
-
-                // Click arrow to open submenu
-                arrow.addEventListener('click', e => {
-                    e.stopPropagation();
-
-                    // Show submenu
-                    submenu.classList.add('active');
-
-                    // Add back button if not exists
-                    if (!submenu.querySelector('.backBtn')) {
-                        const back = document.createElement('div');
-                        back.classList.add('backBtn');
-                        back.innerText = '← Back';
-                        submenu.insertBefore(back, submenu.firstChild);
-
-                        back.addEventListener('click', () => {
-                            submenu.classList.remove('active');
-                        });
-                    }
-                });
-            }
-        });
-    }
 
     // Initialize
     initNestedMenu(document.querySelector('.mobileOffCategory'));
