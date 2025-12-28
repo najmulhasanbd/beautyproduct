@@ -356,23 +356,37 @@
                                     role="tabpanel" aria-labelledby="category" tabindex="0">
                                     <ul class="mobileCategory">
                                         <li>
-                                            <a href="#">SKINCARE</a>
+                                            <a href="javascript:void(0)" class="has-child">SKINCARE <i
+                                                    class="arrow"></i></a>
                                             <ul class="mobileSubCategory">
-                                                <li><a href="#">subcategory</a></li>
+                                                <li><a href="#">Face Wash</a></li>
                                                 <li>
-                                                    <a href="#">subcategory</a>
+                                                    <a href="javascript:void(0)" class="has-child">Moisturizer <i
+                                                            class="arrow"></i></a>
                                                     <ul class="mobileChildCategory">
-                                                        <li><a href="#">childcategory 1</a></li>
-                                                        <li><a href="#">childcategory 2</a></li>
-                                                        <li><a href="#">childcategory 3</a></li>
-                                                        <li><a href="#">childcategory 5</a></li>
-                                                        <li><a href="#">childcategory 6</a></li>
-                                                        <li><a href="#">childcategory 7</a></li>
-                                                        <li><a href="#">childcategory 8</a></li>
-                                                        <li><a href="#">childcategory 9</a></li>
+                                                        <li><a href="#">Child 1</a></li>
+                                                        <li><a href="#">Child 2</a></li>
+                                                        <li><a href="#">Child 3</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">subcategory</a></li>
+                                                <li><a href="#">Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">SKINCARE <i
+                                                    class="arrow"></i></a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#">Face Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">Moisturizer <i
+                                                            class="arrow"></i></a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#">Child 1</a></li>
+                                                        <li><a href="#">Child 2</a></li>
+                                                        <li><a href="#">Child 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Sunscreen</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">MAKEUP</a></li>
@@ -390,6 +404,12 @@
                                         <li><a href="">tracking order</a></l1>
                                         <li><a href="">contact</a></l1>
                                     </ul>
+                                   <div class="offcanvas_mobile_social">
+    <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#" class="social-icon linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+</div>
                                 </div>
                             </div>
                         </div>
@@ -1173,254 +1193,654 @@
         <section class="featurea-area">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
-                    <h4>Featured Products</h4>
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <h4>Featured Products</h4>
+                        <ul class="nav nav-tabs" id="myTabFeature" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home-tab-pane" type="button" role="tab"
+                                    aria-controls="home-tab-pane" aria-selected="true">Home</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                    aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                    aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+                            </li>
+                        </ul>
+                    </div>
                     <a href="" class="btn view_all">View All</a>
                 </div>
 
-                <div class="row g-3">
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                <div class="tab-content" id="myTabFeatureContent">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                        tabindex="0">
+                        <div class="row g-3">
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/2.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                        tabindex="0">
+                        <div class="row g-3">
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button class="btn">Add to Cart</button>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                        tabindex="0">
+                        <div class="row g-3">
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/prodouct.png" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span> 380 off</span>
+                                    </a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <div class="product_footer d-flex align-items-center justify-content-between">
+                                        <div class="quantity d-flex">
+                                            <a href="#" class="quantity__minus"><span><i
+                                                        class="fa fa-minus"></i></span></a>
+                                            <input name="quantity" type="text" class="quantity__input" value="1">
+                                            <a href="#" class="quantity__plus"><span><i
+                                                        class="fa fa-plus"></i></span></a>
+                                        </div>
+                                        <button class="btn">Add to Cart</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1437,18 +1857,18 @@
                 </div>
                 <img src="images/combos.webp" alt="combos product" loading="lazy" class="w-100">
 
-                <ul class="nav nav-tabs my-3 combosProduct" id="myTab" role="tablist">
+                <ul class="nav nav-tabs my-3 combosProduct concernProduct" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="combos1" data-bs-toggle="tab" data-bs-target="#combos1-pane"
-                            type="button" role="tab" aria-controls="combos1-pane" aria-selected="true">Face</button>
+                        <div class="nav-link active" id="combos1" data-bs-toggle="tab" data-bs-target="#combos1-pane"
+                            role="tab" aria-controls="combos1-pane" aria-selected="true">Face</div>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="combos2" data-bs-toggle="tab" data-bs-target="#combos2-pane"
-                            type="button" role="tab" aria-controls="combos2-pane" aria-selected="false">Skin</button>
+                        <div class="nav-link" id="combos2" data-bs-toggle="tab" data-bs-target="#combos2-pane"
+                            role="tab" aria-controls="combos2-pane" aria-selected="false">Skin</div>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="combos3" data-bs-toggle="tab" data-bs-target="#combos3-pane"
-                            type="button" role="tab" aria-controls="combos3-pane" aria-selected="false">Hair</button>
+                        <div class="nav-link" id="combos3" data-bs-toggle="tab" data-bs-target="#combos3-pane"
+                            role="tab" aria-controls="combos3-pane" aria-selected="false">Hair</div>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -1924,8 +2344,8 @@
                             <h4>Shop By Ingredients</h4>
                         </div>
                     </div>
-                    <div class="col-md-8 col-xl-7 offset-xl-2 col-12">
-                        <ul class="nav nav-pills ingredients_tabs" id="pills-tab" role="tablist">
+                    <div class="col-md-8 col-xl-9 col-12">
+                        <ul class="nav nav-pills ingredients_tabs concernProduct" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <div class="nav-link active" id="niacinamide-tab" data-bs-toggle="pill"
                                     data-bs-target="#niacinamide" role="tab" aria-controls="niacinamide"
@@ -2076,18 +2496,16 @@
             <div class="container">
                 <ul class="nav nav-pills concernProduct mb-3" id="pills-tab-concern" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="concern1-tab" data-bs-toggle="pill"
-                            data-bs-target="#concern1" type="button" role="tab" aria-controls="concern1"
-                            aria-selected="true">Acne</button>
+                        <div class="nav-link active" id="concern1-tab" data-bs-toggle="pill" data-bs-target="#concern1"
+                            role="tab" aria-controls="concern1" aria-selected="true">Acne</div>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="concern2-tab" data-bs-toggle="pill" data-bs-target="#concern2"
-                            type="button" role="tab" aria-controls="concern2"
-                            aria-selected="false">Hyperpigmentation</button>
+                        <div class="nav-link" id="concern2-tab" data-bs-toggle="pill" data-bs-target="#concern2"
+                            role="tab" aria-controls="concern2" aria-selected="false">Hyperpigmentation</div>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="concern3-tab" data-bs-toggle="pill" data-bs-target="#concern3"
-                            type="button" role="tab" aria-controls="concern3" aria-selected="false">Skin Aging</button>
+                        <div class="nav-link" id="concern3-tab" data-bs-toggle="pill" data-bs-target="#concern3"
+                            role="tab" aria-controls="concern3" aria-selected="false">Skin Aging</div>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">

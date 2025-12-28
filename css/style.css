@@ -164,92 +164,77 @@ background:var(--secondary-color);
 	z-index: 999;
 	position: absolute;
 }
-
-.mobile_navbar {
-  background: var(--main-color);
+/* Basic Reset */
+.mobileCategory, .mobileCategory ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
 }
 
-.mobileOffMenu ul li, .mobileOffCategory ul li {
-  border: 1px solid #ddd;
-}
-.mobileOffMenu ul li a, .mobileOffCategory ul li a {
-  padding: 10px;
-  display: block;
-  color: var(--main-color);
-  font-size: 16px;
-  text-transform: capitalize;
-  transition: all .5s ease-in-out;
-}
-.mobileOffMenu ul li a:hover, .mobileOffCategory ul li a:hover {
-  margin-left: 10px;
-}
-
-.mobileOffCategory {
-    position: relative;
+.mobileCategory li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
 }
 #mobileManuCategory .offcanvas-body {
 	padding: 0;
-    overflow:hidden
 }
-#mobileManuCategory .offcanvas-header .btn-close {
-	border: 1px solid #fff;
-	opacity: 1;
+/* Sub-menus hidden by default */
+.mobileSubCategory, .mobileChildCategory {
+    display: none;
+    background: #f9f9f9;
+}
+
+/* Arrow Animation */
+.arrow {
+    border: solid #666;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+}
+
+.active > a > .arrow {
+    transform: rotate(-135deg);
+}
+
+/* Indentation for depth */
+.mobileSubCategory li a { padding-left: 40px; }
+.mobileChildCategory li a { padding-left: 60px; font-size: 14px; color: #666; }
+.mobile_navbar {
+  background: var(--main-color);
 }
 #mobileManuCategory .offcanvas-header {
 	background: var(--main-color);
 }
-/* Nested menus */
-.mobileSubCategory,
-.mobileChildCategory {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 100%;
-    background: #fff;
-    transition: all 0.3s ease;
-    z-index: 1;
+
+#mobileManuCategory .offcanvas-header {
+  background: var(--main-color);
 }
-
-.mobileSubCategory.active,
-.mobileChildCategory.active {
-    left: 0;
-    z-index: 2;
+.mobileOffMenu ul li {
+  border-bottom: 1px solid var(--main-color);
 }
-
-.previous {
-    left: -100%;
+.mobileOffMenu ul li a {
+  padding: 10px;
+  display: block;
+  text-transform: capitalize;
+  color: #000;
+  font-weight: 600;
+  transition: all .5s ease-in-out;
 }
-
-/* Menu items */
-.mobileCategory li,
-.mobileSubCategory li,
-.mobileChildCategory li {
-    padding: 0 15px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    align-items: center;
+.mobileOffMenu ul li a:hover {
+  background: var(--main-color);
+  color: #fff;
+  font-weight: 700;
+  padding-left: 10px;
 }
-
-/* Arrow */
-.arrow {
-    font-weight: bold;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-/* Back button */
-.backBtn {
-    padding: 12px 15px;
-    font-weight: bold;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-
 .hamburgar_mobile_nav i {
   color: #fff;
   font-size: 20px;
@@ -458,7 +443,9 @@ border: 1px solid #00000029;
 border-radius: 5px 5px 0;
 position: relative;
 }
-
+.category_sidebar a {
+	border-radius: 0;
+}
 .category_sidebar ul li {
 border-bottom: 1px solid #00000029;
 }
@@ -849,6 +836,21 @@ transition:all .5s ease-in-out;
     color: var(--primary-orange);
 }
 
+/* //feature proecut */
+
+#myTabFeature {
+  border: 0;
+}
+#myTabFeature .nav-item button {
+  border: 0;
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 10px;
+}
+#myTabFeature .nav-item button.active {
+  border-bottom: 2px solid var(--main-color);
+}
 
 /* category */
 .category_slider span {
@@ -885,7 +887,6 @@ font-weight: 600;
   border-radius: 0 !important;
 }
 .combosProduct li button, .concernProduct li button {
-	border-radius: 0 !important;
 	padding: 10px 30px;
 	line-height: 1;
 	font-size: 18px;
@@ -894,6 +895,23 @@ font-weight: 600;
 	font-weight: 600;
 }
 
+.concernProduct li.nav-item {
+  border: 1px solid var(--main-color);
+  border-radius: 5px !important;
+}
+
+.concernProduct li.nav-item .nav-link {
+  border-radius: 3px;
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: normal;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+}
+.concernProduct li.nav-item .nav-link.active {
+  background: transparent;
+  color: #000;
+}
 .combosProduct li button.nav-link.active, .concernProduct li button.nav-link.active {
   background: #FFDEEE !important;
   border: 1px solid #FFDEEE !important;
@@ -903,7 +921,11 @@ font-weight: 600;
 .moreButton a:hover {
     border: 1px solid #ddd;
 }
-
+.combosProduct .nav-item .nav-link {
+  border-radius: 3px;
+  line-height: 1;
+  padding: 10px 20px;
+}
 .moreButton a {
     transition: all .5s ease-in-out;
 }
@@ -918,17 +940,16 @@ transform: scale(1.02);
 
 /* ingredints */
 .ingredients_tabs{
-box-shadow: var(--box-shadow);
-padding:10px;
-gap:10px
+
 }
 .ingredients_tabs li .nav-link {
 	background: transparent;
 	font-weight: normal;
-	color: #000 !important;
 	cursor: pointer;
-	font-size: 20px;
 	text-transform: capitalize;
+}
+.ingredients_tabs.concernProduct {
+	justify-content: end;
 }
 .ingredients_tabs li .nav-link.active {
 background: #FFDEEE;
@@ -1455,4 +1476,45 @@ justify-content: end;
 }
 .single_product .wishlist_system i {
   font-size: 20px;
+}
+.offcanvas_mobile_social {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center; /* Center align korar jonno */
+}
+
+.offcanvas_mobile_social .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Circle shape */
+    background: #f4f4f4;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy animation */
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Hover korle upore uthbe ebong shadow barbe */
+.offcanvas_mobile_social .social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+/* Individual Brand Colors on Hover */
+.social-icon.facebook:hover { background-color: #1877F2; }
+.social-icon.twitter:hover { background-color: #1DA1F2; }
+.social-icon.linkedin:hover { background-color: #0077B5; }
+.social-icon.instagram:hover { background-color: #E4405F; }
+
+/* Icon rotating effect on hover */
+.offcanvas_mobile_social .social-icon:hover i {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }
