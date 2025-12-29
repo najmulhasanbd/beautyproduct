@@ -1,12 +1,22 @@
 (function ($) {
     "use strict";
 
+    // header sticky
     $(window).on('scroll', function () {
         var scroll = $(window).scrollTop();
         if (scroll < 245) {
             $(".header-sticky").removeClass("sticky");
         } else {
             $(".header-sticky").addClass("sticky");
+        }
+    });
+    // category sticky
+    $(window).on('scroll', function () {
+        var scroll = $(window).scrollTop();
+        if (scroll < 400) {
+            $(".category-sticky").removeClass("sticky");
+        } else {
+            $(".category-sticky").addClass("sticky");
         }
     });
 
@@ -200,24 +210,31 @@
     setInterval(updateCountdown, 1000);
 
 
-    $(document).ready(function() {
-    $('.mobileCategory li a.has-child').on('click', function(e) {
-        e.preventDefault();
-        
-        var $this = $(this);
-        var $parent = $this.parent();
-        var $nextUl = $this.next('ul');
+    // mobile category
+    $(document).ready(function () {
+        $('.mobileCategory li a.has-child').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
 
-        // Jodi onno kono menu open thake oita close hoye jabe
-        if (!$parent.hasClass('active')) {
-            $parent.siblings().removeClass('active').find('ul').slideUp();
-        }
+            var $this = $(this);
+            var $parentLi = $this.closest('li');
+            // a ট্যাগের ঠিক পরেই উল নেই, তাই আমরা parent li থেকে ul খুঁজবো
+            var $targetUl = $parentLi.children('ul');
 
-        // Toggle current menu
-        $parent.toggleClass('active');
-        $nextUl.stop().slideToggle(300); // 300ms smooth animation
+            if ($parentLi.hasClass('active')) {
+                // বন্ধ করার লজিক
+                $targetUl.slideUp(300);
+                $parentLi.removeClass('active');
+            } else {
+                // একই লেভেলের অন্য সব ওপেন মেনু বন্ধ করা
+                $parentLi.siblings().removeClass('active').children('ul').slideUp(300);
+
+                // বর্তমান মেনুটি ওপেন করা
+                $parentLi.addClass('active');
+                $targetUl.stop().hide().slideDown(300);
+            }
+        });
     });
-});
 
     // shop by product
     document.addEventListener('DOMContentLoaded', function () {
@@ -272,23 +289,6 @@
             });
         });
     });
-
-    // scroll to
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-            if (mobileSidebar && mobileSidebar.classList.contains("active")) {
-                mobileSidebar.classList.remove("active");
-                document.body.style.overflow = "";
-            }
-            if (
-                mobileSearchBar &&
-                mobileSearchBar.classList.contains("active")
-            ) {
-                mobileSearchBar.classList.remove("active");
-            }
-        }
-    });
-
 
     // scrollToTop
     $.scrollUp({
