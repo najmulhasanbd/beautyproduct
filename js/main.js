@@ -104,7 +104,7 @@
     $(".campaign_slider").owlCarousel({
         items: 4,
         loop: true,
-        margin: 13,
+        margin: 8,
         nav: true,
         navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
         dots: false,

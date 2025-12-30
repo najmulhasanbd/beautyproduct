@@ -339,19 +339,24 @@ background: var(--main-color);
 transform: scale(1.1);
 }
 
-
 .header-search form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  border: 1px solid #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #fff;
+	border: 0;
+	border-radius: 50px;
+}
+.header-search form input {
+	border-radius: 50px 0 0 50px !important;
 }
 .header-search form i {
-  padding: 12px;
-  background: var(--main-color);
-  color: #fff;
-  cursor: pointer;
+	padding: 12px;
+	background: var(--main-color);
+	color: #fff;
+	cursor: pointer;
+	border-radius: 0 50px 50px 0;
+	border: 1px solid #fff;
 }
 /* navbar */
 /* default: first load এ দেখাবে */
@@ -542,7 +547,7 @@ opacity:1
 
 .slider_grid {
 display: grid;
-gap: 10px;
+gap: 8px;
 grid-template-columns: minmax(200px, auto) 1fr;
 }
 
@@ -743,7 +748,7 @@ border: 1px solid var(--main-color);
 .benifit_grid {
 display: grid;
 grid-template-columns: repeat(6, 1fr);
-gap: 20px;
+gap: 8px;
 }
 .single-benifit {
 display: flex;
@@ -795,9 +800,9 @@ left: 100%;
 
 /* offer banner */
 .banner_grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
 }
 .banner_grid img {
 border-radius: 10px;

@@ -89,6 +89,9 @@
   .quantity {
 	border: transparent;
 }
+.offcanvas {
+	width: 50% !important;
+}
 }
 
 /* small mobile :320px. */
@@ -208,7 +211,23 @@
 	padding: 0;
 }
 .section-space {
-	padding: 40px 0;
+	padding: 20px 0;
+}
+.ingredients_tabs.concernProduct {
+	justify-content: center;
+}
+.ingredients_tabs li .nav-link {
+	font-size: 12px;
+	padding: 6px;
+}
+.offcanvas  {
+	width: 80% !important;
+}
+.combos-area .moreButton .btn, .concern-area .moreButton .btn {
+	margin-top: 5px !important;
+}
+.ingredient_content_body {
+	padding: 10px;
 }
 }
 
