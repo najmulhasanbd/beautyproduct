@@ -90,7 +90,7 @@
 	border: transparent;
 }
 .offcanvas {
-	width: 50% !important;
+	width: 300px !important;
 }
 }
 
@@ -220,14 +220,17 @@
 	font-size: 12px;
 	padding: 6px;
 }
-.offcanvas  {
-	width: 80% !important;
+.offcanvas {
+	width: 300px !important;
 }
 .combos-area .moreButton .btn, .concern-area .moreButton .btn {
 	margin-top: 5px !important;
 }
 .ingredient_content_body {
 	padding: 10px;
+}
+.header-area {
+	display: none;
 }
 }
 

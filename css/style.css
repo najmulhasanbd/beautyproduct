@@ -300,17 +300,17 @@ background:var(--secondary-color);
 #offcanvasMenu li.nav-item .nav-link.active {
   background: var(--main-color);
   font-weight: 600;
+  color:#fff;
   line-height: 1;
 }
-
 #offcanvasMenu li.nav-item .nav-link {
-  background: #f73e97;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1;
-  padding: 12px 0;
+	background: #F7F7F7;
+	color: #000;
+	font-size: 16px;
+	line-height: 1;
+	padding: 12px 0;
+	font-weight: 600;
 }
-
 .login_btn {
 background: #FFB811;
 padding: 10px 20px;
@@ -330,7 +330,7 @@ transition: all .5s ease-in-out
 border: 1px solid var(--main-color);
 padding: 8px;
 border-radius: 50%;
-transition: all .5s ease-in-out
+transition: all .5s ease-in-out;
 font-size: 12px;
 }
 
@@ -580,7 +580,7 @@ justify-content: space-between;
 
 /* product */
 .product_footer {
-margin: 25px;
+margin: 15px;
 margin-top: 10px;
 gap: 15px;
 }
@@ -616,7 +616,10 @@ margin-right: 2px;
 }
 
 .product_image img {
-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	height: auto;
 }
 .single_product:hover img {
 transform: scale(1.05);
@@ -973,6 +976,7 @@ font-weight: 600;
 .concernProduct li.nav-item .nav-link.active {
   background: transparent;
   color: #000;
+  border:1px
 }
 .combosProduct li button.nav-link.active, .concernProduct li button.nav-link.active {
   background: #FFDEEE !important;
