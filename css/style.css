@@ -251,6 +251,9 @@ background:var(--secondary-color);
 }#mobileManuCategory .offcanvas-header {
 	justify-content: end;
 }
+.shopping_xicon{
+  font-weight:700
+}
 #mobileManuCategory span {
 	font-weight: 700;
 	display: flex;
