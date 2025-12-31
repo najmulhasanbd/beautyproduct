@@ -150,7 +150,9 @@ padding:0
 .header-area{
 background:var(--secondary-color);
 }
-
+#mobileManuCategory .fa.fa-xmark {
+	font-size: 25px;
+}
 
 /* Basic Reset */
 .mobileCategory, .mobileCategory ul {
