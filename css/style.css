@@ -150,9 +150,7 @@ padding:0
 .header-area{
 background:var(--secondary-color);
 }
-#mobileManuCategory .fa.fa-xmark {
-	font-size: 25px;
-}
+
 
 /* Basic Reset */
 .mobileCategory, .mobileCategory ul {
@@ -250,13 +248,15 @@ background:var(--secondary-color);
 .mobileChildCategory li a { padding-left: 60px; font-size: 14px; color: #666; }
 .mobile_navbar {
   background: var(--main-color);
+}#mobileManuCategory .offcanvas-header {
+	justify-content: end;
 }
-#mobileManuCategory .offcanvas-header {
-	background: var(--main-color);
-}
-
-#mobileManuCategory .offcanvas-header {
-  background: var(--main-color);
+#mobileManuCategory span {
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	justify-content: end;
 }
 .mobileOffMenu ul li {
   border-bottom: 1px solid #ddd;
