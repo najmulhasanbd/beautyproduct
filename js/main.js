@@ -1,8 +1,8 @@
-(function($) {
+(function ($) {
 	"use strict";
 
 	// header sticky
-	$(window).on('scroll', function() {
+	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
 		if (scroll < 245) {
 			$(".header-sticky").removeClass("sticky");
@@ -11,7 +11,7 @@
 		}
 	});
 	// category sticky
-	$(window).on('scroll', function() {
+	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
 		if (scroll < 400) {
 			$(".category-sticky").removeClass("sticky");
@@ -32,7 +32,7 @@
 	});
 
 	// benifit carusal
-	$(document).ready(function() {
+	$(document).ready(function () {
 
 		function benifitCarousel() {
 			if ($(window).width() <= 768) {
@@ -138,25 +138,34 @@
 
 
 	//product increment decrement
-	$(document).ready(function() {
-		const minus = $('.quantity__minus');
-		const plus = $('.quantity__plus');
-		const input = $('.quantity__input');
-		minus.click(function(e) {
+	$(document).ready(function () {
+		// Minus Button Click
+		$('.quantity__minus').on('click', function (e) {
 			e.preventDefault();
-			var value = input.val();
-			if (value > 1) {
+
+			// $(this) mane holo jei button-e click kora hoyeche
+			// .siblings() diye oi button-er pasher input field-ke khuje nibe
+			var input = $(this).siblings('.quantity__input');
+			var value = parseInt(input.val());
+
+			if (!isNaN(value) && value > 1) {
 				value--;
+				input.val(value);
 			}
-			input.val(value);
 		});
 
-		plus.click(function(e) {
+		// Plus Button Click
+		$('.quantity__plus').on('click', function (e) {
 			e.preventDefault();
-			var value = input.val();
-			value++;
-			input.val(value);
-		})
+
+			var input = $(this).siblings('.quantity__input');
+			var value = parseInt(input.val());
+
+			if (!isNaN(value)) {
+				value++;
+				input.val(value);
+			}
+		});
 	});
 
 	// Countdown timer
@@ -211,8 +220,8 @@
 
 
 	// mobile category
-	$(document).ready(function() {
-		$('.mobileCategory li a.has-child').on('click', function(e) {
+	$(document).ready(function () {
+		$('.mobileCategory li a.has-child').on('click', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
 
@@ -237,12 +246,12 @@
 	});
 
 	// shop by product
-	document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function () {
 		const hotspots = document.querySelectorAll('.look-hotspot');
 		const productItems = document.querySelectorAll('.shopSingleProduct');
 
 		hotspots.forEach(hotspot => {
-			hotspot.addEventListener('mouseenter', function() {
+			hotspot.addEventListener('mouseenter', function () {
 				const targetId = this.getAttribute('data-target-product');
 				const targetProduct = document.getElementById(targetId);
 
@@ -254,7 +263,7 @@
 				}
 			});
 
-			hotspot.addEventListener('mouseleave', function() {
+			hotspot.addEventListener('mouseleave', function () {
 				const targetId = this.getAttribute('data-target-product');
 				const targetProduct = document.getElementById(targetId);
 				if (targetProduct) {
@@ -265,7 +274,7 @@
 
 
 		productItems.forEach(item => {
-			item.addEventListener('mouseenter', function() {
+			item.addEventListener('mouseenter', function () {
 				const productId = this.id;
 
 				const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
@@ -279,7 +288,7 @@
 				}
 			});
 
-			item.addEventListener('mouseleave', function() {
+			item.addEventListener('mouseleave', function () {
 				const productId = this.id;
 				const matchingHotspot = document.querySelector(`.look-hotspot[data-target-product="${productId}"]`);
 

@@ -252,7 +252,7 @@ background:var(--secondary-color);
 	justify-content: end;
 }
 .shopping_xicon{
-  font-weight:700
+  font-weight:600
 }
 #mobileManuCategory span {
 	font-weight: 700;
@@ -758,6 +758,10 @@ display: grid;
 grid-template-columns: repeat(6, 1fr);
 gap: 8px;
 }
+.single-benifit img {
+	width: 50px;
+}
+
 .single-benifit {
 display: flex;
 align-items: center;
@@ -805,7 +809,14 @@ left: 100%;
 }
 .campaign_slider .own-nav {
 }
-
+.shopping_product {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	margin-bottom: 13px !important;
+}
 /* offer banner */
 .banner_grid {
 	display: grid;
@@ -1299,26 +1310,50 @@ justify-content: end;
 	z-index: 99 !important;
 }
 
- .csc-cart-item {
-    background-color: var(--csc-bg-pink);
-    border-radius: 12px; 
-    padding: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    position: relative;
+.csc-cart-item {
+	background-color: var(--csc-bg-pink);
+	padding: 10px;
+	display: flex;
+	position: relative;
+	align-items: start;
+	gap: 10px;
+	border-bottom: 1px solid #ddd;
+}
+.shopping_border {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-image: repeating-linear-gradient(
+    to right,
+    var(--main-color) 0,
+    var(--main-color) 4px,
+    transparent 4px,
+    transparent 10px
+  ) 1;
+  padding: 5px 0;
+  margin: 5px 0;
 }
 
+.csc-cart-item span {
+	font-size: 14px;
+	color: #868686;
+	font-weight: 500;
+}
+.product_footer.product_quantity .quantity__minus, .product_footer.product_quantity .quantity__plus, .product_footer.product_quantity .quantity__input {
+	height: 25px;
+	line-height: 25px;
+}
+.product_footer.product_quantity {
+  margin: 0;
+}
+.product_footer.product_quantity .quantity {
+  width: 88px;
+}
 .csc-delete-btn {
 	border: none;
 	background: transparent;
 	color: var(--main-color);
 }
 
-.csc-text-primary {
-    color: var(--csc-primary) !important;
-    font-weight: 700;
-} 
 
 /* ফুটার এরিয়া ফিক্সড রাখার জন্য */
 .csc-footer {
