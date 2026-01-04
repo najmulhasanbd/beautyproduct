@@ -232,6 +232,9 @@
 .header-area {
 	display: none;
 }
+.login-container {
+	margin-top: 0 !important;
+}
 }
 
 /* Large Mobile :480px. */

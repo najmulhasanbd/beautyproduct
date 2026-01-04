@@ -23,116 +23,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
-<style>
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
-    .login-container {
-        max-width: 500px;
-        margin: 50px auto;
-        padding: 40px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        animation: fadeInUp 0.8s ease-out; /* Form entry animation */
-    }
 
-    .login-header h2 {
-        font-weight: 700;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .login-description {
-        font-size: 0.9rem;
-        color: #777;
-        line-height: 1.6;
-        margin-bottom: 30px;
-    }
-
-    .form-label {
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: #333;
-    }
-
-    .text-danger-custom {
-        color: #d9534f;
-    }
-
-    .form-control {
-        height: 48px;
-        border-radius: 8px;
-        border: 1px solid #ced4da;
-    }
-
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #512da8;
-    }
-
-    .password-wrapper {
-        position: relative;
-    }
-
-    .password-toggle {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        color: #6c757d;
-    }
-
-    .form-check-input:checked {
-        background-color: #512da8;
-        border-color: #512da8;
-    }
-
-    .btn-login {
-        background-color: #512da8;
-        color: white;
-        padding: 12px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border: none;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
-
-    .btn-login:hover {
-        background-color: #3f228a;
-        color: white;
-        transform: scale(1.02);
-    }
-
-    .login-footer-links {
-        text-align: center;
-        margin-top: 25px;
-    }
-
-    .login-footer-links a {
-        text-decoration: none;
-        color: #512da8;
-        font-weight: 600;
-    }
-
-    .login-footer-links a:hover {
-        text-decoration: underline;
-    }
-</style>
 <body>
 
     <!-- header start -->
@@ -718,46 +614,50 @@
 
     <!-- main start -->
     <main>
-        <div class="container">
-    <div class="login-container">
-        <div class="login-header">
-            <h2>Login</h2>
-            <p class="login-description">
-                Registering for this site allows you to access your order status and history. Just fill in the fields below, and we'll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.
-            </p>
+
+        <!-- breadcrumb -->
+        <div>
+            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
         </div>
 
-        <form>
-            <div class="mb-4">
-                <label class="form-label">Email address <span class="text-danger-custom">*</span></label>
-                <input type="email" class="form-control" required>
+        <div class="login-container">
+            <div class="login-header text-center">
+                <h2>Welcome Back</h2>
+                <p class="login-description">Please enter your details to sign in.</p>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Password <span class="text-danger-custom">*</span></label>
-                <div class="password-wrapper">
-                    <input type="password" id="passwordField" class="form-control" required>
-                    <i class="bi bi-eye password-toggle" onclick="togglePassword()"></i>
+            <form class="login-form">
+                <div class="mb-4">
+                    <label class="form-label">Email address <span class="text-danger-custom">*</span></label>
+                    <input type="email" class="form-control" placeholder="name@example.com" required>
                 </div>
-            </div>
 
-            <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe" style="color: #512da8; font-weight: 500;">Remember me</label>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Password <span class="text-danger-custom">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control password-input" placeholder="••••••••" required>
+                        <i class="bi bi-eye password-toggle" onclick="togglePassword(this)"></i>
+                    </div>
+                </div>
 
-            <div class="d-grid">
-                <button type="submit" class="btn btn-login">Login</button>
-            </div>
-        </form>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input checkbox-custom" id="rememberMe">
+                        <label class="form-check-label remember-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
 
-        <div class="login-footer-links">
-            <p><a href="#">Forgot Password</a></p>
-            <p class="text-muted">Don't have an account? <a href="#">Register Here</a></p>
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-login">Login</button>
+                </div>
+            </form>
+
+            <div class="login-footer text-center mt-4">
+                <p class="mb-0">New user? <a href="register.html" class="register-link">Create an account</a></p>
+            </div>
         </div>
-    </div>
-</div>
-        
+
     </main>
     <!-- main end -->
 
@@ -932,20 +832,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
-<script>
-    // Password visibility toggle function
-    function togglePassword() {
-        const passwordField = document.getElementById('passwordField');
-        const icon = document.querySelector('.password-toggle');
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            icon.classList.replace('bi-eye', 'bi-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            icon.classList.replace('bi-eye-slash', 'bi-eye');
+    <script>
+        function togglePassword(iconElement) {
+            // Find the input field that is the sibling of the icon
+            const passwordInput = iconElement.previousElementSibling;
+
+            // Toggle the type attribute
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                // Update classes for the icon
+                iconElement.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                iconElement.classList.replace('bi-eye-slash', 'bi-eye');
+            }
         }
-    }
-</script>
+    </script>
 </body>
 
 </html>

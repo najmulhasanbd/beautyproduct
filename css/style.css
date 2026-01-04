@@ -1623,3 +1623,85 @@ justify-content: end;
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
+
+/* login / register */
+ @keyframes authAnimation {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .login-container {
+        max-width: 450px;
+        margin: 50px auto;
+        padding: 40px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        animation: authAnimation 0.8s ease-out;
+    }
+
+    .login-container .password-wrapper {
+        position: relative;
+    }
+
+    .login-container .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #6c757d;
+        z-index: 10;
+        transition: color 0.2s;
+    }
+
+    .login-container .password-toggle:hover {
+        color: #512da8;
+    }
+
+    .login-container .btn-login {
+        background-color: #512da8;
+        color: white;
+        padding: 12px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .login-container .btn-login:hover {
+        background-color: #3f228a;
+        transform: translateY(-2px);
+    }
+
+    .login-container .remember-label {
+        color: #512da8;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .login-container .forgot-link {
+        color: #512da8;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .login-container .forgot-link:hover {
+        color: #3f228a;
+        text-decoration: underline;
+    }
+
+    .login-container .checkbox-custom:checked {
+        background-color: #512da8;
+        border-color: #512da8;
+    }
