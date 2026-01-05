@@ -28,184 +28,144 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <style>
-        /* Ei shob design shudhu .order-tracking class-er bhetore kaj korbe */
-        .order-tracking {
-            --main-color: #472786;
-            --text-dark: #2c215d;
-            --success-green: #28a745;
-            --border-color: #f0f0f0;
-            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            background-color: #fff;
-        }
-
-        .order-tracking .tracking-wrapper {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        .order-tracking .header-section {
-            margin-bottom: 25px;
-        }
-
-        .order-tracking .order-title {
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 2px;
-        }
-
-        .order-tracking .tracking-id {
-            color: #888;
-            font-size: 13px;
-        }
-
-        /* Summary Bar */
-        .order-tracking .summary-bar {
-            display: flex;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 40px;
+        /* Scoped Styles */
+        .shop-wrapper-unique {
+            --purple: #472786;
+            font-family: 'Hind Siliguri', sans-serif;
             background: #fff;
-            flex-wrap: wrap;
         }
 
-        .order-tracking .summary-item {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
+        .page-main-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #111;
         }
 
-        .order-tracking .summary-item:not(:last-child) {
-            border-right: 1px solid var(--border-color);
-        }
-
-        .order-tracking .icon-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            font-size: 18px;
-        }
-
-        .order-tracking .bg-green-soft {
-            background: #eefaf2;
-            color: var(--success-green);
-        }
-
-        .order-tracking .bg-blue-soft {
-            background: #eff6ff;
-            color: #0d6efd;
-        }
-
-        .order-tracking .bg-purple-soft {
-            background: #f3f0ff;
-            color: var(--main-color);
-        }
-
-        .order-tracking .label {
-            font-size: 11px;
-            color: #999;
-            display: block;
-            text-transform: none;
-        }
-
-        .order-tracking .value {
+        .shop-breadcrumb {
             font-size: 14px;
-            font-weight: 700;
-            color: var(--main-color);
         }
 
-        /* Timeline History */
-        .order-tracking .history-title {
-            color: var(--text-dark);
-            font-weight: 700;
-            margin-bottom: 25px;
+        .shop-breadcrumb .sep {
+            margin: 0 5px;
+            color: #ccc;
         }
 
-        .order-tracking .timeline {
-            position: relative;
-            padding-left: 30px;
+        .shop-breadcrumb .current {
+            color: #888;
         }
 
-        .order-tracking .timeline-item {
-            position: relative;
-            padding-bottom: 25px;
-            padding-left: 25px;
-            border-left: 2px solid #eee;
-        }
-
-        .order-tracking .timeline-item.active {
-            border-left: 2px solid var(--success-green);
-        }
-
-        .order-tracking .timeline-item:last-child {
-            border-left: 2px solid transparent;
-        }
-
-        .order-tracking .marker {
-            position: absolute;
-            left: -11px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
+        /* Sidebar Logic */
+        .filter-sidebar-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
             background: #fff;
-            border: 2px solid #eee;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #fff;
         }
 
-        .order-tracking .timeline-item.active .marker {
-            background: var(--success-green);
-            border-color: var(--success-green);
+        .filter-label {
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--purple);
+            width: fit-content;
+            padding-bottom: 5px;
         }
 
-        .order-tracking .step-info {
+        .filter-box {
+            margin-bottom: 30px;
+        }
+
+        /* Custom Range */
+        .custom-range-input {
+            width: 100%;
+            accent-color: var(--purple);
+            cursor: pointer;
+        }
+
+        .price-values {
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        /* Toolbar */
+        .shop-toolbar-custom {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
         }
 
-        .order-tracking .step-name {
-            font-size: 14px;
-            font-weight: 700;
+        .view-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .view-btn.active {
+            color: var(--purple);
+        }
+
+        .shop-breadcrumb a {
             color: var(--main-color);
-            margin: 0;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .order-tracking .step-name.pending {
-            color: #999;
-        }
-
-        .order-tracking .step-date {
-            font-size: 12px;
-            color: var(--main-color);
+        .filter-toggle-btn {
+            border: 1px solid var(--purple);
             font-weight: 600;
         }
 
-        .order-tracking .step-desc {
-            font-size: 13px;
-            color: #666;
-            margin: 4px 0;
+        /* Responsive Sidebar CSS */
+        @media (max-width: 991px) {
+            .sidebar-column {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 280px;
+                height: 100%;
+                background: #fff;
+                z-index: 9999;
+                transition: 0.4s;
+                padding: 20px;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar-column.show {
+                left: 0;
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: none;
+                z-index: 9998;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
         }
 
-        .order-tracking .step-loc {
-            font-size: 13px;
-            color: #b0b0b0;
-            margin: 0;
+        /* Dummy Card View */
+        .item-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
         }
+
     </style>
 </head>
 
@@ -797,79 +757,97 @@
     <main>
 
         <!-- breadcrumb -->
-        <div>
-            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
-        </div>
+        <div class="shop-wrapper-unique">
+            <div class="container py-4">
+                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <h1 class="page-main-title m-0">Skin Care</h1>
+                    <nav class="shop-breadcrumb">
+                        <a href="#">Home</a> <span class="sep">/</span>
+                        <a href="#">Skin Care</a> <span class="sep">/</span>
+                        <span class="current">Face Serum</span>
+                    </nav>
+                </div>
 
-        <section class="order-tracking">
+                <div class="row g-4 position-relative">
+                    <div class="col-lg-3 sidebar-column" id="sidebarWrapper">
+                        <div class="filter-sidebar-card">
+                            <div class="d-flex justify-content-between align-items-center d-lg-none mb-3">
+                                <h5 class="m-0">Filters</h5>
+                                <button class="btn-close" onclick="toggleSidebar()"></button>
+                            </div>
 
-            <div class="order-tracking">
-                <div class="tracking-wrapper">
-                    <div class="header-section">
-                        <h5 class="order-title">Track order #2025</h5>
-                        <span class="tracking-id">Tracking number #4221732456 (RedX)</span>
+                            <div class="filter-box">
+                                <h6 class="filter-label">Filter by Price</h6>
+                                <input type="range" id="priceRange" min="30" max="50030" value="3000"
+                                    class="custom-range-input">
+                                <p class="price-result mt-3">
+                                    Price : <span class="price-values">30 TK. — <span id="priceVal">3,000</span>
+                                        TK.</span>
+                                </p>
+                            </div>
+
+                            <div class="filter-box">
+                                <h6 class="filter-label">Filter by Brand</h6>
+                                <div class="checkbox-list d-flex flex-column">
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                </div>
+                            </div>
+                            <div class="filter-box">
+                                <h6 class="filter-label">Filter by Category</h6>
+                                <div class="checkbox-list d-flex flex-column">
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                    <label class="form-check-custom"><input type="checkbox" checked> <span>3W
+                                            CLINIC</span></label>
+                                    <label class="form-check-custom"><input type="checkbox"> <span>NIVEA</span></label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="summary-bar">
-                        <div class="summary-item">
-                            <div class="icon-circle bg-green-soft"><i class="fas fa-box"></i></div>
-                            <div>
-                                <span class="label">Status</span>
-                                <span class="value">In transit</span>
-                            </div>
-                        </div>
-                        <div class="summary-item">
-                            <div class="icon-circle bg-blue-soft"><i class="far fa-calendar-alt"></i></div>
-                            <div>
-                                <span class="label">Estimated Delivery Date</span>
-                                <span class="value">Oct 20, 2025</span>
-                            </div>
-                        </div>
-                        <div class="summary-item">
-                            <div class="icon-circle bg-purple-soft"><i class="fas fa-wallet"></i></div>
-                            <div>
-                                <span class="label">Total Price</span>
-                                <span class="value">10,560 Tk</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-lg-9">
+                        <div class="shop-toolbar-custom">
+                            <div class="toolbar-left d-flex align-items-center">
+                                <button class="btn d-lg-none me-3 filter-toggle-btn" onclick="toggleSidebar()">
+                                    <i class="fas fa-filter"></i> Filter
+                                </button>
 
-                    <h6 class="history-title">Tracking History</h6>
-                    <div class="timeline">
-                        <div class="timeline-item active">
-                            <div class="marker"><i class="fas fa-check"></i></div>
-                            <div class="step-info">
-                                <h6 class="step-name">Order Placed</h6>
-                                <span class="step-date">Oct 20, 2025</span>
+                                <span class="count-text d-none d-sm-block">Show : 12 / 18</span>
+
+                                <div class="layout-icons ms-3">
+                                    <button id="gridBtn" class="view-btn active"><i
+                                            class="fas fa-th-large"></i></button>
+                                    <button id="listBtn" class="view-btn"><i class="fas fa-list"></i></button>
+                                </div>
                             </div>
-                            <p class="step-desc">Customer successfully placed the order.</p>
-                            <p class="step-loc">Shat Masjid Road, Dhanmondi, Dhaka - 1209.</p>
+                            <div class="toolbar-right">
+                                <select class="sort-dropdown-custom form-select">
+                                    <option>Default sorting</option>
+                                    <option>Default sorting</option>
+                                    <option>Default sorting</option>
+                                    <option>Default sorting</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="timeline-item active">
-                            <div class="marker"><i class="fas fa-check"></i></div>
-                            <div class="step-info">
-                                <h6 class="step-name">In Transit</h6>
-                                <span class="step-date">Oct 20, 2025</span>
-                            </div>
-                            <p class="step-desc">Order is on the way to the customer.</p>
-                            <p class="step-loc">Shat Masjid Road, Dhanmondi, Dhaka - 1209.</p>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="marker"></div>
-                            <div class="step-info">
-                                <h6 class="step-name pending">Delivered</h6>
-                                <span class="step-date">Oct 20, 2025</span>
-                            </div>
-                            <p class="step-desc">Order successfully delivered.</p>
-                            <p class="step-loc">Shat Masjid Road, Dhanmondi, Dhaka - 1209.</p>
-                        </div>
+                        <div id="displayContainer" class="row g-3"></div>
                     </div>
                 </div>
             </div>
-
-        </section>
+        </div>
+        <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     </main>
     <!-- main end -->
@@ -1046,6 +1024,193 @@
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
 
+    <script>
+        // 1. Price Range Logic
+        const slider = document.getElementById('priceRange');
+        const priceText = document.getElementById('priceVal');
+        slider.addEventListener('input', () => {
+            priceText.innerText = parseInt(slider.value).toLocaleString();
+        });
+
+        // 2. Sidebar Toggle
+        function toggleSidebar() {
+            document.getElementById('sidebarWrapper').classList.toggle('show');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+
+        // 3. Grid/List Toggle Content
+        const displayArea = document.getElementById('displayContainer');
+        const gridBtn = document.getElementById('gridBtn');
+        const listBtn = document.getElementById('listBtn');
+
+        function updateView(mode) {
+            if (mode === 'grid') {
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+                displayArea.innerHTML = `
+            <div class="col-md-4 col-6"><div class="item-card shadow-sm"> <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div></div></div>
+            <div class="col-md-4 col-6"><div class="item-card shadow-sm"> <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div></div></div>
+            <div class="col-md-4 col-6"><div class="item-card shadow-sm"> <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div></div></div>`;
+            } else {
+                listBtn.classList.add('active');
+                gridBtn.classList.remove('active');
+                displayArea.innerHTML = `
+            <div class="col-6"><div class="item-card list-view-item shadow-sm mb-3"> <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div></div></div>
+            <div class="col-6"><div class="item-card list-view-item shadow-sm mb-3"> <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div></div></div>`;
+            }
+        }
+
+        gridBtn.addEventListener('click', () => updateView('grid'));
+        listBtn.addEventListener('click', () => updateView('list'));
+
+        // Default View
+        updateView('grid');
+    </script>
 </body>
 
 </html>
