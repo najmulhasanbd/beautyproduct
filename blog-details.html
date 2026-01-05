@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Beautyproducts BD</title>
+
+    <link rel="shortcut icon" href="images/loog.png" type="image/x-icon">
+
+    <!-- Google Fonts (display=swap helps performance) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap (preload + stylesheet) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome (use a stable version) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .main-post-card {
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .post-image-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .main-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .date-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff4d8d;
+            /* Pink color from image */
+            color: #fff;
+            padding: 10px 15px;
+            text-align: center;
+            border-radius: 4px;
+            line-height: 1;
+        }
+
+        .date-badge .day {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .date-badge .month {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .post-title-overlay {
+            background: rgba(71, 39, 134, 0.9);
+            /* Dark purple overlay */
+            color: #fff;
+            padding: 20px 30px;
+            border-left: 4px solid #fff;
+            margin-top: -5px;
+        }
+
+        .post-title-overlay h2 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .post-content {
+            padding: 20px 0;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Sidebar Styling */
+        .recent-blogs-sidebar {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding-bottom: 0;
+        }
+
+        .sidebar-title {
+            color: #2c215d;
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .recent-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .recent-item:last-child {
+            border: none;
+        }
+
+        .recent-thumb img {
+            width: 100px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .recent-info a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        .recent-info a:hover {
+            color: #472786;
+        }
+
+        .recent-info p {
+            font-size: 11px;
+            color: #999;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .post-title-overlay h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header start -->
+    <header>
+        <section class="header-area p-2">
+            <div class="container">
+                <div class="row align-items-center ">
+                    <div class="col-lg-6">
+                        <div class="header-left d-flex gap-3 justify-content-center justify-content-lg-start">
+                            <span class="text-white">
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:beautyproductsbd@gmail.com" title="Help Email"
+                                    class="text-white">beautyproductsbd@gmail.com</a>
+                            </span>
+                            <span class="text-white">
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+0987654321234" title="Help Line" class="text-white">0987654321234</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block col-lg-6">
+                        <div class="header-right d-flex justify-content-end gap-3 align-items-center">
+                            <div class="d-flex gap-2">
+                                <a href="" title="facebook" class="text-white"> <i class="fa-solid fa-envelope"></i></a>
+                                <a href="" title="phone" class="text-white"> <i class="fa-solid fa-phone"></i></a>
+                            </div>
+                            <div class="text-white">
+                                <a href="" title="your account" class="btn login_btn">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="header_bottom d-none d-lg-block header-sticky">
+            <div class="container">
+                <div class="row align-items-center py-2">
+                    <div class="col-lg-2 order-1 col-6 order-lg-1">
+                        <div class="logo">
+                            <a href=""><img class="w-100" src="/images/loog.png" alt="logo" loading="lazy"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 order-3 col-12 order-lg-2">
+                        <div class="header-search">
+                            <form action="" class="position-relative w-100">
+                                <input type="search" name="" class="rounded-0 form-control"
+                                    placeholder="Search for Products">
+                                <i class="fa fa-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 order-2 col-6 order-lg-3  d-flex justify-content-end">
+                        <a href="" class="btn track_btn">TRACKING ORDER</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="header_navbar py-2 d-none d-lg-block header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <div class="all_category category-sticky">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa fa-bars"></i>
+                                <h5 title="All Category">Browse Categories</h5>
+                            </div>
+
+                            <div class="category_sidebar hover_sidebar_category">
+                                <ul class="category-list">
+                                    <li>
+                                        <a href="">
+                                            <img src="images/category/icon.png" loading="lazy">
+                                            <span>SKINCARE</span>
+                                            <i class="fa-solid fa-chevron-right ms-auto"></i>
+                                        </a>
+                                        <ul class="subcategory">
+                                            <li><a href="">Home</a></li>
+                                            <li>
+                                                <a href="">
+                                                    Home
+                                                    <i class="fa-solid fa-chevron-right ms-auto"></i>
+                                                </a>
+                                                <ul class="childcategory">
+                                                    <li><a href="">Home</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">Home</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href=""><img src="images/category/icon.png"
+                                                loading="lazy"><span>SKINCARE</span></a></li>
+
+                                </ul>
+                                <a href="" class="btn btn-sm btn-primary w-100">All Category</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <ul class="header_manu_item d-flex align-items-center gap-3">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">SHOP</a></li>
+                            <li><a href="">BEAUTY TIPS</a></li>
+                            <li><a href="">ABOUT US</a></li>
+                            <li><a href="">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 d-flex justify-content-end d-none d-lg-block">
+                        <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                            aria-controls="offcanvasCart">
+                            <div class="cart_plus">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div class="header_cart_count">
+                                <span>10000 </span>
+                                <span class="cart_count">10 items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- shopping cart offcanvas -->
+        <div class="offcanvas offcanvas-end d-flex flex-column" tabindex="-1" id="offcanvasCart"
+            aria-labelledby="offcanvasCartLabel">
+            <div class="offcanvas-header border-bottom py-3">
+                <h5 class="offcanvas-title csc-text-primary fs-4" id="offcanvasCartLabel">Shopping Cart
+                </h5>
+                <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                    <span class="fs-6 shopping_xicon"> <i class="fa fa-xmark"></i> Close</span>
+                </div>
+            </div>
+            <div class="offcanvas-body flex-grow-1">
+
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmer</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="csc-footer">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 text-dark">Subtotal</h5>
+                    <h5 class="mb-0 text-muted">3000 TK </h5>
+                </div>
+
+                <div class="csc-shipping-box">
+                    <p class="mb-1 text-muted" style="font-size: 14px;">
+                        Add <span class="csc-text-primary">450.00 .</span> to cart and get free
+                        shipping!
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-custom progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0"
+                            aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-csc-outline w-100 rounded-3">View Cart</button>
+                    <button class="btn btn-csc-fill w-100 rounded-3">Place Order</button>
+                </div>
+            </div>
+        </div>
+        <!-- mobile navbar -->
+        <div class="mobile_navbar d-block d-lg-none pb-2 header-sticky">
+            <div class="container">
+                <div class="mobile_navbar_grid d-flex align-items-center justify-content-between pt-2">
+                    <div class="hamburgar_mobile_nav" data-bs-toggle="offcanvas" href="#mobileManuCategory"
+                        role="button" aria-controls="mobileManuCategory">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <!-- mobile menu -->
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileManuCategory"
+                        aria-labelledby="mobileManuCategoryLabel">
+                        <div class="offcanvas-header border-bottom py-3">
+                            <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                                <span class="fs-6 me-2"><i class="fa fa-xmark"></i> Close</span>
+                            </div>
+                        </div>
+                        <!-- <div class="offcanvas-header border-bottom py-3">
+                            <h5 class="offcanvas-title csc-text-primary fs-4" id="offcanvasCartLabel">Shopping Cart
+                            </h5>
+                            <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                                <span class="fs-6 me-2 text-dark">Close</span>
+                            </div>
+                        </div> -->
+                        <div class="offcanvas-body">
+                            <ul class="nav nav-tabs" id="offcanvasMenu" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="category" data-bs-toggle="tab"
+                                        data-bs-target="#category-pane" type="button" role="tab"
+                                        aria-controls="category-pane" aria-selected="false">Category</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  " id="menu" data-bs-toggle="tab"
+                                        data-bs-target="#menu-pane" type="button" role="tab" aria-controls="menu-pane"
+                                        aria-selected="true">Menu</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="offcanvasMenuContent">
+                                <div class="tab-pane fade show active mobileOffCategory" id="category-pane"
+                                    role="tabpanel" aria-labelledby="category" tabindex="0">
+                                    <ul class="mobileCategory">
+                                        <li>
+                                            <a href="#"><img src="images/category/icon.png" loading="lazy"> MAKEUP</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/category/icon.png"> HAIRCARE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade mobileOffMenu" id="menu-pane" role="tabpanel"
+                                    aria-labelledby="menu" tabindex="0">
+                                    <ul>
+                                        <li><a href="">Home</a></l1>
+                                        <li><a href="">Shop</a></l1>
+                                        <li><a href="">Beauty Tips</a></l1>
+                                        <li><a href="">About US</a></l1>
+                                        <li><a href="">contact us</a></l1>
+                                        <li><a href="">tracking order</a></l1>
+                                        <li><a href=""> <i class="fa fa-heart"></i> Wishlist</a></l1>
+                                        <li><a href=""><i class="fa fa-user"></i> Login</a></l1>
+                                    </ul>
+                                    <div class="offcanvas_mobile_social">
+                                        <a href="#" class="social-icon facebook"><i
+                                                class="fa-brands fa-facebook-f"></i></a>
+                                        <a href="#" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="#" class="social-icon linkedin"><i
+                                                class="fa-brands fa-linkedin-in"></i></a>
+                                        <a href="#" class="social-icon instagram"><i
+                                                class="fa-brands fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo"><a href=""><img src="images/loog.png" alt="logo" loading="lazy"></a></div>
+                    <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                        aria-controls="offcanvasCart">
+                        <div class="cart_plus">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                        <div class="header_cart_count">
+                            <span>10000 </span>
+                            <span class="cart_count">10 items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header-search">
+                    <form action="" class="position-relative w-100">
+                        <input type="search" name="" class="rounded-0 form-control" placeholder="Search for Products">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- main start -->
+    <main>
+
+        <!-- breadcrumb -->
+        <div>
+            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
+        </div>
+
+        <!-- blog start -->
+        <div class="blog-details-page py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="main-post-card">
+                            <div class="post-image-container">
+                                <img src="images/blog/1.png" alt="Blog Image" class="main-img" loading="lazy">
+                                <div class="date-badge">
+                                    <span class="day">27</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                            </div>
+
+                            <div class="post-meta mt-3">
+                                <p class="text-muted small">Posted by beautyproduct</p>
+                            </div>
+
+                            <div class="post-content">
+                                <h3 class="fw-bold mb-3" style="color: #2c215d;">ত্বকের তারুণ্যতা ধরে রাখার সহজ ৫টি উপায়
+                                </h3>
+                                <p>ত্বকের যত্নে নিম পাতার নির্যাস খুবই উপকারী। প্রাচীনকাল থেকেই রূপচর্চায় নিমপাতার
+                                    নির্যাস ব্যবহার হয়ে আসছে। নিমপাতায় রয়েছে একাধিক ভেষজ গুণ। নিমপাতা শরীরের
+                                    অভ্যন্তরীণ রোগ প্রতিরোধের পাশাপাশি ত্বকের যত্নেও অসাধারণ কাজ করে। ত্বকের বিভিন্ন
+                                    সমস্যা যেমন- ব্রণ, চুলকানি, র‍্যাশ, ব্রণের দাগ ও ত্বকের উজ্জ্বলতা পুনরুদ্ধারে
+                                    নিমপাতার নির্যাস খুবই কার্যকর। নিমপাতায় রয়েছে অ্যান্টিব্যাকটেরিয়াল,
+                                    অ্যান্টিফাঙ্গাল ও অ্যান্টি-ইনফ্ল্যামেটরি প্রপার্টিজ যা ত্বককে সুস্থ, সুন্দর ও
+                                    পরিষ্কার রাখতে সাহায্য করে।</p>
+                                <p>চলুন, আজকের ফিচারে জেনে নেই ত্বকের যত্নে কিভাবে নিমপাতা ব্যবহার করবেন? নিম পাতার
+                                    উপকারিতা ও ঘরে বসে কিভাবে নিম পাতার ফেসপ্যাক তৈরি করবেন সে সম্পর্কে...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="recent-blogs-sidebar">
+                            <h5 class="sidebar-title">Recent Blogs</h5>
+                            <div class="recent-post-list">
+                                <div class="recent-item">
+                                    <div class="recent-thumb">
+                                        <img src="images/product/1.png" alt="Thumb" loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="recent-thumb">
+                                        <img src="images/product/1.png" alt="Thumb" loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="recent-info">
+                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
+                                        <p>Posted by beautyproduct</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog end -->
+
+        <!-- featured start -->
+        <section class="featurea-area">
+            <div class="container">
+                <div class="section-title d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <h4>Featured Products</h4>
+                    </div>
+                    <a href="" class="btn view_all">View All</a>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- featured end -->
+
+    </main>
+    <!-- main end -->
+
+    <!-- footer start -->
+    <footer class="pt-5 mt-5">
+        <div class="footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-12">
+                        <div class="newsletter">
+                            <h3>Join Our Newsletter</h3>
+                            <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 offset-md-3 col-12">
+                        <div class="newsletter-form">
+                            <form action="" class="d-flex gap-2">
+                                <input type="search" class="form-control" placeholder="Enter your email address">
+                                <button type="submit" class="btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr> <br>
+                <div class="footer_grid mb-2">
+                    <div class="footer_widget">
+                        <h5>Corporate Headquater</h5>
+                        <div class="footer_contact">
+                            <div class="footer_contact_single">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span><b>Address:</b> Jannat Tower, Mazukhan, Pubail, Gazipur</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-solid fa-phone"></i>
+                                <span><b>Call Us:</b> 01768305720, 01729101592</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span><b>Email:</b> beautyproductsbd@gmail.com</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-clock"></i>
+                                <span><b>Hours:</b> 10:00 - 8:00, Sa - Thu</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-hourglass"></i>
+                                <span><b>TIN:</b> 691890290184</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Quick Links</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Sign In</a></li>
+                            <li><a href="">View Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Customer Service</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Track Your Order</a></li>
+                            <li><a href="">Shipping & Returns</a></li>
+                            <li><a href="">Payment Method</a></li>
+                            <li><a href="">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Terms & Policy</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Return & Refund Policy</a></li>
+                            <li><a href="">Cancellation Policy</a></li>
+                            <li><a href="">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center pt-2 footer_social_payment">
+                    <!-- Logo -->
+                    <div class="col-8 offset-2 col-md-4 offset-md-0 col-lg-2 order-1 order-lg-1">
+                        <div class="footer-logo">
+                            <a href=""><img src="images/loog.png" alt="footer logo" class="w-100" loading="lazy"></a>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="col-12 col-md-12 col-lg-8 order-3 order-lg-2">
+                        <div class="footer-payment">
+                            <img src="images/payment.png" class="w-100" alt="payment" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="col-12 col-md-6 offset-md-0 col-lg-2 order-2 order-lg-3">
+                        <div class="footer-social">
+                            <ul class="d-flex gap-2">
+                                <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-google-plus"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <a href="" target="_blank" class="text-black">Developed By <span
+                            style="color: #472786;font-weight: 500;">Classic IT</span></a>
+                    <span>&copy; All Rights Reserved <b>Beauty Products BD</b></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Social Icons -->
+        <div class="social-wrapper">
+            <div class="social-icons" id="socialIcons">
+                <a href="tel:+880987654321234" class="mobile" title="mobile"><img src="images/contact.png" alt=""></a>
+
+                <a href="#" class="social whatsapp" title="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social messenger" title=""><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#" class="social app" title="app"><i class="fa-brands fa-google-play"></i></a>
+            </div>
+
+            <!-- Arrow button always under social icons -->
+            <button class="toggle-btn" id="toggleBtn" title="Contact With Me">
+                <img src="images/contact_img.png" alt="" loading="lazy">
+            </button>
+        </div>
+        </div>
+
+    </footer>
+    <!-- footer end -->
+
+    <!-- footer fixed menu -->
+    <div class="gemini-nav-container d-block d-lg-none">
+        <div class="gemini-nav-bar">
+            <a href="#" class="gemini-nav-link active-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-shop"></i>
+                <span>Shop</span>
+            </a>
+
+            <div class="gemini-floating-wrapper" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                aria-controls="offcanvasCart">
+                <div class="gemini-fab-button">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </div>
+                <span class="gemini-fab-text">Cart (0)</span>
+            </div>
+
+            <a href="#" class="nav-link-gap"></a> <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-user"></i>
+                <span>Account</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
