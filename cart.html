@@ -26,135 +26,80 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-
     <style>
-        .main-post-card {
-            border-radius: 4px;
-            overflow: hidden;
+        .cart-table .quantity {
+            width: max-content;
         }
 
-        .post-image-container {
-            position: relative;
-            width: 100%;
+        .cart-table tr:last-child {
+            border-bottom: white;
         }
 
-        .main-img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .cart-table table {
+            margin: 0;
         }
 
-        .date-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: #ff4d8d;
-            /* Pink color from image */
-            color: #fff;
-            padding: 10px 15px;
-            text-align: center;
-            border-radius: 4px;
-            line-height: 1;
+        .cart-table table thead th {
+            border-bottom: 1px solid #ddd;
         }
 
-        .date-badge .day {
-            font-size: 24px;
-            font-weight: bold;
-            display: block;
+        .cart-table table tbody tr td i {
+            color: var(--main-color);
+            cursor: pointer;
         }
 
-        .date-badge .month {
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        .post-title-overlay {
-            background: rgba(71, 39, 134, 0.9);
-            /* Dark purple overlay */
-            color: #fff;
-            padding: 20px 30px;
-            border-left: 4px solid #fff;
-            margin-top: -5px;
-        }
-
-        .post-title-overlay h2 {
-            font-size: 22px;
+        .cart-table table tbody a h6 {
+            font-size: 15px;
+            color: #2b2a2a;
             font-weight: 500;
+            font-family: var(--font);
         }
 
-        .post-content {
-            padding: 20px 0;
-            line-height: 1.8;
-            color: #444;
-            text-align: justify;
+        .cart-amount {
+            background: #F7F7F7;
         }
 
-        /* Sidebar Styling */
-        .recent-blogs-sidebar {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding-bottom: 0;
-        }
-
-        .sidebar-title {
-            color: #2c215d;
-            font-weight: 700;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-
-        .recent-item {
-            display: flex;
-            gap: 15px;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .recent-item:last-child {
-            border: none;
-        }
-
-        .recent-thumb img {
-            width: 100px;
-            height: 65px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .recent-info a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
+        .cart-table .table tbody tr td h6 {
+            width: 350px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            line-height: 1.4;
+            text-overflow: ellipsis;
+            white-space: normal;
         }
 
-        .recent-info a:hover {
-            color: #472786;
+        .cart-amount hr {
+            margin: 0;
+            margin-bottom: 15px;
         }
 
-        .recent-info p {
-            font-size: 11px;
-            color: #999;
-            margin-top: 5px;
-            margin-bottom: 0;
+        .cart-amount span {
+            font-weight: 700;
+            font-size: 16px;
         }
 
-        @media (max-width: 768px) {
-            .post-title-overlay h2 {
-                font-size: 18px;
-            }
+        .cart-amount button:hover {
+            color: var(--main-color) !important;
+            border: 1px solid var(--main-color);
+        }
+
+        .csc-cart-item.cart_product_item {
+            justify-content: space-between;
+        }
+
+        .csc-cart-item.cart_product_item .shopping_product {
+            overflow: auto;
+            display: block;
+            -webkit-line-clamp: inherit;
+        }
+
+        .continue_shopping .btn:hover {
+            border: 1px solid var(--main-color);
         }
     </style>
 </head>
+
 
 <body>
 
@@ -545,7 +490,8 @@
                                     role="tabpanel" aria-labelledby="category" tabindex="0">
                                     <ul class="mobileCategory">
                                         <li>
-                                            <a href="#"><img src="images/category/icon.png" loading="lazy"> MAKEUP</a>
+                                            <a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                MAKEUP</a>
                                         </li>
                                         <li>
                                             <a href="#"><img src="images/category/icon.png"> HAIRCARE</a>
@@ -742,318 +688,554 @@
     <!-- main start -->
     <main>
 
-        <!-- breadcrumb -->
-        <div>
-            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
-        </div>
-
-        <!-- blog start -->
-        <div class="blog-details-page py-5">
+        <!-- cart start -->
+        <section class="cart-area py-5">
             <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <div class="main-post-card">
-                            <div class="post-image-container">
-                                <img src="images/blog/1.png" alt="Blog Image" class="main-img" loading="lazy">
-                                <div class="date-badge">
-                                    <span class="day">27</span>
-                                    <span class="month">Dec</span>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="cart-top p-4 bg-white border rounded shadow-sm mb-4 text-center"
+                            style="border-style: dashed !important; border-width: 1.5px !important;">
 
-                            <div class="post-meta mt-3">
-                                <p class="text-muted small">Posted by beautyproduct</p>
-                            </div>
+                            <p class="mb-3 text-secondary text-start" style="font-size: 15px;">
+                                Add <span class="fw-bold text-dark" style="color: #4b2a89 !important;">450.00 TK.</span>
+                                to cart and get free shipping!
+                            </p>
 
-                            <div class="post-content">
-                                <h3 class="fw-bold mb-3" style="color: #2c215d;">ত্বকের তারুণ্যতা ধরে রাখার সহজ ৫টি উপায়
-                                </h3>
-                                <p>ত্বকের যত্নে নিম পাতার নির্যাস খুবই উপকারী। প্রাচীনকাল থেকেই রূপচর্চায় নিমপাতার
-                                    নির্যাস ব্যবহার হয়ে আসছে। নিমপাতায় রয়েছে একাধিক ভেষজ গুণ। নিমপাতা শরীরের
-                                    অভ্যন্তরীণ রোগ প্রতিরোধের পাশাপাশি ত্বকের যত্নেও অসাধারণ কাজ করে। ত্বকের বিভিন্ন
-                                    সমস্যা যেমন- ব্রণ, চুলকানি, র‍্যাশ, ব্রণের দাগ ও ত্বকের উজ্জ্বলতা পুনরুদ্ধারে
-                                    নিমপাতার নির্যাস খুবই কার্যকর। নিমপাতায় রয়েছে অ্যান্টিব্যাকটেরিয়াল,
-                                    অ্যান্টিফাঙ্গাল ও অ্যান্টি-ইনফ্ল্যামেটরি প্রপার্টিজ যা ত্বককে সুস্থ, সুন্দর ও
-                                    পরিষ্কার রাখতে সাহায্য করে।</p>
-                                <p>চলুন, আজকের ফিচারে জেনে নেই ত্বকের যত্নে কিভাবে নিমপাতা ব্যবহার করবেন? নিম পাতার
-                                    উপকারিতা ও ঘরে বসে কিভাবে নিম পাতার ফেসপ্যাক তৈরি করবেন সে সম্পর্কে...</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="recent-blogs-sidebar">
-                            <h5 class="sidebar-title">Recent Blogs</h5>
-                            <div class="recent-post-list">
-                                <div class="recent-item">
-                                    <div class="recent-thumb">
-                                        <img src="images/product/1.png" alt="Thumb" loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
-                                </div>
-                                <div class="recent-item">
-                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
-                                            loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
-                                </div>
-                                <div class="recent-item">
-                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
-                                            loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
-                                </div>
-                                <div class="recent-item">
-                                    <div class="recent-thumb">
-                                        <img src="images/product/1.png" alt="Thumb" loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
-                                </div>
-                                <div class="recent-item">
-                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
-                                            loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
-                                </div>
-                                <div class="recent-item">
-                                    <div class="recent-thumb"><img src="images/product/1.png" alt="Thumb"
-                                            loading="lazy">
-                                    </div>
-                                    <div class="recent-info">
-                                        <a href="#">ব্রণমুক্ত, সুস্থ ও উজ্জ্বল ত্বক পেতে নিম পাতার ব্যবহার...</a>
-                                        <p>Posted by beautyproduct</p>
-                                    </div>
+                            <div class="progress rounded-pill mx-auto" style="height: 12px; background-color: #f0f0f0;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-pill"
+                                    role="progressbar" style="width: 65%; background-color: #4b2a89;" aria-valuenow="65"
+                                    aria-valuemin="0" aria-valuemax="100">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- blog end -->
+                        <div class="cart-table table-responsive shadow rounded-full p-3 d-md-block d-none">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th colspan="2">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle border-bottom">
+                                        <td class="ps-2 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="images/product/1.png" alt="product" width="60" height="60"
+                                                        class="object-fit-contain">
+                                                </div>
+                                                <div class="ms-3 overflow-hidden">
+                                                    <h6 class="mb-0 fw-bold text-dark text-truncate"
+                                                        style="font-size: 14px;"
+                                                        title="Meiniya Spot Cream+ Turmeric White">
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                        Meiniya Spot Cream+ Turmeric White
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center fw-bold">3000 TK</td>
+                                        <td class="text-center">
+                                            <div class="quantity d-flex justify-content-center align-items-center border rounded bg-light overflow-hidden mx-auto"
+                                                style="width: fit-content;">
+                                                <a href="#"
+                                                    class="quantity__minus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input name="quantity" type="text"
+                                                    class="quantity__input border-0 text-center fw-bold bg-transparent"
+                                                    value="1" disabled style="width: 35px; font-size: 14px;">
+                                                <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-center" style="color: var(--main-color);">3000 TK</td>
+                                        <td class="text-center">
+                                            <a>
+                                                <i class="fa fa-trash text-muted"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-        <!-- featured start -->
-        <section class="featurea-area">
-            <div class="container">
-                <div class="section-title d-flex align-items-center justify-content-between mb-3">
-                    <div class="d-flex flex-wrap align-items-center gap-2">
-                        <h4>Featured Products</h4>
-                    </div>
-                    <a href="" class="btn view_all">View All</a>
-                </div>
-
-                <div class="row g-2">
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                        <div class="d-md-none d-blok">
+                            <div class="csc-cart-item cart_product_item">
+                                <div class="d-flex">
+                                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded"
+                                        width="60" height="60">
+                                    <div>
+                                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                                            style="font-size: 14px; line-height: 1.2;">
+                                            Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya
+                                            Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot
+                                            Turmeric White...</a>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Price</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                                            <span>Quantity</span>
+                                            <div class="product_footer product_quantity">
+                                                <div class="quantity d-flex">
+                                                    <a href="#" class="quantity__minus"><span><i
+                                                                class="fa fa-minus"></i></span></a>
+                                                    <input name="quantity" type="text" class="quantity__input" value="1"
+                                                        disabled>
+                                                    <a href="#" class="quantity__plus"><span><i
+                                                                class="fa fa-plus"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subtotal</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="csc-delete-btn ms-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
                             </div>
-                            <div class="product_price">
+                            <div class="csc-cart-item cart_product_item">
+                                <div class="d-flex">
+                                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded"
+                                        width="60" height="60">
+                                    <div>
+                                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                                            style="font-size: 14px; line-height: 1.2;">
+                                            Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya
+                                            Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot
+                                            Turmeric White...</a>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Price</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                                            <span>Quantity</span>
+                                            <div class="product_footer product_quantity">
+                                                <div class="quantity d-flex">
+                                                    <a href="#" class="quantity__minus"><span><i
+                                                                class="fa fa-minus"></i></span></a>
+                                                    <input name="quantity" type="text" class="quantity__input" value="1"
+                                                        disabled>
+                                                    <a href="#" class="quantity__plus"><span><i
+                                                                class="fa fa-plus"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subtotal</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="csc-delete-btn ms-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <div class="csc-cart-item cart_product_item">
+                                <div class="d-flex">
+                                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded"
+                                        width="60" height="60">
+                                    <div>
+                                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                                            style="font-size: 14px; line-height: 1.2;">
+                                            Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya
+                                            Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot
+                                            Turmeric White...</a>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Price</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                                            <span>Quantity</span>
+                                            <div class="product_footer product_quantity">
+                                                <div class="quantity d-flex">
+                                                    <a href="#" class="quantity__minus"><span><i
+                                                                class="fa fa-minus"></i></span></a>
+                                                    <input name="quantity" type="text" class="quantity__input" value="1"
+                                                        disabled>
+                                                    <a href="#" class="quantity__plus"><span><i
+                                                                class="fa fa-plus"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subtotal</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="csc-delete-btn ms-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <div class="csc-cart-item cart_product_item">
+                                <div class="d-flex">
+                                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded"
+                                        width="60" height="60">
+                                    <div>
+                                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                                            style="font-size: 14px; line-height: 1.2;">
+                                            Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya
+                                            Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot
+                                            Turmeric White...</a>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Price</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                                            <span>Quantity</span>
+                                            <div class="product_footer product_quantity">
+                                                <div class="quantity d-flex">
+                                                    <a href="#" class="quantity__minus"><span><i
+                                                                class="fa fa-minus"></i></span></a>
+                                                    <input name="quantity" type="text" class="quantity__input" value="1"
+                                                        disabled>
+                                                    <a href="#" class="quantity__plus"><span><i
+                                                                class="fa fa-plus"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subtotal</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="csc-delete-btn ms-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <div class="csc-cart-item cart_product_item">
+                                <div class="d-flex">
+                                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded"
+                                        width="60" height="60">
+                                    <div>
+                                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                                            style="font-size: 14px; line-height: 1.2;">
+                                            Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya
+                                            Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot Meiniya Spot
+                                            Turmeric White...</a>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Price</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                                            <span>Quantity</span>
+                                            <div class="product_footer product_quantity">
+                                                <div class="quantity d-flex">
+                                                    <a href="#" class="quantity__minus"><span><i
+                                                                class="fa fa-minus"></i></span></a>
+                                                    <input name="quantity" type="text" class="quantity__input" value="1"
+                                                        disabled>
+                                                    <a href="#" class="quantity__plus"><span><i
+                                                                class="fa fa-plus"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subtotal</span>
+                                            <span>1250.00 TK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="csc-delete-btn ms-2">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="continue_shopping mt-4">
+                            <a href="" class="btn">Continue to Shopping</a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4  col-md-12 mt-4 mt-lg-0">
+                        <div class="card border-0 shadow-sm p-4 rounded-4 cart-amount">
+                            <h4 class="fw-bold mb-4">Total</h4>
+
+                            <div class="d-flex justify-content-between mb-3 border-bottom pb-3">
+                                <span>Subtotal</span>
                                 <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
+                            </div>
 
+                            <div class="d-flex gap-2 mb-4">
+                                <input type="text" class="form-control border shadow-none py-2 px-3"
+                                    placeholder="Coupon code">
+                                <button class="btn btn-light px-4 fw-medium border-0">Apply</button>
                             </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Discount</span>
+                                <span class="fw-bold">3000 TK</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
 
+                            <div class="d-flex justify-content-between mb-4 mt-1">
+                                <span class="fs-5 fw-bold text-dark">Total</span>
+                                <span class="fs-5 fw-bold">3000 TK</span>
                             </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
 
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/prodouct.png" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1">
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
+                            <button class="btn w-100 py-3 rounded-3 text-white fw-bold shadow-none">
+                                Proceed to Checkout
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- featured end -->
+        <!-- cart end -->
 
     </main>
     <!-- main end -->
 
     <!-- footer start -->
-   <footer class="pt-5 mt-5">
+    <footer class="pt-5 mt-5">
         <div class="footer-area">
             <div class="container">
                 <div class="row">
