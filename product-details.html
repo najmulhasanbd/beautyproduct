@@ -39,6 +39,10 @@
             border-bottom: 2px solid #ddd;
         }
 
+        .featurea-area .product_price span {
+            font-size: 16px !important;
+        }
+
         .product__content .nav-link.active {
             color: var(--main-color);
             border-bottom: 2px solid var(--main-color);
@@ -148,11 +152,9 @@
         }
     </style>
     <style>
-        /* সব ডিভাইসের জন্য স্লাইডারের উচ্চতা এবং এলাইনমেন্ট ফিক্স */
         .slider-for .slick-track {
             display: flex !important;
             align-items: stretch !important;
-            /* সব স্লাইডকে সমান লম্বা করবে */
         }
 
         .slider-for .slick-slide {
@@ -171,23 +173,17 @@
             display: flex !important;
         }
 
-        /* ইমেজের নিচের সাদা অংশ দূর করার মূল মন্ত্র */
         .zoom-img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            /* ইমেজকে টেনে পুরো বক্স পূর্ণ করবে */
             object-position: center;
-            /* ইমেজ মাঝখানে রাখবে */
         }
 
-        /* মোবাইল ডিভাইসের জন্য বিশেষ অ্যাডজাস্টমেন্ট */
         @media (max-width: 767px) {
 
-            /* মোবাইলে ভিডিও এবং ইমেজের একটি নির্দিষ্ট উচ্চতা দিন যাতে সাদা জায়গা না থাকে */
             .slider-for {
                 height: 350px !important;
-                /* আপনার পছন্দমতো উচ্চতা দিন */
             }
 
             .video-slide iframe {
@@ -195,8 +191,59 @@
                 min-height: 350px !important;
             }
         }
-    </style>
 
+        .product_name p {
+            margin: 0;
+        }
+
+        .product_name .rating i {
+            color: #ffb811;
+        }
+    </style>
+    <style>
+        .product_scroll_info {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+            transition: all 0.4s ease;
+            transform: translateY(100%);
+            visibility: hidden;
+        }
+
+        .product_scroll_info.active {
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        @media (max-width: 991px) {
+            .product_scroll_info {
+                bottom: 80px;
+                border-radius: 15px 15px 0 0;
+                padding: 8px 0;
+            }
+
+            .product_scroll_info .product_name img {
+                width: 35px;
+            }
+
+            .product_scroll_info .btn {
+                padding: 8px 12px;
+                font-size: 13px;
+                width: 100%;
+            }
+
+            .product_scroll_info .rating,
+            .product_scroll_info .product_name p,
+            .product_scroll_info .buyNow {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -785,13 +832,7 @@
 
     <!-- main start -->
     <main>
-
-        <!-- <div class="product-item video-slide bg-black">
-                                <iframe src="https://www.youtube.com/embed/8LmEOBmMHLw?rel=0&autoplay=0"
-                                    class="w-100 border-0 d-block" title="Surah Mulk Bangla" allowfullscreen
-                                    style="height:520px"></iframe>
-                            </div> -->
-        <section class="product_info py-5">
+        <section class="product_info pt-5">
             <div class="container">
                 <div class="row mx-auto">
                     <div class="col-lg-5">
@@ -897,6 +938,49 @@
                 </div>
             </div>
         </section>
+
+        <div class="product_scroll_info d-block">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="product_name d-flex gap-2 align-items-center">
+                    <div>
+                        <img src="images/product/1.png" alt="product name" width="50px" loading="lazy">
+                    </div>
+                    <div>
+                        <p>Vaseline Lip Therapy Original – 20gm</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex gap-3 align-items-center product_cart_button">
+                        <h6>450.00 TK.</h6>
+                        <div class="quantity d-flex" style="width: fit-content;">
+                            <a href="#" class="quantity__minus px-2 text-decoration-none text-muted">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                            <input name="quantity" type="text"
+                                class="quantity__input border-0 text-center fw-bold bg-transparent" value="1"
+                                disabled="" style="width: 35px; font-size: 14px;">
+                            <a href="#" class="quantity__plus px-2 text-decoration-none text-muted">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                        <button class="btn addToCart">Add to Cart</button>
+                        <button class="btn buyNow">Buy Now</button>
+                        <div class="wishlist d-flex align-items-center">
+                            <i class="fa fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- product content start -->
         <section class="product-content-area py-5">
@@ -1174,7 +1258,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between px-2">
+                                    <div class="d-flex align-items-center justify-content-between px-2 flex-wrap">
                                         <div class="bp-price-wrap">
                                             <span class="bp-new-price">3000 TK</span>
                                             <span class="bp-old-price ms-2">3650 TK</span>
@@ -1197,7 +1281,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between px-2">
+                                    <div class="d-flex align-items-center justify-content-between px-2 flex-wrap">
                                         <div class="bp-price-wrap">
                                             <span class="bp-new-price">3000 TK</span>
                                             <span class="bp-old-price ms-2">3650 TK</span>
@@ -1220,7 +1304,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between px-2">
+                                    <div class="d-flex align-items-center justify-content-between px-2 flex-wrap">
                                         <div class="bp-price-wrap">
                                             <span class="bp-new-price">3000 TK</span>
                                             <span class="bp-old-price ms-2">3650 TK</span>
@@ -1243,7 +1327,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between px-2">
+                                    <div class="d-flex align-items-center justify-content-between px-2 flex-wrap">
                                         <div class="bp-price-wrap">
                                             <span class="bp-new-price">3000 TK</span>
                                             <span class="bp-old-price ms-2">3650 TK</span>
@@ -1266,7 +1350,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between px-2">
+                                    <div class="d-flex align-items-center justify-content-between px-2 flex-wrap">
                                         <div class="bp-price-wrap">
                                             <span class="bp-new-price">3000 TK</span>
                                             <span class="bp-old-price ms-2">3650 TK</span>
@@ -1597,6 +1681,7 @@
         src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
+
     <script>
         const toggleBtn = document.getElementById('toggleBtn');
         const socialIcons = document.getElementById('socialIcons');
@@ -1616,7 +1701,6 @@
     </script>
     <script>
         $(document).ready(function () {
-            // ১. মেইন স্লাইডার
             var mainSlider = $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -1628,7 +1712,6 @@
                 pauseOnHover: true
             });
 
-            // ২. থাম্বনেইল নেভিগেশন
             var navSlider = $('.slider-nav').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
@@ -1640,18 +1723,15 @@
                 focusOnSelect: true
             });
 
-            // ৩. হোভার লজিক ফিক্স (বার বার লোড হওয়া বন্ধ করবে)
             $('.slider-nav .slick-slide').on('mouseenter', function () {
                 var index = $(this).data('slick-index');
                 var currentIndex = $('.slider-for').slick('slickCurrentSlide');
 
-                // যদি বর্তমান স্লাইড এবং হোভার করা স্লাইড আলাদা হয়, তবেই পরিবর্তন হবে
                 if (index !== currentIndex) {
                     $('.slider-for').slick('slickGoTo', index);
                 }
             });
 
-            // ৪. জুম ফাংশন
             function applyZoom() {
                 var currentSlide = $('.slider-for .slick-current');
                 var img = currentSlide.find('.zoom-img');
@@ -1668,12 +1748,11 @@
                 }
             }
 
-            // ৫. স্লাইডার ইভেন্ট হ্যান্ডেলিং (জুম ক্লিনআপ)
             $('.slider-for').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-                $('.zoomContainer').remove(); // জুম কন্টেইনার সাথে সাথে রিমুভ করবে
+                $('.zoomContainer').remove();
                 var img = $(slick.$slides[currentSlide]).find('.zoom-img');
                 if (img.length > 0 && img.data('ezPlus')) {
-                    img.data('ezPlus').destroy(); // জুম ধ্বংস করবে
+                    img.data('ezPlus').destroy();
                 }
             });
 
@@ -1685,14 +1764,10 @@
         });
     </script>
     <script>
-        //product increment decrement
         $(document).ready(function () {
-            // Minus Button Click
             $('.quantity__minus').on('click', function (e) {
                 e.preventDefault();
 
-                // $(this) mane holo jei button-e click kora hoyeche
-                // .siblings() diye oi button-er pasher input field-ke khuje nibe
                 var input = $(this).siblings('.quantity__input');
                 var value = parseInt(input.val());
 
@@ -1702,7 +1777,6 @@
                 }
             });
 
-            // Plus Button Click
             $('.quantity__plus').on('click', function (e) {
                 e.preventDefault();
 
@@ -1716,6 +1790,24 @@
             });
         });
 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var mainCartButton = $('.product_info_content .product_cart_button');
+
+                if (mainCartButton.length) {
+                    var offsetTop = mainCartButton.offset().top;
+                    var scrollTop = $(window).scrollTop();
+
+                    if (scrollTop > offsetTop) {
+                        $('.product_scroll_info').addClass('active');
+                    } else {
+                        $('.product_scroll_info').removeClass('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
