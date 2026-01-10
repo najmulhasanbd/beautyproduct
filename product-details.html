@@ -19,8 +19,6 @@
     <!-- Font Awesome (use a stable version) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -148,10 +146,58 @@
         .animate-play:hover {
             transform: scale(1.1);
         }
-        
     </style>
-</head>
+    <style>
+        /* সব ডিভাইসের জন্য স্লাইডারের উচ্চতা এবং এলাইনমেন্ট ফিক্স */
+        .slider-for .slick-track {
+            display: flex !important;
+            align-items: stretch !important;
+            /* সব স্লাইডকে সমান লম্বা করবে */
+        }
 
+        .slider-for .slick-slide {
+            height: auto !important;
+            display: flex !important;
+        }
+
+        .slider-for .slick-slide>div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-item {
+            height: 100% !important;
+            width: 100% !important;
+            display: flex !important;
+        }
+
+        /* ইমেজের নিচের সাদা অংশ দূর করার মূল মন্ত্র */
+        .zoom-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            /* ইমেজকে টেনে পুরো বক্স পূর্ণ করবে */
+            object-position: center;
+            /* ইমেজ মাঝখানে রাখবে */
+        }
+
+        /* মোবাইল ডিভাইসের জন্য বিশেষ অ্যাডজাস্টমেন্ট */
+        @media (max-width: 767px) {
+
+            /* মোবাইলে ভিডিও এবং ইমেজের একটি নির্দিষ্ট উচ্চতা দিন যাতে সাদা জায়গা না থাকে */
+            .slider-for {
+                height: 350px !important;
+                /* আপনার পছন্দমতো উচ্চতা দিন */
+            }
+
+            .video-slide iframe {
+                height: 100% !important;
+                min-height: 350px !important;
+            }
+        }
+    </style>
+
+</head>
 
 <body>
 
@@ -740,6 +786,11 @@
     <!-- main start -->
     <main>
 
+        <!-- <div class="product-item video-slide bg-black">
+                                <iframe src="https://www.youtube.com/embed/8LmEOBmMHLw?rel=0&autoplay=0"
+                                    class="w-100 border-0 d-block" title="Surah Mulk Bangla" allowfullscreen
+                                    style="height:520px"></iframe>
+                            </div> -->
         <section class="product_info py-5">
             <div class="container">
                 <div class="row mx-auto">
@@ -750,17 +801,14 @@
                                     class="w-100 object-fit-contain zoom-img" style="cursor: crosshair;"
                                     alt="Product 1">
                             </div>
-
-                            <!-- <div class="product-item video-slide bg-black">
-                                <iframe src="https://www.youtube.com/embed/8LmEOBmMHLw?rel=0&autoplay=0"
-                                    class="w-100 border-0 d-block" title="Surah Mulk Bangla" allowfullscreen
-                                    style="height:520px"></iframe>
-                            </div> -->
-
                             <div class="product-item">
-                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                <img src="images/product/product.webp" data-zoom-image="images/product/product.webp"
                                     class="w-100 object-fit-contain zoom-img" style="cursor: crosshair;"
-                                    alt="Product 3">
+                                    alt="Product 1">
+                            </div>
+                            <div class="product-item video-slide bg-black">
+                                <iframe src="https://www.youtube.com/embed/8LmEOBmMHLw?rel=0&autoplay=0"
+                                    class="w-100 h-100 border-0 d-block" title="Product Video" allowfullscreen></iframe>
                             </div>
                         </div>
 
@@ -771,20 +819,13 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="thumb-box border rounded-3 p-1 position-relative">
-                                    <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Video Thumb">
-                                    <i
-                                        class="fa-solid fa-circle-play position-absolute top-50 start-50 translate-middle text-white fs-5"></i>
+                                <div class="thumb-box border rounded-3 p-1">
+                                    <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="thumb-box border rounded-3 p-1">
-                                    <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 3">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="thumb-box border rounded-3 p-1">
-                                    <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 4">
+                                    <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
                                 </div>
                             </div>
                         </div>
@@ -1557,29 +1598,60 @@
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const socialIcons = document.getElementById('socialIcons');
+        let isHidden = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isHidden = !isHidden;
+
+            if (isHidden) {
+                socialIcons.classList.add('hide');
+                toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
+            } else {
+                socialIcons.classList.remove('hide');
+                toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
+            }
+        });
+    </script>
+    <script>
         $(document).ready(function () {
+            // ১. মেইন স্লাইডার
             var mainSlider = $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 arrows: false,
+                autoplay: false,
+                infinite: false,
                 fade: true,
                 asNavFor: '.slider-nav',
                 pauseOnHover: true
             });
 
-            $('.slider-nav').slick({
+            // ২. থাম্বনেইল নেভিগেশন
+            var navSlider = $('.slider-nav').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 asNavFor: '.slider-for',
                 dots: false,
                 centerMode: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
+                autoplay: false,
                 arrows: false,
-                focusOnSelect: true,
-                pauseOnHover: true
+                focusOnSelect: true
             });
 
+            // ৩. হোভার লজিক ফিক্স (বার বার লোড হওয়া বন্ধ করবে)
+            $('.slider-nav .slick-slide').on('mouseenter', function () {
+                var index = $(this).data('slick-index');
+                var currentIndex = $('.slider-for').slick('slickCurrentSlide');
+
+                // যদি বর্তমান স্লাইড এবং হোভার করা স্লাইড আলাদা হয়, তবেই পরিবর্তন হবে
+                if (index !== currentIndex) {
+                    $('.slider-for').slick('slickGoTo', index);
+                }
+            });
+
+            // ৪. জুম ফাংশন
             function applyZoom() {
                 var currentSlide = $('.slider-for .slick-current');
                 var img = currentSlide.find('.zoom-img');
@@ -1596,11 +1668,12 @@
                 }
             }
 
+            // ৫. স্লাইডার ইভেন্ট হ্যান্ডেলিং (জুম ক্লিনআপ)
             $('.slider-for').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-                $('.zoomContainer').remove();
+                $('.zoomContainer').remove(); // জুম কন্টেইনার সাথে সাথে রিমুভ করবে
                 var img = $(slick.$slides[currentSlide]).find('.zoom-img');
                 if (img.length > 0 && img.data('ezPlus')) {
-                    img.data('ezPlus').destroy();
+                    img.data('ezPlus').destroy(); // জুম ধ্বংস করবে
                 }
             });
 
@@ -1610,6 +1683,39 @@
 
             applyZoom();
         });
+    </script>
+    <script>
+        //product increment decrement
+        $(document).ready(function () {
+            // Minus Button Click
+            $('.quantity__minus').on('click', function (e) {
+                e.preventDefault();
+
+                // $(this) mane holo jei button-e click kora hoyeche
+                // .siblings() diye oi button-er pasher input field-ke khuje nibe
+                var input = $(this).siblings('.quantity__input');
+                var value = parseInt(input.val());
+
+                if (!isNaN(value) && value > 1) {
+                    value--;
+                    input.val(value);
+                }
+            });
+
+            // Plus Button Click
+            $('.quantity__plus').on('click', function (e) {
+                e.preventDefault();
+
+                var input = $(this).siblings('.quantity__input');
+                var value = parseInt(input.val());
+
+                if (!isNaN(value)) {
+                    value++;
+                    input.val(value);
+                }
+            });
+        });
+
     </script>
 </body>
 
