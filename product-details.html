@@ -1809,7 +1809,6 @@
             });
         });
     </script>
-    	<!-- // mobile category -->
     <script>
         	$(document).ready(function () {
 		$('.mobileCategory li a.has-child').on('click', function (e) {
@@ -1818,18 +1817,14 @@
 
 			var $this = $(this);
 			var $parentLi = $this.closest('li');
-			// a ট্যাগের ঠিক পরেই উল নেই, তাই আমরা parent li থেকে ul খুঁজবো
 			var $targetUl = $parentLi.children('ul');
 
 			if ($parentLi.hasClass('active')) {
-				// বন্ধ করার লজিক
 				$targetUl.slideUp(300);
 				$parentLi.removeClass('active');
 			} else {
-				// একই লেভেলের অন্য সব ওপেন মেনু বন্ধ করা
 				$parentLi.siblings().removeClass('active').children('ul').slideUp(300);
 
-				// বর্তমান মেনুটি ওপেন করা
 				$parentLi.addClass('active');
 				$targetUl.stop().hide().slideDown(300);
 			}

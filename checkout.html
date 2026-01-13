@@ -8,15 +8,12 @@
 
     <link rel="shortcut icon" href="images/loog.png" type="image/x-icon">
 
-    <!-- Google Fonts (display=swap helps performance) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap (preload + stylesheet) -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome (use a stable version) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet"
@@ -35,12 +32,26 @@
             border-bottom: white;
         }
 
+        .payment_info button {
+            margin-top: 20px !important;
+        }
+
         .cart-table table {
             margin: 0;
         }
 
         .cart-table table thead th {
             border-bottom: 1px solid #ddd;
+        }
+
+        .payment_info button {
+            background: var(--main-color);
+            border: 1px solid;
+            transition: all .5s ease-in-out;
+        }
+
+        .payment_info button:hover {
+            background: transparent;
         }
 
         .cart-table table tbody tr td i {
@@ -105,6 +116,69 @@
 
         .shopping_product {
             margin: 0 !important;
+        }
+
+        .personal_info label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .personal_info .form-control,
+        .personal_info .form-select {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .personal_info .form-control:focus,
+        .personal_info .form-select:focus {
+            border-color: #4b2a89;
+            box-shadow: none;
+        }
+
+        .personal_info h4 {
+            color: #1a1a1a;
+        }
+
+        ::placeholder {
+            color: #ccc !important;
+            opacity: 1;
+        }
+
+        .payment-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0 !important;
+            background: #fdfdfd;
+            padding: 10px 0;
+        }
+
+        .payment-card.active {
+            border: 1px solid #4b2a89 !important;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(75, 42, 137, 0.1);
+        }
+
+        .check-icon {
+            color: #4b2a89;
+            font-size: 16px;
+        }
+
+        .payment-card span {
+            color: #6c757d;
+            transition: 0.3s;
+            font-size: 12px;
+        }
+
+        .payment-card.active span {
+            color: #4b2a89;
+        }
+
+        .payment-icon img {
+            width: 100%;
+            height: 50px;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -717,7 +791,71 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="personal_info p-4 border rounded-4 bg-white shadow-sm">
+                            <h4 class="fw-bold mb-4">Billing & Shipping</h4>
 
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Full Name</label>
+                                    <input type="text" class="form-control py-2" placeholder="Enter your name">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Phone Number</label>
+                                    <input type="tel" class="form-control py-2" placeholder="Phone number">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Email</label>
+                                    <input type="email" class="form-control py-2" placeholder="Email address">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Division</label>
+                                    <select class="form-select py-2">
+                                        <option selected disabled>Select</option>
+                                        <option>Dhaka</option>
+                                        <option>Chittagong</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">City</label>
+                                    <select class="form-select py-2">
+                                        <option selected disabled>Select</option>
+                                        <option>Dhaka City</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Zone</label>
+                                    <select class="form-select py-2">
+                                        <option selected disabled>Select</option>
+                                        <option>Mirpur</option>
+                                        <option>Uttara</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">House/Road/Area</label>
+                                    <input type="text" class="form-control py-2" placeholder="Your address">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Shipping</label>
+                                    <select class="form-select py-2">
+                                        <option selected disabled>Select</option>
+                                        <option>Inside Dhaka (60 TK)</option>
+                                        <option>Outside Dhaka (120 TK)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <h6 class="fw-bold">Additional Information</h6>
+                                    <textarea class="form-control mt-2" rows="4" placeholder="Special notes"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-4  col-md-12 mt-4 mt-lg-0">
                         <div class="card border-0 shadow-sm p-4 rounded-4 cart-amount">
@@ -817,14 +955,58 @@
                             </div>
 
                             <div
-                                class="w-100 d-flex justify-content-between mb-3 border-bottom checkout_product_item pb-2">
+                                class="w-100 d-flex justify-content-between border-bottom checkout_product_item pb-2">
                                 <span class="fs-5 fw-bold text-dark">Total</span>
                                 <span class="fs-5 fw-bold">3000 TK</span>
                             </div>
 
-                            <button class="btn w-100 py-3 rounded-3 text-white fw-bold shadow-none">
-                                Place Order
-                            </button>
+                            <div class="payment_info  mt-2">
+                                <h4 class="fw-bold mb-1">Payment</h4>
+
+                                <div class="row g-3">
+                                    <div class="col-4">
+                                        <label
+                                            class="payment-card text-center d-block border rounded-3 position-relative active">
+                                            <input type="radio" name="paymentMethod" value="cod" class="d-none" checked>
+                                            <div class="payment-icon">
+                                                <img src="images/cod.png" alt="COD" loading="lazy">
+                                            </div>
+                                            <span class="d-block small fw-bold">Cash on Delivery</span>
+                                            <i
+                                                class="fa-solid fa-circle-check check-icon position-absolute top-0 end-0 m-2"></i>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label
+                                            class="payment-card text-center d-block border rounded-3 position-relative">
+                                            <input type="radio" name="paymentMethod" value="bkash" class="d-none">
+                                            <div class="payment-icon">
+                                                <img src="images/bkash.png" alt="Bkash" loading="lazy">
+                                            </div>
+                                            <span class="d-block small fw-bold">Bkash</span>
+                                            <i
+                                                class="fa-solid fa-circle-check check-icon position-absolute top-0 end-0 m-2 d-none"></i>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label
+                                            class="payment-card text-center d-block border rounded-3 position-relative">
+                                            <input type="radio" name="paymentMethod" value="aamarpay" class="d-none">
+                                            <div class="payment-icon">
+                                                <img src="images/amarpay.png" alt="Aamarpay" loading="lazy">
+                                            </div>
+                                            <span class="d-block small fw-bold">Aamarpay</span>
+                                            <i
+                                                class="fa-solid fa-circle-check check-icon position-absolute top-0 end-0 m-2 d-none"></i>
+                                        </label>
+                                    </div>
+                                    <button class="w-100 py-2 rounded-3 text-white fw-bold shadow-none mt-2">
+                                        Place Order
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1006,7 +1188,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.payment-card').on('click', function () {
+                $('.payment-card').removeClass('active');
+                $('.check-icon').addClass('d-none');
 
+                $(this).addClass('active');
+                $(this).find('.check-icon').removeClass('d-none');
+
+                $(this).find('input[type="radio"]').prop('checked', true);
+            });
+        });
+    </script>
 </body>
 
 </html>
