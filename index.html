@@ -48,7 +48,27 @@
                             </span>
                         </div>
                     </div>
-                    <div class="d-none d-lg-block col-lg-6">
+                    <!-- <div class="d-none d-lg-block col-lg-6"> -->
+                    <div class="col-lg-6 d-flex gap-3 justify-content-end">
+                        <div class="language-selection-wrapper">
+                            <div class="custom-lang-selector" onclick="toggleLangList(this)">
+                                <div class="selected-lang d-flex align-items-center gap-2">
+                                    <img class="currentFlag" src="https://flagcdn.com/w20/us.png" alt="en">
+                                    <span class="currentLangText">English</span>
+                                    <i class="fa-solid fa-chevron-down ms-auto"></i>
+                                </div>
+                                <ul class="lang-list langList">
+                                    <li
+                                        onclick="selectLang('en', 'English', 'https://flagcdn.com/w20/us.png', event, this)">
+                                        <img src="https://flagcdn.com/w20/us.png" alt="en"> English
+                                    </li>
+                                    <li
+                                        onclick="selectLang('bn', 'বাংলা', 'https://flagcdn.com/w20/bd.png', event, this)">
+                                        <img src="https://flagcdn.com/w20/bd.png" alt="bn"> বাংলা
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="header-right d-flex justify-content-end gap-3 align-items-center">
                             <div class="d-flex gap-2">
                                 <a href="" title="facebook" class="text-white"> <i class="fa-solid fa-envelope"></i></a>
@@ -572,14 +592,33 @@
                                         <li><a href=""> <i class="fa fa-heart"></i> Wishlist</a></l1>
                                         <li><a href=""><i class="fa fa-user"></i> Login</a></l1>
                                     </ul>
+                                    <div class="language-selection-wrapper px-3 my-4">
+                                        <div class="custom-lang-selector" onclick="toggleLangList(this)">
+                                            <div class="selected-lang d-flex align-items-center gap-2">
+                                                <img class="currentFlag" src="https://flagcdn.com/w20/us.png" alt="en">
+                                                <span class="currentLangText">English</span>
+                                                <i class="fa-solid fa-chevron-down ms-auto"></i>
+                                            </div>
+                                            <ul class="lang-list langList">
+                                                <li
+                                                    onclick="selectLang('en', 'English', 'https://flagcdn.com/w20/us.png', event, this)">
+                                                    <img src="https://flagcdn.com/w20/us.png" alt="en"> English
+                                                </li>
+                                                <li
+                                                    onclick="selectLang('bn', 'বাংলা', 'https://flagcdn.com/w20/bd.png', event, this)">
+                                                    <img src="https://flagcdn.com/w20/bd.png" alt="bn"> বাংলা
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     <div class="offcanvas_mobile_social">
                                         <a href="#" class="social-icon facebook"><i
                                                 class="fa-brands fa-facebook-f"></i></a>
-                                        <a href="#" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
-                                        <a href="#" class="social-icon linkedin"><i
-                                                class="fa-brands fa-linkedin-in"></i></a>
                                         <a href="#" class="social-icon instagram"><i
                                                 class="fa-brands fa-instagram"></i></a>
+                                        <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                                        <a href="#" class="social-icon envelope"><i
+                                                class="fa-solid fa-envelope"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -3463,7 +3502,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function toggleLangList(element) {
+            // ক্লিক করা এলিমেন্টের ভেতরে থাকা 'langList' ক্লাসটি খুঁজে বের করবে
+            const list = element.querySelector('.langList');
 
+            // অন্য সব খোলা সুইচার বন্ধ করতে নিচের অংশটুকু (ঐচ্ছিক)
+            document.querySelectorAll('.custom-lang-selector').forEach(el => {
+                if (el !== element) {
+                    el.classList.remove('active');
+                    el.querySelector('.langList').classList.remove('show');
+                }
+            });
+
+            // বর্তমান সুইচার টগল
+            element.classList.toggle('active');
+            if (list) {
+                list.classList.toggle('show');
+            }
+        }
+
+        function selectLang(code, name, flag, event, listItem) {
+            event.stopPropagation(); // লিস্ট বন্ধ হওয়া রোধ করতে
+
+            // ক্লিক করা লিংকের প্যারেন্ট সুইচার খুঁজে বের করা
+            const parentSelector = listItem.closest('.custom-lang-selector');
+
+            // শুধুমাত্র ওই সুইচারের টেক্সট এবং ইমেজ আপডেট করা
+            if (parentSelector) {
+                parentSelector.querySelector('.currentLangText').innerText = name;
+                parentSelector.querySelector('.currentFlag').src = flag;
+
+                // সিলেক্ট করার পর লিস্ট বন্ধ করা
+                parentSelector.classList.remove('active');
+                parentSelector.querySelector('.langList').classList.remove('show');
+            }
+
+            console.log("Language selected: " + code);
+            // আপনার ল্যাঙ্গুয়েজ চেঞ্জিং লজিক এখানে দিন
+        }
+
+        // বাইরে ক্লিক করলে সবগুলো বন্ধ করার লজিক
+        window.onclick = function (event) {
+            if (!event.target.closest('.custom-lang-selector')) {
+                document.querySelectorAll('.langList').forEach(list => list.classList.remove('show'));
+                document.querySelectorAll('.custom-lang-selector').forEach(sel => sel.classList.remove('active'));
+            }
+        }
+    </script>
 </body>
 
 </html>

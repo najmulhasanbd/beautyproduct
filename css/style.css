@@ -1723,9 +1723,16 @@ justify-content: end;
 
 /* Individual Brand Colors on Hover */
 .social-icon.facebook:hover { background-color: #1877F2; }
-.social-icon.twitter:hover { background-color: #1DA1F2; }
-.social-icon.linkedin:hover { background-color: #0077B5; }
 .social-icon.instagram:hover { background-color: #E4405F; }
+.social-icon.youtube:hover { background-color: #FF0000; }
+.social-icon.envelope:hover { background-color: #D44638; } /* জিমেইল রেড কালার */
+
+/* হোভার করলে হালকা শ্যাডো এবং গ্লো ইফেক্ট */
+.offcanvas_mobile_social .social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1); /* রঙটি আরও উজ্জ্বল দেখাবে */
+}
 
 /* Icon rotating effect on hover */
 .offcanvas_mobile_social .social-icon:hover i {
@@ -2192,3 +2199,84 @@ justify-content: end;
   font-size: 15px;
   margin: 10px;
 }
+.offcanvas_mobile_social {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+/* /* language  */
+.custom-lang-selector {
+	position: relative;
+	background: #fff;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 6px 15px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	user-select: none;
+}
+
+    .custom-lang-selector:hover {
+        border-color: var(--purple, #472786);
+        box-shadow: 0 4px 12px rgba(71, 39, 134, 0.08);
+    }
+
+    .selected-lang span {
+        font-weight: 600;
+        font-size: 15px;
+        color: #333;
+    }
+
+    .selected-lang i {
+        font-size: 12px;
+        color: #888;
+        transition: transform 0.3s ease;
+    }
+
+    /* ড্রপডাউন লিস্ট */
+    .lang-list {
+        position: absolute;
+        top: 110%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        list-style: none;
+        padding: 8px;
+        margin: 0;
+        display: none; /* শুরুতে লুকানো */
+        z-index: 100;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lang-list li {
+        padding: 10px 12px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .lang-list li:hover {
+        background: rgba(71, 39, 134, 0.05);
+        color: var(--purple, #472786);
+    }
+
+    .custom-lang-selector.active i {
+        transform: rotate(180deg); /* অ্যারো ঘুরে যাবে */
+    }
+
+    .lang-list.show {
+        display: block;
+    }

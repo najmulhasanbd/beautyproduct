@@ -311,6 +311,9 @@
 		activeOverlay: false,
 	});
 
+	// language
+	
+	
 	// sidebar social
 	const toggleBtn = document.getElementById('toggleBtn');
 	const socialIcons = document.getElementById('socialIcons');
@@ -322,6 +325,6 @@
 
 
 	// Initialize
-	initNestedMenu(document.querySelector('.mobileOffCategory'));
+	// initNestedMenu(document.querySelector('.mobileOffCategory'));
 
 })(jQuery);
