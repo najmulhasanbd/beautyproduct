@@ -1698,25 +1698,6 @@ justify-content: end;
 }
 
 
-.single_product .wishlist_system {
-  position: absolute;
-  display: block;
-  top: 15px;
-  right: 15px;
-}
-.single_product .wishlist_system i {
-  font-size: 20px;
-}
-.single_product .wishlist_system {
-    position: absolute;
-    display: block;
-    top: 15px;
-    right: 15px;
-    background: var(--main-color);
-    color: #fff;
-    padding: 5px;
-    line-height: 1;
-}
 .offcanvas_mobile_social .social-icon {
     width: 40px;
     height: 40px;

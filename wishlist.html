@@ -26,7 +26,145 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .wishlist-header {
+            border-left: 5px solid var(--purple, #472786) !important;
+            transition: all 0.3s ease;
+        }
 
+        .wishlist-icon-box {
+            width: 45px;
+            height: 45px;
+            background: rgba(71, 39, 134, 0.1);
+            color: #472786;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 20px;
+            animation: heartBeat 2s infinite;
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .clear-wishlist-btn {
+            background: #fff;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .clear-wishlist-btn:hover {
+            background: #ff4d4d;
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(255, 77, 77, 0.2);
+        }
+
+        .clear-wishlist-btn i {
+            font-size: 15px;
+        }
+
+        @media (max-width: 576px) {
+            .clear-wishlist-btn span {
+                display: none;
+            }
+
+            .wishlist-header {
+                padding: 12px !important;
+            }
+        }
+
+
+        .single_product .wishlist_remove_btn i {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+
+        .single_product .wishlist_remove_btn:active {
+            transform: scale(0.9);
+        }
+
+        .product_img_wrapper {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .single_product .wishlist_remove_btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 34px;
+            height: 34px;
+            background: var(--main-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 77, 77, 0.1);
+            z-index: 10;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .single_product .wishlist_remove_btn:hover {
+            background: #ff4d4d;
+            color: #ffffff !important;
+            transform: rotate(180deg) scale(1.15);
+            box-shadow: 0 6px 18px rgba(255, 77, 77, 0.4);
+        }
+
+        .single_product .wishlist_remove_btn i {
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .discount_tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--main-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .btn-add-cart {
+            background: var(--main-color);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-add-cart:hover {
+            background: #361d66;
+            color: white;
+        }
+    </style>
 </head>
 
 
@@ -625,8 +763,20 @@
         <!-- new product start -->
         <section class="new_product_area section-space">
             <div class="container">
-                <div class="section-title d-flex align-items-center justify-content-between mb-3">
-                    <h4>Wishlist</h4>
+                <div
+                    class="section-title wishlist-header d-flex align-items-center justify-content-between mb-4 p-3 bg-white border rounded-4 shadow-sm">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="wishlist-icon-box">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="title-info">
+                            <h4 class="fw-bold m-0 text-dark">My Wishlist</h4>
+                            <p class="small text-muted m-0">Items you've saved for later</p>
+                        </div>
+                    </div>
+                    <button class="btn clear-wishlist-btn">
+                        <i class="fa-solid fa-trash-can"></i> <span>Clear All</span>
+                    </button>
                 </div>
 
                 <div class="row g-2">
@@ -636,7 +786,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -668,7 +820,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -700,7 +854,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -732,7 +888,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -764,7 +922,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -796,7 +956,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -828,7 +990,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -860,7 +1024,9 @@
                                 <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
                                 <span> 380 off</span>
                             </a>
-                            <a href="" class="wishlist_system"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
                             <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
                             <div class="product_ratting">
                                 <i class="fa fa-star"></i>
@@ -886,6 +1052,75 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="single_product">
+                            <a href="" class="product_image d-lock">
+                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
+                                <span> 380 off</span>
+                            </a>
+                            <a href="javascript:void(0)" class="wishlist_remove_btn" title="Remove from Wishlist">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
+                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                            <div class="product_ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product_price">
+                                <span>3000 TK</span>
+                                <span class="old-price">
+                                    3000 TK
+                                </span>
+
+                            </div>
+                            <div class="product_footer d-flex align-items-center justify-content-between">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                                <button class="btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
