@@ -155,27 +155,27 @@
             height: 18px;
         }
 
-.filter-toggle-btn {
-    background: linear-gradient(135deg, #472786, #6b44b8);
-    color: #ffffff !important;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(71, 39, 134, 0.25);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 30px;
-    line-height: 1;
-    z-index: 1;
-}
+        .filter-toggle-btn {
+            background: linear-gradient(135deg, #472786, #6b44b8);
+            color: #ffffff !important;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(71, 39, 134, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            line-height: 1;
+            z-index: 1;
+        }
 
         /* বাটনটি ক্রমাগত হালকা পালস (Pulse) করবে */
         @keyframes buttonPulse {
@@ -192,7 +192,7 @@
             }
         }
 
-      
+
         /* হোভার করলে কালার স্লাইড হবে */
         .filter-toggle-btn::before {
             content: '';
@@ -833,7 +833,10 @@
 
     <!-- main start -->
     <main>
-
+        <!-- breadcrumb -->
+        <div>
+            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
+        </div>
         <!-- breadcrumb -->
         <div class="shop-wrapper-unique">
             <div class="container py-4">
