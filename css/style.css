@@ -919,8 +919,10 @@ transition:all .5s ease-in-out;
 /* //feature proecut */
 
 #myTabFeature {
-  border: 0;
+	border: 0;
+	margin: 5px 0;
 }
+
 #myTabFeature .nav-item button {
   border: 0;
   color: var(--main-color);

@@ -28,114 +28,79 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <style>
-        /* Scoped Styles */
-        .shop-wrapper-unique {
-            --purple: #472786;
-            font-family: 'Hind Siliguri', sans-serif;
-            background: #fff;
+        .sidebar-column {
+        position: -webkit-sticky; 
+        position: sticky;
+        top: 115px;
+        height: fit-content;
+        z-index: 1020;
+    }
+
+    .shop_page_grid {
+        align-items: start; 
+    }
+
+    @media (max-width: 991px) {
+        .sidebar-column {
+            position: fixed; 
+            top: 0;
+            height: 100vh;
+        }
+    }
+        .shop_page_grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            align-items: start;
         }
 
-        .page-main-title {
-            font-size: 26px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        .shop-breadcrumb {
-            font-size: 14px;
-        }
-
-        .shop-breadcrumb .sep {
-            margin: 0 5px;
-            color: #ccc;
-        }
-
-        .shop-breadcrumb .current {
-            color: #888;
-        }
-
-        /* Sidebar Logic */
         .filter-sidebar-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 25px;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 24px;
             background: #fff;
+            position: sticky;
+            top: 20px;
         }
 
         .filter-label {
             font-weight: 700;
+            font-size: 16px;
             margin-bottom: 20px;
             border-bottom: 3px solid var(--purple);
             width: fit-content;
             padding-bottom: 5px;
+            color: #111;
         }
 
-        .filter-box {
-            margin-bottom: 30px;
-        }
-
-        /* Custom Range */
-        .custom-range-input {
-            width: 100%;
-            accent-color: var(--purple);
-            cursor: pointer;
-        }
-
-        .price-values {
-            color: var(--purple);
-            font-weight: 700;
-        }
-
-        /* Toolbar */
-        .shop-toolbar-custom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-
-        .view-btn {
-            background: none;
-            border: none;
-            font-size: 18px;
-            color: #ddd;
-            cursor: pointer;
-        }
-
-        .view-btn.active {
-            color: var(--purple);
-        }
-
-        .shop-breadcrumb a {
-            color: var(--main-color);
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .filter-toggle-btn {
-            border: 1px solid var(--purple);
-            font-weight: 600;
-        }
-
-        /* Responsive Sidebar CSS */
         @media (max-width: 991px) {
+            .shop_page_grid {
+                display: block !important;
+            }
+
             .sidebar-column {
                 position: fixed;
                 top: 0;
                 left: -100%;
-                width: 280px;
-                height: 100%;
+                width: 300px;
+                height: 100vh;
                 background: #fff;
-                z-index: 9999;
-                transition: 0.4s;
+                z-index: 10000 !important;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
                 padding: 20px;
-                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 10px 0 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .shop_product_gap .col-xl-3.col-md-4.col-6 {
+                padding: 5px;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin-top: 10px;
             }
 
             .sidebar-column.show {
                 left: 0;
+                margin-top: 0;
             }
 
             .sidebar-overlay {
@@ -145,27 +110,145 @@
                 width: 100%;
                 height: 100%;
                 background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(2px);
+                z-index: 9999;
                 display: none;
-                z-index: 9998;
+                cursor: move;
             }
 
             .sidebar-overlay.active {
                 display: block;
             }
+
+            .filter-toggle-btn {
+                background-color: var(--purple);
+                border: none;
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
         }
 
-        /* Dummy Card View */
-        .item-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            min-height: 200px;
+        .form-check-custom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .form-check-custom:hover {
+            color: var(--purple);
+        }
+
+        .form-check-custom input[type="checkbox"] {
+            accent-color: var(--purple);
+            width: 18px;
+            height: 18px;
+        }
+
+        .filter-toggle-btn {
+            background-color: var(--purple, #472786);
+            color: #ffffff !important;
+            border: none;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(71, 39, 134, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .filter-toggle-btn:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(71, 39, 134, 0.3);
+        }
+
+        .filter-toggle-btn i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-toggle-btn:hover i {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .filter-toggle-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .filter-toggle-btn:hover::after {
+            left: 100%;
+        }
+
+        .shop-toolbar-custom {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price-input {
+            border-radius: 8px;
+            font-size: 13px;
+            border: 1px solid #e0e0e0;
+            padding: 8px 10px;
             transition: 0.3s;
         }
+
+        .price-input:focus {
+            border-color: var(--purple);
+            background-color: #fcfaff;
+        }
+
+        .custom-range-input {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #eee;
+            border-radius: 5px;
+            outline: none;
+            accent-color: var(--purple);
+        }
+
+        .price-filter-btn {
+            background-color: var(--main-color);
+            color: white !important;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .price-filter-btn:hover {
+            background-color: #361d66;
+            box-shadow: 0 4px 10px rgba(71, 39, 134, 0.2);
+        }
     </style>
+
 </head>
 
 
@@ -766,25 +849,44 @@
                         <span class="current">Face Serum</span>
                     </nav>
                 </div>
-
-                <div class="row g-4 position-relative">
-                    <div class="col-lg-3 sidebar-column" id="sidebarWrapper">
+                <div class="d-lg-none">
+                    <button class="filter-toggle-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-sliders"></i> Open Filters
+                    </button>
+                </div>
+                <div class="row g-3 position-relative shop_page_grid">
+                    <div class="sidebar-column sticky-top" id="sidebarWrapper">
                         <div class="filter-sidebar-card">
-                            <div class="d-flex justify-content-between align-items-center d-lg-none mb-3">
-                                <h5 class="m-0">Filters</h5>
-                                <button class="btn-close" onclick="toggleSidebar()"></button>
-                            </div>
-
                             <div class="filter-box">
                                 <h6 class="filter-label">Filter by Price</h6>
-                                <input type="range" id="priceRange" min="30" max="50030" value="3000"
-                                    class="custom-range-input">
-                                <p class="price-result mt-3">
-                                    Price : <span class="price-values">30 TK. — <span id="priceVal">3,000</span>
-                                        TK.</span>
-                                </p>
-                            </div>
 
+                                <div class="price-range-slider mb-3">
+                                    <input type="range" class="custom-range-input" id="priceRange" min="0" max="10000"
+                                        step="100" value="5000">
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <span class="small text-muted">0 TK</span>
+                                        <span class="small text-muted">10,000 TK</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="flex-fill">
+                                        <label class="small text-muted mb-1">Min Price</label>
+                                        <input type="number" class="form-control price-input shadow-none" id="minPrice"
+                                            placeholder="0">
+                                    </div>
+                                    <div class="mt-4 text-muted">-</div>
+                                    <div class="flex-fill">
+                                        <label class="small text-muted mb-1">Max Price</label>
+                                        <input type="number" class="form-control price-input shadow-none" id="maxPrice"
+                                            placeholder="10000">
+                                    </div>
+                                </div>
+
+                                <button class="btn price-filter-btn w-100 my-3" onclick="applyPriceFilter()">
+                                    Apply Filter
+                                </button>
+                            </div>
                             <div class="filter-box">
                                 <h6 class="filter-label">Filter by Brand</h6>
                                 <div class="checkbox-list d-flex flex-column">
@@ -816,20 +918,10 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-9">
+                    <div>
                         <div class="shop-toolbar-custom">
                             <div class="toolbar-left d-flex align-items-center">
-                                <button class="btn d-lg-none me-3 filter-toggle-btn" onclick="toggleSidebar()">
-                                    <i class="fas fa-filter"></i> Filter
-                                </button>
-
-                                <span class="count-text d-none d-sm-block">Show : 12 / 18</span>
-
-                                <div class="layout-icons ms-3">
-                                    <button id="gridBtn" class="view-btn active"><i
-                                            class="fas fa-th-large"></i></button>
-                                    <button id="listBtn" class="view-btn"><i class="fas fa-list"></i></button>
-                                </div>
+                                We found 30 items for you!
                             </div>
                             <div class="toolbar-right">
                                 <select class="sort-dropdown-custom form-select">
@@ -841,7 +933,866 @@
                             </div>
                         </div>
 
-                        <div id="displayContainer" class="row g-3"></div>
+                        <div class="row g-3 shop_product_gap">
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-4 col-6">
+                                <div class="single_product">
+                                    <a href="" class="product_image d-lock">
+                                        <img src="images/product/product.webp" alt="product image" class="w-100"
+                                            loading="lazy">
+                                        <span class="bg-danger" style="font-weight: bold;"> SOLD OUT</span>
+                                    </a>
+                                    <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
+                                    <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
+                                    <div class="product_ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product_price">
+                                        <span>3000 TK</span>
+                                        <span class="old-price">
+                                            3000 TK
+                                        </span>
+
+                                    </div>
+                                    <a href="" class="stockOutProduct">Read More</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1024,191 +1975,41 @@
     <script src="js/main.js"></script>
 
     <script>
-        // 1. Price Range Logic
-        const slider = document.getElementById('priceRange');
-        const priceText = document.getElementById('priceVal');
-        slider.addEventListener('input', () => {
-            priceText.innerText = parseInt(slider.value).toLocaleString();
-        });
-
-        // 2. Sidebar Toggle
         function toggleSidebar() {
-            document.getElementById('sidebarWrapper').classList.toggle('show');
-            document.getElementById('sidebarOverlay').classList.toggle('active');
-        }
+            const sidebar = document.getElementById('sidebarWrapper');
+            const overlay = document.getElementById('sidebarOverlay');
 
-        // 3. Grid/List Toggle Content
-        const displayArea = document.getElementById('displayContainer');
-        const gridBtn = document.getElementById('gridBtn');
-        const listBtn = document.getElementById('listBtn');
-
-        function updateView(mode) {
-            if (mode === 'grid') {
-                gridBtn.classList.add('active');
-                listBtn.classList.remove('active');
-                displayArea.innerHTML = `
-            <div class="col-md-4 col-6"> <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div></div></div>
-            <div class="col-md-4 col-6"> <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div></div></div>
-            <div class="col-md-4 col-6"> <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div></div></div>`;
-            } else {
-                listBtn.classList.add('active');
-                gridBtn.classList.remove('active');
-                displayArea.innerHTML = `
-            <div class="col-6"> <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div></div></div>
-            <div class="col-6"> <div class="single_product">
-                            <a href="" class="product_image d-lock">
-                                <img src="images/product/product.webp" alt="product image" class="w-100" loading="lazy">
-                                <span> 380 off</span>
-                            </a>
-                            <a href="" class="wishlist_system"><i class="fa-regular fa-heart"></i></a>
-                            <a href="" class="product_title">Meiniya Spot Cream+ Turmeric Whitening Face...</a>
-                            <div class="product_ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product_price">
-                                <span>3000 TK</span>
-                                <span class="old-price">
-                                    3000 TK
-                                </span>
-
-                            </div>
-                            <div class="product_footer d-flex align-items-center justify-content-between">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                                <button class="btn">Add to Cart</button>
-                            </div>
-                        </div></div></div>`;
+            if (sidebar) {
+                sidebar.classList.toggle('show');
+            }
+            if (overlay) {
+                overlay.classList.toggle('active');
             }
         }
+    </script>
+    <script>
+        const priceRange = document.getElementById('priceRange');
+        const maxPriceInput = document.getElementById('maxPrice');
+        const minPriceInput = document.getElementById('minPrice');
 
-        gridBtn.addEventListener('click', () => updateView('grid'));
-        listBtn.addEventListener('click', () => updateView('list'));
+        // স্লাইডার নাড়ালে ইনপুট ফিল্ড আপডেট হবে
+        priceRange.addEventListener('input', function () {
+            maxPriceInput.value = this.value;
+        });
 
-        // Default View
-        updateView('grid');
+        // ইনপুট ফিল্ডে হাতে লিখলে স্লাইডার আপডেট হবে
+        maxPriceInput.addEventListener('change', function () {
+            priceRange.value = this.value;
+        });
+
+        // ফিল্টার এপ্লাই করার ফাংশন
+        function applyPriceFilter() {
+            const min = minPriceInput.value || 0;
+            const max = maxPriceInput.value || 10000;
+
+            console.log(`Filtering from ${min} TK to ${max} TK`);
+            // এখানে আপনার ফিল্টারিং লজিক বা AJAX কল বসাতে পারেন
+        }
     </script>
 </body>
 
