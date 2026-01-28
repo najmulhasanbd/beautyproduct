@@ -123,32 +123,51 @@
             cursor: zoom-in;
         }
 
-        /* থাম্বনেইল বক্সের স্টাইল */
         .thumb-box {
             cursor: pointer;
             transition: all 0.3s ease;
             background: #fff;
         }
 
-        /* ক্লিক করা বা একটিভ থাম্বনেইল হাইলাইট */
         .slider-nav .slick-current .thumb-box {
             border-color: #4b2a89 !important;
-            /* পার্পল বর্ডার */
             border-width: 2px !important;
         }
 
-        /* স্লাইডারের গ্যাপ অ্যাডজাস্টমেন্ট */
         .slider-nav .slick-slide {
             padding: 0 5px;
         }
 
-        /* ভিডিও আইকন অ্যানিমেশন */
         .animate-play {
             transition: transform 0.2s;
         }
 
         .animate-play:hover {
             transform: scale(1.1);
+        }
+
+        .outOfStock {
+            background: transparent;
+            border: 1px solid red;
+            color: #000;
+            transition: all .5s ease-in-out;
+            position: relative;
+        }
+
+        .outOfStock:hover {
+            border: 1px solid red;
+        }
+
+        .outOfStock::after {
+            position: absolute;
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: red;
+            left: 10px;
+            border-radius: 100%;
+            top: 50%;
+            transform: translateY(-50%);
         }
     </style>
     <style>
@@ -924,6 +943,7 @@
                                 </div>
                                 <button class="btn addToCart">Add to Cart</button>
                                 <button class="btn buyNow">Buy Now</button>
+                                <button class="btn outOfStock">Out of Stock</button>
                             </div>
                             <div class="wishlist d-flex align-items-center">
                                 <i class="fa fa-heart"></i>
@@ -1168,8 +1188,7 @@
                                         <div class="d-flex align-items-stretch p-3 mb-3 rounded-3"
                                             style="background-color: #fcfaff; border: 1px solid #f3e8ff;">
 
-                                            <div class="d-flex align-items-center"
-                                                style="flex-shrink: 0;">
+                                            <div class="d-flex align-items-center" style="flex-shrink: 0;">
                                                 <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff4b7d&color=fff"
                                                     alt="user" class="rounded-circle me-3" width="55" height="55">
                                                 <div>
@@ -1205,8 +1224,7 @@
 
                                         <div class="d-flex align-items-stretch p-3 mb-3 rounded-3"
                                             style="background-color: #fcfaff; border: 1px solid #f3e8ff;">
-                                            <div class="d-flex align-items-center"
-                                                style="flex-shrink: 0;">
+                                            <div class="d-flex align-items-center" style="flex-shrink: 0;">
                                                 <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff4b7d&color=fff"
                                                     alt="user" class="rounded-circle me-3" width="55" height="55">
                                                 <div>
@@ -1810,27 +1828,27 @@
         });
     </script>
     <script>
-        	$(document).ready(function () {
-		$('.mobileCategory li a.has-child').on('click', function (e) {
-			e.preventDefault();
-			e.stopPropagation();
+        $(document).ready(function () {
+            $('.mobileCategory li a.has-child').on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-			var $this = $(this);
-			var $parentLi = $this.closest('li');
-			var $targetUl = $parentLi.children('ul');
+                var $this = $(this);
+                var $parentLi = $this.closest('li');
+                var $targetUl = $parentLi.children('ul');
 
-			if ($parentLi.hasClass('active')) {
-				$targetUl.slideUp(300);
-				$parentLi.removeClass('active');
-			} else {
-				$parentLi.siblings().removeClass('active').children('ul').slideUp(300);
+                if ($parentLi.hasClass('active')) {
+                    $targetUl.slideUp(300);
+                    $parentLi.removeClass('active');
+                } else {
+                    $parentLi.siblings().removeClass('active').children('ul').slideUp(300);
 
-				$parentLi.addClass('active');
-				$targetUl.stop().hide().slideDown(300);
-			}
-		});
-	});
-        </script>
+                    $parentLi.addClass('active');
+                    $targetUl.stop().hide().slideDown(300);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
