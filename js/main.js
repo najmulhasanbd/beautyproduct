@@ -314,18 +314,10 @@
 	// sidebar social
 	const toggleBtn = document.getElementById('toggleBtn');
 	const socialIcons = document.getElementById('socialIcons');
-	let isHidden = false;
 
 	toggleBtn.addEventListener('click', () => {
-		isHidden = !isHidden;
-
-		if (isHidden) {
-			socialIcons.classList.add('hide');
-			toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
-		} else {
-			socialIcons.classList.remove('hide');
-			toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
-		}
+		toggleBtn.classList.toggle('active');
+		socialIcons.classList.toggle('hide');
 	});
 
 

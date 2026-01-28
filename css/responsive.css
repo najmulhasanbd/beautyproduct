@@ -293,6 +293,13 @@
 .product_scroll_info .product_name {
 	display: none !important;
 }
+
+#toggleBtn img {
+  display: none;
+}
+.toggle-btn i {
+  left: 0;
+}
 }
 
 /* Large Mobile :480px. */

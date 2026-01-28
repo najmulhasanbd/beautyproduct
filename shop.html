@@ -29,24 +29,25 @@
 
     <style>
         .sidebar-column {
-        position: -webkit-sticky; 
-        position: sticky;
-        top: 115px;
-        height: fit-content;
-        z-index: 1020;
-    }
-
-    .shop_page_grid {
-        align-items: start; 
-    }
-
-    @media (max-width: 991px) {
-        .sidebar-column {
-            position: fixed; 
-            top: 0;
-            height: 100vh;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 115px;
+            height: fit-content;
+            z-index: 9;
         }
-    }
+
+        .shop_page_grid {
+            align-items: start;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar-column {
+                position: fixed;
+                top: 0;
+                height: 100vh;
+            }
+        }
+
         .shop_page_grid {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -154,99 +155,6 @@
             height: 18px;
         }
 
-        .filter-toggle-btn {
-            background-color: var(--purple, #472786);
-            color: #ffffff !important;
-            border: none;
-            width: 100%;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(71, 39, 134, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 20px;
-            line-height: 1;
-        }
-
-        .filter-toggle-btn:active {
-            transform: scale(0.96);
-            box-shadow: 0 2px 8px rgba(71, 39, 134, 0.3);
-        }
-
-        .filter-toggle-btn i {
-            font-size: 18px;
-            transition: transform 0.3s ease;
-        }
-
-        .filter-toggle-btn:hover i {
-            transform: rotate(15deg) scale(1.1);
-        }
-
-        .filter-toggle-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .filter-toggle-btn:hover::after {
-            left: 100%;
-        }
-
-        .shop-toolbar-custom {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .price-input {
-            border-radius: 8px;
-            font-size: 13px;
-            border: 1px solid #e0e0e0;
-            padding: 8px 10px;
-            transition: 0.3s;
-        }
-
-        .price-input:focus {
-            border-color: var(--purple);
-            background-color: #fcfaff;
-        }
-
-        .custom-range-input {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 6px;
-            background: #eee;
-            border-radius: 5px;
-            outline: none;
-            accent-color: var(--purple);
-        }
-
-        .price-filter-btn {
-            background-color: var(--main-color);
-            color: white !important;
-            font-weight: 600;
-            font-size: 14px;
-            border-radius: 8px;
-            padding: 10px;
-            transition: 0.3s;
-        }
-
-        .price-filter-btn:hover {
-            background-color: #361d66;
-            box-shadow: 0 4px 10px rgba(71, 39, 134, 0.2);
-        }
     </style>
 
 </head>
@@ -1926,9 +1834,9 @@
 
             <!-- Arrow button always under social icons -->
             <button class="toggle-btn" id="toggleBtn" title="Contact With Me">
+                <i class="fa-solid fa-arrow-right" id="toggleIcon"></i>
                 <img src="images/contact_img.png" alt="" loading="lazy">
             </button>
-        </div>
         </div>
 
     </footer>
@@ -1992,23 +1900,19 @@
         const maxPriceInput = document.getElementById('maxPrice');
         const minPriceInput = document.getElementById('minPrice');
 
-        // স্লাইডার নাড়ালে ইনপুট ফিল্ড আপডেট হবে
         priceRange.addEventListener('input', function () {
             maxPriceInput.value = this.value;
         });
 
-        // ইনপুট ফিল্ডে হাতে লিখলে স্লাইডার আপডেট হবে
         maxPriceInput.addEventListener('change', function () {
             priceRange.value = this.value;
         });
 
-        // ফিল্টার এপ্লাই করার ফাংশন
         function applyPriceFilter() {
             const min = minPriceInput.value || 0;
             const max = maxPriceInput.value || 10000;
 
             console.log(`Filtering from ${min} TK to ${max} TK`);
-            // এখানে আপনার ফিল্টারিং লজিক বা AJAX কল বসাতে পারেন
         }
     </script>
 </body>

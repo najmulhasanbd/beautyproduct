@@ -1552,27 +1552,181 @@ justify-content: end;
 .app {
     background: #333;
 }
-
-/* Arrow button */
-.toggle-btn {
-	margin-top: 10px;
-	border-radius: 50%;
-	border: none;
-	color: #fff;
+//sidebar toggle social
+#toggleBtn img {
+    width: 45px;
+    height: 45px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
 }
 #toggleBtn img {
 	width: 45px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	border-radius: 50%;
 }
-
 #socialIcons .mobile img {
-  border-radius: 100%;
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
 }
 
+.toggle-btn {
+	width: 45px;
+	height: 45px;
+	background: transparent;
+	border: none;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.3s ease;
+	margin-top: 10px;
+}
+
+.toggle-btn i {
+	font-size: 20px;
+	transition: transform 0.4s ease, left 0.3s ease;
+	position: absolute;
+	left: -45px;
+	background: var(--main-color);
+	padding: 10px;
+	border-radius: 100%;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	animation: floatingIcon 2s infinite ease-in-out, pulseEffect 2s infinite;
+	box-shadow: 0 0 0 0 rgba(71, 39, 134, 0.7);
+	transform: rotate(0deg) !important;
+}
+
+.toggle-btn.active i {
+    transform: rotate(180deg) !important;
+    left: 0; 
+}
+
+.toggle-btn.active img {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+.social-icons.hide {
+    display: none;
+}
+
+@keyframes floatingIcon {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+}
+
+@keyframes pulseEffect {
+    0% { box-shadow: 0 0 0 0 rgba(71, 39, 134, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(71, 39, 134, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(71, 39, 134, 0); }
+}
+
+.toggle-btn:hover i {
+    animation-play-state: paused;
+}
+.filter-toggle-btn {
+    background-color: var(--purple, #472786);
+    color: #ffffff !important;
+    border: none;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(71, 39, 134, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.filter-toggle-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(71, 39, 134, 0.3);
+}
+
+.filter-toggle-btn:hover i {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.filter-toggle-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.filter-toggle-btn:hover::after {
+    left: 100%;
+}
+
+/* ২. প্রাইস ফিল্টার ইনপুট ও স্লাইডার */
+.shop-toolbar-custom {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.price-input {
+    border-radius: 8px;
+    font-size: 13px;
+    border: 1px solid #e0e0e0;
+    padding: 8px 10px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.price-input:focus {
+    border-color: var(--purple);
+    background-color: #fcfaff;
+    outline: none;
+}
+
+.custom-range-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #eee;
+    border-radius: 5px;
+    outline: none;
+    accent-color: var(--purple, #472786);
+}
+
+.price-filter-btn {
+    background-color: var(--main-color, #472786);
+    color: white !important;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.3s;
+    border: none;
+    width: 100%;
+}
+
+.price-filter-btn:hover {
+    background-color: #361d66;
+    box-shadow: 0 4px 10px rgba(71, 39, 134, 0.2);
+}
 
 
 .single_product .wishlist_system {
