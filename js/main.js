@@ -316,10 +316,9 @@
 	const socialIcons = document.getElementById('socialIcons');
 
 	toggleBtn.addEventListener('click', () => {
-		toggleBtn.classList.toggle('active');
 		socialIcons.classList.toggle('hide');
+		toggleBtn.classList.toggle('active');
 	});
-
 
 
 	// Initialize
