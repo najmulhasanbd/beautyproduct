@@ -463,7 +463,8 @@ margin-right: 10px;
 display: block;
 }
 .header_cart_count span {
-display: block;
+    display: block;
+    line-height: 1;
 }
 .header_cart_count span:first-child {
 color: #472786;
