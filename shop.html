@@ -155,30 +155,27 @@
             height: 18px;
         }
 
-        .filter-toggle-btn {
-            background: linear-gradient(135deg, #472786, #6b44b8);
-            /* গ্রাডিয়েন্ট ব্যাকগ্রাউন্ড */
-            color: #ffffff !important;
-            border: none;
-            width: 100%;
-            padding: 14px 20px;
-            /* একটু বেশি প্যাডিং লুক প্রিমিয়াম করে */
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 4px 15px rgba(71, 39, 134, 0.25);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            /* বাউন্স ইফেক্ট */
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 20px;
-            line-height: 1;
-            z-index: 1;
-        }
+.filter-toggle-btn {
+    background: linear-gradient(135deg, #472786, #6b44b8);
+    color: #ffffff !important;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(71, 39, 134, 0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    line-height: 1;
+    z-index: 1;
+}
 
         /* বাটনটি ক্রমাগত হালকা পালস (Pulse) করবে */
         @keyframes buttonPulse {
@@ -195,10 +192,7 @@
             }
         }
 
-        .filter-toggle-btn {
-            animation: buttonPulse 3s infinite ease-in-out;
-        }
-
+      
         /* হোভার করলে কালার স্লাইড হবে */
         .filter-toggle-btn::before {
             content: '';
