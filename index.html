@@ -32,25 +32,26 @@
 
     <!-- header start -->
     <header>
-        <section class="header-area p-2">
+        <section class="header_bottom d-none d-lg-block header-sticky">
             <div class="container">
-                <div class="row align-items-center ">
-                    <div class="col-lg-6">
-                        <div class="header-left d-flex gap-3 justify-content-center justify-content-lg-start">
-                            <span class="text-white">
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:beautyproductsbd@gmail.com" title="Help Email"
-                                    class="text-white">beautyproductsbd@gmail.com</a>
-                            </span>
-                            <span class="text-white">
-                                <i class="fa-solid fa-phone"></i>
-                                <a href="tel:+0987654321234" title="Help Line" class="text-white">0987654321234</a>
-                            </span>
+                <div class="row align-items-center py-2">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2">
+                        <div class="logo">
+                            <a href="index.html"><img class="w-100" src="/images/loog.png" alt="logo"
+                                    loading="lazy"></a>
                         </div>
                     </div>
-                    <!-- <div class="d-none d-lg-block col-lg-6"> -->
-                    <div class="col-lg-6 d-flex gap-3 justify-content-end">
-                        <div class="language-selection-wrapper">
+                    <div class="col-xxl-6 col-xl-5 col-lg-5">
+                        <div class="header-search">
+                            <form action="" class="position-relative w-100">
+                                <input type="search" name="" class="rounded-0 form-control"
+                                    placeholder="Search for Products">
+                                <i class="fa fa-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 d-flex align-items-center justify-content-between">
+                         <div class="language-selection-wrapper">
                             <div class="custom-lang-selector" onclick="toggleLangList(this)">
                                 <div class="selected-lang d-flex align-items-center gap-2">
                                     <img class="currentFlag" src="https://flagcdn.com/w20/us.png" alt="en">
@@ -69,38 +70,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="header-right d-flex justify-content-end gap-3 align-items-center">
-                            <div class="d-flex gap-2">
-                                <a href="" title="facebook" class="text-white"> <i class="fa-solid fa-envelope"></i></a>
-                                <a href="" title="phone" class="text-white"> <i class="fa-solid fa-phone"></i></a>
-                            </div>
-                            <div class="text-white">
-                                <a href="" title="your account" class="btn login_btn">Login</a>
-                            </div>
+                        <div class="text-white">
+                            <a href="login.html" title="your account" class="btn login_btn">Login</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="header_bottom d-none d-lg-block header-sticky">
-            <div class="container">
-                <div class="row align-items-center py-2">
-                    <div class="col-lg-2 order-1 col-6 order-lg-1">
-                        <div class="logo">
-                            <a href=""><img class="w-100" src="/images/loog.png" alt="logo" loading="lazy"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 order-3 col-12 order-lg-2">
-                        <div class="header-search">
-                            <form action="" class="position-relative w-100">
-                                <input type="search" name="" class="rounded-0 form-control"
-                                    placeholder="Search for Products">
-                                <i class="fa fa-search"></i>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 offset-lg-1 order-2 col-6 order-lg-3  d-flex justify-content-end">
-                        <a href="" class="btn track_btn">TRACKING ORDER</a>
+                        <a href="order-track.html" class="btn track_btn">TRACKING ORDER</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +113,6 @@
 
                                     <li><a href=""><img src="images/category/icon.png"
                                                 loading="lazy"><span>SKINCARE</span></a></li>
-
                                 </ul>
                                 <a href="" class="btn btn-sm btn-primary w-100">All Category</a>
                             </div>
@@ -148,14 +120,19 @@
                     </div>
                     <div class="col-lg-7">
                         <ul class="header_manu_item d-flex align-items-center gap-3">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">SHOP</a></li>
-                            <li><a href="">BEAUTY TIPS</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">SHOP</a></li>
+                            <li><a href="blog.html">BEAUTY TIPS</a></li>
                             <li><a href="">ABOUT US</a></li>
-                            <li><a href="">CONTACT US</a></li>
+                            <li><a href="contact.html">CONTACT US</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 d-flex justify-content-end d-none d-lg-block">
+                    <!-- <div class="col-lg-2 d-flex justify-content-end d-none d-lg-block align-items-center"> -->
+                    <div class="col-lg-2 d-flex justify-content-lg-end gap-5 align-items-center">
+                        <a href="wishlist.html" class="wishlist position-relative">
+                            <i class="fa fa-heart"></i>
+                            <span>9</span>
+                        </a>
                         <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                             aria-controls="offcanvasCart">
                             <div class="cart_plus">
@@ -182,12 +159,11 @@
                 </div>
             </div>
             <div class="offcanvas-body flex-grow-1">
-
                 <div class="csc-cart-item">
                     <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
                         height="60">
                     <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
+                        <a href="product-details.html" class="mb-0 text-dark fw-medium shopping_product"
                             style="font-size: 14px; line-height: 1.2;">
                             Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
                             Turmeric White...</a>
@@ -214,161 +190,6 @@
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </div>
-                <div class="csc-cart-item">
-                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
-                        height="60">
-                    <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
-                            style="font-size: 14px; line-height: 1.2;">
-                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
-                            Turmeric White...</a>
-                        <div class="d-flex justify-content-between">
-                            <span>Price</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center shopping_border">
-                            <span>Quantity</span>
-                            <div class="product_footer product_quantity">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                    </div>
-                    <button class="csc-delete-btn ms-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="csc-cart-item">
-                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
-                        height="60">
-                    <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
-                            style="font-size: 14px; line-height: 1.2;">
-                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
-                            Turmeric White...</a>
-                        <div class="d-flex justify-content-between">
-                            <span>Price</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center shopping_border">
-                            <span>Quantity</span>
-                            <div class="product_footer product_quantity">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                    </div>
-                    <button class="csc-delete-btn ms-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="csc-cart-item">
-                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
-                        height="60">
-                    <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
-                            style="font-size: 14px; line-height: 1.2;">
-                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
-                            Turmeric White...</a>
-                        <div class="d-flex justify-content-between">
-                            <span>Price</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center shopping_border">
-                            <span>Quantity</span>
-                            <div class="product_footer product_quantity">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                    </div>
-                    <button class="csc-delete-btn ms-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="csc-cart-item">
-                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
-                        height="60">
-                    <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
-                            style="font-size: 14px; line-height: 1.2;">
-                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
-                            Turmeric White...</a>
-                        <div class="d-flex justify-content-between">
-                            <span>Price</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center shopping_border">
-                            <span>Quantity</span>
-                            <div class="product_footer product_quantity">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                    </div>
-                    <button class="csc-delete-btn ms-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="csc-cart-item">
-                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
-                        height="60">
-                    <div>
-                        <a href="" class="mb-0 text-dark fw-medium shopping_product"
-                            style="font-size: 14px; line-height: 1.2;">
-                            Meiniya Spot Cream+ Turmer</a>
-                        <div class="d-flex justify-content-between">
-                            <span>Price</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center shopping_border">
-                            <span>Quantity</span>
-                            <div class="product_footer product_quantity">
-                                <div class="quantity d-flex">
-                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
-                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal</span>
-                            <span>1250.00 TK</span>
-                        </div>
-                    </div>
-                    <button class="csc-delete-btn ms-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-
             </div>
 
             <div class="csc-footer">
@@ -391,8 +212,8 @@
                 </div>
 
                 <div class="d-flex flex-column gap-2">
-                    <button class="btn btn-csc-outline w-100 rounded-3">View Cart</button>
-                    <button class="btn btn-csc-fill w-100 rounded-3">Place Order</button>
+                    <a href="cart.html" class="btn btn-csc-outline w-100 rounded-3">View Cart</a>
+                    <a href="checkout.html" class="btn btn-csc-fill w-100 rounded-3">Place Order</a>
                 </div>
             </div>
         </div>
@@ -583,14 +404,14 @@
                                 <div class="tab-pane fade mobileOffMenu" id="menu-pane" role="tabpanel"
                                     aria-labelledby="menu" tabindex="0">
                                     <ul>
-                                        <li><a href="">Home</a></l1>
-                                        <li><a href="">Shop</a></l1>
-                                        <li><a href="">Beauty Tips</a></l1>
+                                        <li><a href="index.html">Home</a></l1>
+                                        <li><a href="shop.html">Shop</a></l1>
+                                        <li><a href="blog.html">Beauty Tips</a></l1>
                                         <li><a href="">About US</a></l1>
-                                        <li><a href="">contact us</a></l1>
-                                        <li><a href="">tracking order</a></l1>
-                                        <li><a href=""> <i class="fa fa-heart"></i> Wishlist</a></l1>
-                                        <li><a href=""><i class="fa fa-user"></i> Login</a></l1>
+                                        <li><a href="contact.html">contact us</a></l1>
+                                        <li><a href="order-track.html">tracking order</a></l1>
+                                        <li><a href="wishlist.html"> <i class="fa fa-heart"></i> Wishlist</a></l1>
+                                        <li><a href="login.html"><i class="fa fa-user"></i> Login</a></l1>
                                     </ul>
                                     <div class="language-selection-wrapper px-3 my-4">
                                         <div class="custom-lang-selector" onclick="toggleLangList(this)">
@@ -625,7 +446,8 @@
                         </div>
                     </div>
 
-                    <div class="logo"><a href=""><img src="images/loog.png" alt="logo" loading="lazy"></a></div>
+                    <div class="logo"><a href="index.html"><img src="images/loog.png" alt="logo" loading="lazy"></a>
+                    </div>
                     <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                         aria-controls="offcanvasCart">
                         <div class="cart_plus">
@@ -754,7 +576,6 @@
                                 <span class="old-price">
                                     3000 TK
                                 </span>
-
                             </div>
                             <a href="" class="stockOutProduct">Read More</a>
                         </div>

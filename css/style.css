@@ -146,9 +146,6 @@ padding:0
 	padding: 50px 0;
 }
 /* header */
-.header-area{
-background:var(--secondary-color);
-}
 
 
 /* Basic Reset */
@@ -321,15 +318,12 @@ padding: 10px 20px;
 }
 
 .login_btn:hover {
-background: var(--main-color) !important;
+	border: 1px solid #fff;
 }
 .header-left span:hover, .header-left span:hover a {
 color: var(--main-color) !important;
 }
 
-.header-left span, .header-left span a {
-transition: all .5s ease-in-out
-}
 .header-right a i {
 border: 1px solid var(--main-color);
 padding: 8px;
@@ -349,17 +343,17 @@ transform: scale(1.1);
 	justify-content: space-between;
 	background: #fff;
 	border: 0;
-	border-radius: 50px;
+	border-radius: 5px;
 }
 .header-search form input {
-	border-radius: 50px 0 0 50px !important;
+	border-radius: 5px 0 0 5px !important;
 }
 .header-search form i {
 	padding: 12px;
 	background: var(--main-color);
 	color: #fff;
 	cursor: pointer;
-	border-radius: 0 50px 50px 0;
+	border-radius: 0 5px 5px 0;
 	border: 1px solid #fff;
 }
 /* navbar */
@@ -398,9 +392,10 @@ background: var(--main-color);
 }
 
 .track_btn {
-border: 1px solid transparent;
-transition: all .5s ease-in-out;
-background: #EB4B98B8;
+	border: 1px solid transparent;
+	transition: all .5s ease-in-out;
+	background: #EB4B98B8;
+	padding: 10px;
 }
 .track_btn:hover {
 border: 1px solid white;
@@ -2214,16 +2209,11 @@ justify-content: end;
 	background: #fff;
 	border: 1px solid #eee;
 	border-radius: 5px;
-	padding: 6px 15px;
+	padding: 5px 15px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	user-select: none;
 }
-
-    .custom-lang-selector:hover {
-        border-color: var(--purple, #472786);
-        box-shadow: 0 4px 12px rgba(71, 39, 134, 0.08);
-    }
 
     .selected-lang span {
         font-weight: 600;
@@ -2282,3 +2272,38 @@ justify-content: end;
     .lang-list.show {
         display: block;
     }
+/* wishlist */
+
+.wishlist i {
+	font-size: 20px;
+	color: #ff4d4d;
+}
+.wishlist span {
+	position: absolute;
+	top: -12px;
+	background: var(--main-color);
+	color: #fff;
+	padding: 5px;
+	line-height: 1;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px;
+    text-align:center
+}
+
+.wishlist_system {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  background: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 10px;
+  transition: all .4s ease-in-out;
+}
+.wishlist_system i {
+  font-size: 20px;
+  color: var(--main-color);
+}
+.single_product:hover .wishlist_system {
+  right: 0;
+}
