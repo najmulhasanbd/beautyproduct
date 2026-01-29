@@ -391,7 +391,7 @@ ul {
 /* sticky হলে animation */
 .header_navbar.header-sticky.sticky {
   position: fixed;
-  top: 58px;
+  top: 56px;
   z-index: 99;
   width: 100%;
   background: #fff0f7;
