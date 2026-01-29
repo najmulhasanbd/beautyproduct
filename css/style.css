@@ -313,8 +313,9 @@ padding:0
 	font-weight: 600;
 }
 .login_btn {
-background: #FFB811;
-padding: 10px 20px;
+	background: #FFCD68;
+	padding: 10px 20px;
+	color: #000;
 }
 
 .login_btn:hover {
@@ -368,7 +369,7 @@ transform: scale(1.1);
 .header_navbar.header-sticky.sticky {
     position: fixed;
     top: 58px;
-    z-index: 999;
+    z-index: 99;
     width: 100%;
     background: #FFF0F7;
     transform: translateY(0);
