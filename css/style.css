@@ -2292,13 +2292,15 @@ justify-content: end;
 }
 
 .wishlist_system {
-  position: absolute;
-  top: 0;
-  right: -100%;
-  background: #fff;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 10px;
-  transition: all .4s ease-in-out;
+	position: absolute;
+	top: 0;
+	right: -100%;
+	background: #fff;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	padding: 10px;
+	transition: all .4s ease-in-out;
+	border-radius: 0 0 0 50%;
+	line-height: 1;
 }
 .wishlist_system i {
   font-size: 20px;
