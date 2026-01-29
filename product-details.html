@@ -71,10 +71,8 @@
             border: 1px solid var(--main-color);
         }
 
-        .wishlist i {
-            color: var(--main-color);
-            font-size: 16px;
-            width: 30px;
+        .wishlist.d-flex.align-items-center i {
+            margin-right: 10px;
         }
 
         .wishlist {
@@ -799,7 +797,7 @@
                                 </div>
                                 <button class="btn addToCart">Add to Cart</button>
                                 <button class="btn buyNow">Buy Now</button>
-                                <button class="btn outOfStock">Out of Stock</button>
+                                <!-- <button class="btn outOfStock">Out of Stock</button> -->
                             </div>
                             <div class="wishlist d-flex align-items-center">
                                 <i class="fa fa-heart"></i>
@@ -1383,11 +1381,11 @@
     <!-- main end -->
 
     <!-- footer start -->
-    <footer class="pt-5 mt-5">
+    <footer>
         <div class="footer-area">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12 d-flex align-items-center">
                         <div class="newsletter">
                             <h3>Join Our Newsletter</h3>
                             <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
@@ -1413,11 +1411,13 @@
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-solid fa-phone"></i>
-                                <span><b>Call Us:</b> 01768305720, 01729101592</span>
+                                <span><b>Call Us:</b> <a href="tel:+01768305720">01768305720</a>, <a
+                                        href="tel:+01729101592">01729101592</a></span>
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-regular fa-envelope"></i>
-                                <span><b>Email:</b> beautyproductsbd@gmail.com</span>
+                                <span><b>Email:</b> <a
+                                        href="mailto:beautyproductsbd@gmail.com">beautyproductsbd@gmail.com</a></span>
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-regular fa-clock"></i>
@@ -1479,16 +1479,14 @@
                                 <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
                                 <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
                                 <li><a href=""><i class="fa-brands fa-google-plus"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href=""><i class="fa-regular fa-envelope"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="copyright">
-                    <a href="" target="_blank" class="text-black">Developed By <span
-                            style="color: #472786;font-weight: 500;">Classic IT</span></a>
+                    <a href="" target="_blank">Developed By <span>Classic IT</span></a>
                     <span>&copy; All Rights Reserved <b>Beauty Products BD</b></span>
                 </div>
             </div>
@@ -1558,20 +1556,13 @@
     <script>
         const toggleBtn = document.getElementById('toggleBtn');
         const socialIcons = document.getElementById('socialIcons');
-        let isHidden = false;
 
         toggleBtn.addEventListener('click', () => {
-            isHidden = !isHidden;
-
-            if (isHidden) {
-                socialIcons.classList.add('hide');
-                toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
-            } else {
-                socialIcons.classList.remove('hide');
-                toggleBtn.innerHTML = ' <img src="images/contact_img.png" alt="" loading="lazy">';
-            }
+            socialIcons.classList.toggle('hide');
+            toggleBtn.classList.toggle('active');
         });
     </script>
+
     <script>
         $(document).ready(function () {
             var mainSlider = $('.slider-for').slick({

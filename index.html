@@ -3154,11 +3154,11 @@
     <!-- main end -->
 
     <!-- footer start -->
-    <footer class="pt-5 mt-5">
+    <footer>
         <div class="footer-area">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12 d-flex align-items-center">
                         <div class="newsletter">
                             <h3>Join Our Newsletter</h3>
                             <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
@@ -3184,11 +3184,13 @@
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-solid fa-phone"></i>
-                                <span><b>Call Us:</b> 01768305720, 01729101592</span>
+                                <span><b>Call Us:</b> <a href="tel:+01768305720">01768305720</a>, <a
+                                        href="tel:+01729101592">01729101592</a></span>
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-regular fa-envelope"></i>
-                                <span><b>Email:</b> beautyproductsbd@gmail.com</span>
+                                <span><b>Email:</b> <a
+                                        href="mailto:beautyproductsbd@gmail.com">beautyproductsbd@gmail.com</a></span>
                             </div>
                             <div class="footer_contact_single">
                                 <i class="fa-regular fa-clock"></i>
@@ -3250,16 +3252,14 @@
                                 <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
                                 <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
                                 <li><a href=""><i class="fa-brands fa-google-plus"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href=""><i class="fa-regular fa-envelope"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="copyright">
-                    <a href="" target="_blank" class="text-black">Developed By <span
-                            style="color: #472786;font-weight: 500;">Classic IT</span></a>
+                    <a href="" target="_blank">Developed By <span>Classic IT</span></a>
                     <span>&copy; All Rights Reserved <b>Beauty Products BD</b></span>
                 </div>
             </div>
@@ -3325,10 +3325,8 @@
     <script src="js/main.js"></script>
     <script>
         function toggleLangList(element) {
-            // ক্লিক করা এলিমেন্টের ভেতরে থাকা 'langList' ক্লাসটি খুঁজে বের করবে
             const list = element.querySelector('.langList');
 
-            // অন্য সব খোলা সুইচার বন্ধ করতে নিচের অংশটুকু (ঐচ্ছিক)
             document.querySelectorAll('.custom-lang-selector').forEach(el => {
                 if (el !== element) {
                     el.classList.remove('active');
@@ -3336,7 +3334,6 @@
                 }
             });
 
-            // বর্তমান সুইচার টগল
             element.classList.toggle('active');
             if (list) {
                 list.classList.toggle('show');
@@ -3344,26 +3341,21 @@
         }
 
         function selectLang(code, name, flag, event, listItem) {
-            event.stopPropagation(); // লিস্ট বন্ধ হওয়া রোধ করতে
+            event.stopPropagation(); 
 
-            // ক্লিক করা লিংকের প্যারেন্ট সুইচার খুঁজে বের করা
             const parentSelector = listItem.closest('.custom-lang-selector');
 
-            // শুধুমাত্র ওই সুইচারের টেক্সট এবং ইমেজ আপডেট করা
             if (parentSelector) {
                 parentSelector.querySelector('.currentLangText').innerText = name;
                 parentSelector.querySelector('.currentFlag').src = flag;
 
-                // সিলেক্ট করার পর লিস্ট বন্ধ করা
                 parentSelector.classList.remove('active');
                 parentSelector.querySelector('.langList').classList.remove('show');
             }
 
             console.log("Language selected: " + code);
-            // আপনার ল্যাঙ্গুয়েজ চেঞ্জিং লজিক এখানে দিন
         }
 
-        // বাইরে ক্লিক করলে সবগুলো বন্ধ করার লজিক
         window.onclick = function (event) {
             if (!event.target.closest('.custom-lang-selector')) {
                 document.querySelectorAll('.langList').forEach(list => list.classList.remove('show'));

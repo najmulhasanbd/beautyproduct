@@ -312,8 +312,8 @@
 	});
 
 	// language
-	
-	
+
+
 	// sidebar social
 	const toggleBtn = document.getElementById('toggleBtn');
 	const socialIcons = document.getElementById('socialIcons');
