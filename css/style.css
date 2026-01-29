@@ -1,6 +1,5 @@
 /* 1. Theme default css */
-@import @import
-  url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* --- :root variables --- */
 :root {
@@ -23,7 +22,19 @@
 html {
   scroll-behavior: smooth;
 }
+input:focus,
+input:active,
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #4876e6 !important; /* আপনার গ্রাডিয়েন্ট কালারের সাথে মিল রেখে */
+}
 
+/* ভ্যালিডেশন এরর বর্ডার সরাতে */
+input:invalid {
+  box-shadow: none !important;
+  border-color: #ddd !important;
+}
 * {
   font-family: var(--font);
   margin: 0;
@@ -388,7 +399,7 @@ ul {
   transition: all 0.35s ease;
 }
 .newsletter-form input {
-	padding: 10px;
+  padding: 10px;
 }
 /* sticky হলে animation */
 .header_navbar.header-sticky.sticky {
