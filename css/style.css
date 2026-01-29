@@ -387,7 +387,9 @@ ul {
   opacity: 1;
   transition: all 0.35s ease;
 }
-
+.newsletter-form input {
+	padding: 10px;
+}
 /* sticky হলে animation */
 .header_navbar.header-sticky.sticky {
   position: fixed;
