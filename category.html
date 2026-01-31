@@ -1,0 +1,1334 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Beautyproducts BD</title>
+
+    <link rel="shortcut icon" href="https://najmulhasanbd.github.io/beautyproduct/images/logo.png" type="image/x-icon">
+
+    <!-- Google Fonts (display=swap helps performance) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap (preload + stylesheet) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome (use a stable version) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Grid Setup */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 1200px) {
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Card Styling */
+        .single-category-card {
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .single-category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(75, 42, 137, 0.1) !important;
+            border-top: 4px solid #4b2a89;
+        }
+
+        .cat-header h5 {
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        /* Category Links Styling */
+
+        .category-links li {
+            background: #fff8f2;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        .category-links li a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14.5px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .category-links li a i {
+            font-size: 10px;
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        .category-links li:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .category-links li a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .category-links li a:hover i {
+            opacity: 1;
+        }
+
+        /* Search Box Styling */
+        .category-search-select {
+            height: 50px;
+        }
+
+        .category-search-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(75, 42, 137, 0.1);
+            border-color: #4b2a89;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- header start -->
+    <header>
+        <section class="header_bottom d-none d-lg-block header-sticky">
+            <div class="container">
+                <div class="row align-items-center py-2">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2">
+                        <div class="logo">
+                            <a href="index.html"><img class="w-100"
+                                    src="/https://najmulhasanbd.github.io/beautyproduct/images/logo.png" alt="logo"
+                                    loading="lazy"></a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-5 col-lg-5">
+                        <div class="header-search">
+                            <form action="" class="position-relative w-100">
+                                <input type="search" name="" class="rounded-0 form-control"
+                                    placeholder="Search for Products">
+                                <i class="fa fa-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 d-flex align-items-center justify-content-between">
+                        <div class="language-selection-wrapper">
+                            <div class="custom-lang-selector" onclick="toggleLangList(this)">
+                                <div class="selected-lang d-flex align-items-center gap-2">
+                                    <img class="currentFlag" src="https://flagcdn.com/w20/us.png" alt="en">
+                                    <span class="currentLangText">English</span>
+                                    <i class="fa-solid fa-chevron-down ms-auto"></i>
+                                </div>
+                                <ul class="lang-list langList">
+                                    <li
+                                        onclick="selectLang('en', 'English', 'https://flagcdn.com/w20/us.png', event, this)">
+                                        <img src="https://flagcdn.com/w20/us.png" alt="en"> English
+                                    </li>
+                                    <li
+                                        onclick="selectLang('bn', 'বাংলা', 'https://flagcdn.com/w20/bd.png', event, this)">
+                                        <img src="https://flagcdn.com/w20/bd.png" alt="bn"> বাংলা
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-white">
+                            <a href="login.html" title="your account" class="btn login_btn">Login</a>
+                        </div>
+                        <a href="order-track.html" class="btn track_btn">Track Order</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="header_navbar py-2 d-none d-lg-block header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <div class="all_category category-sticky others_page_category_hover">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa fa-bars"></i>
+                                <h5 title="All Category">Browse Categories</h5>
+                            </div>
+
+                            <div class="category_sidebar hover_sidebar_category">
+                                <ul class="category-list">
+                                    <li>
+                                        <a href="">
+                                            <img src="images/category/icon.png" loading="lazy">
+                                            <span>SKINCARE</span>
+                                            <i class="fa-solid fa-chevron-right ms-auto"></i>
+                                        </a>
+                                        <ul class="subcategory">
+                                            <li><a href="">Home</a></li>
+                                            <li>
+                                                <a href="">
+                                                    Home
+                                                    <i class="fa-solid fa-chevron-right ms-auto"></i>
+                                                </a>
+                                                <ul class="childcategory">
+                                                    <li><a href="">Home</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">Home</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href=""><img src="images/category/icon.png"
+                                                loading="lazy"><span>SKINCARE</span></a></li>
+                                </ul>
+                                <a href="" class="btn btn-sm btn-primary w-100">All Category</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <ul class="header_manu_item d-flex align-items-center gap-3">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">SHOP</a></li>
+                            <li><a href="blog.html">BEAUTY TIPS</a></li>
+                            <li><a href="">ABOUT US</a></li>
+                            <li><a href="contact.html">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="col-lg-2 d-flex justify-content-end d-none d-lg-block align-items-center"> -->
+                    <div class="col-lg-2 d-flex justify-content-lg-end gap-5 align-items-center">
+                        <a href="wishlist.html" class="wishlist position-relative">
+                            <i class="fa fa-heart"></i>
+                            <span>9</span>
+                        </a>
+                        <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                            aria-controls="offcanvasCart">
+                            <div class="cart_plus">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div class="header_cart_count">
+                                <span>10000 </span>
+                                <span class="cart_count">10 items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- shopping cart offcanvas -->
+        <div class="offcanvas offcanvas-end d-flex flex-column" tabindex="-1" id="offcanvasCart"
+            aria-labelledby="offcanvasCartLabel">
+            <div class="offcanvas-header border-bottom py-3">
+                <h5 class="offcanvas-title csc-text-primary fs-4" id="offcanvasCartLabel">Shopping Cart
+                </h5>
+                <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                    <span class="fs-6 shopping_xicon"> <i class="fa fa-xmark"></i> Close</span>
+                </div>
+            </div>
+            <div class="offcanvas-body flex-grow-1">
+                <div class="csc-cart-item">
+                    <img src="images/product/prodouct.png" loading="lazy" alt="Product" class="rounded" width="60"
+                        height="60">
+                    <div>
+                        <a href="product-details.html" class="mb-0 text-dark fw-medium shopping_product"
+                            style="font-size: 14px; line-height: 1.2;">
+                            Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+ Turmeric White Meiniya Spot Cream+
+                            Turmeric White...</a>
+                        <div class="d-flex justify-content-between">
+                            <span>Price</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center shopping_border">
+                            <span>Quantity</span>
+                            <div class="product_footer product_quantity">
+                                <div class="quantity d-flex">
+                                    <a href="#" class="quantity__minus"><span><i class="fa fa-minus"></i></span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1" disabled>
+                                    <a href="#" class="quantity__plus"><span><i class="fa fa-plus"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>1250.00 TK</span>
+                        </div>
+                    </div>
+                    <button class="csc-delete-btn ms-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="csc-footer">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 text-dark">Subtotal</h5>
+                    <h5 class="mb-0 text-muted">3000 TK </h5>
+                </div>
+
+                <div class="csc-shipping-box">
+                    <p class="mb-1 text-muted" style="font-size: 14px;">
+                        Add <span class="csc-text-primary">450.00 .</span> to cart and get free
+                        shipping!
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-custom progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0"
+                            aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column gap-2">
+                    <a href="cart.html" class="btn btn-csc-outline w-100 rounded-3">View Cart</a>
+                    <a href="checkout.html" class="btn btn-csc-fill w-100 rounded-3">Place Order</a>
+                </div>
+            </div>
+        </div>
+        <!-- mobile navbar -->
+        <div class="mobile_navbar d-block d-lg-none pb-2 header-sticky">
+            <div class="container">
+                <div class="mobile_navbar_grid d-flex align-items-center justify-content-between pt-2">
+                    <div class="hamburgar_mobile_nav" data-bs-toggle="offcanvas" href="#mobileManuCategory"
+                        role="button" aria-controls="mobileManuCategory">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <!-- mobile menu -->
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileManuCategory"
+                        aria-labelledby="mobileManuCategoryLabel">
+                        <div class="offcanvas-header border-bottom py-3">
+                            <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                                <span class="fs-6 me-2"><i class="fa fa-xmark"></i> Close</span>
+                            </div>
+                        </div>
+                        <!-- <div class="offcanvas-header border-bottom py-3">
+                            <h5 class="offcanvas-title csc-text-primary fs-4" id="offcanvasCartLabel">Shopping Cart
+                            </h5>
+                            <div class="d-flex align-items-center" style="cursor: pointer;" data-bs-dismiss="offcanvas">
+                                <span class="fs-6 me-2 text-dark">Close</span>
+                            </div>
+                        </div> -->
+                        <div class="offcanvas-body">
+                            <ul class="nav nav-tabs" id="offcanvasMenu" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="category" data-bs-toggle="tab"
+                                        data-bs-target="#category-pane" type="button" role="tab"
+                                        aria-controls="category-pane" aria-selected="false">Category</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  " id="menu" data-bs-toggle="tab"
+                                        data-bs-target="#menu-pane" type="button" role="tab" aria-controls="menu-pane"
+                                        aria-selected="true">Menu</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="offcanvasMenuContent">
+                                <div class="tab-pane fade show active mobileOffCategory" id="category-pane"
+                                    role="tabpanel" aria-labelledby="category" tabindex="0">
+                                    <ul class="mobileCategory">
+                                        <li>
+                                            <a href="#"><img src="images/category/icon.png" loading="lazy"> MAKEUP</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/category/icon.png"> HAIRCARE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="has-child">
+                                                <div class="label-content">
+                                                    <img src="images/category/icon.png" loading="lazy"> SKINCARE
+                                                </div>
+                                                <i class="arrow"></i>
+                                            </a>
+                                            <ul class="mobileSubCategory">
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy"> Face
+                                                        Wash</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="has-child">
+                                                        <div class="label-content">
+                                                            <img src="images/category/icon.png" loading="lazy">
+                                                            Moisturizer
+                                                        </div>
+                                                        <i class="arrow"></i>
+                                                    </a>
+                                                    <ul class="mobileChildCategory">
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 1</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 2</a>
+                                                        </li>
+                                                        <li><a href="#"><img src="images/category/icon.png"
+                                                                    loading="lazy"> Child 3</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"><img src="images/category/icon.png" loading="lazy">
+                                                        Sunscreen</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade mobileOffMenu" id="menu-pane" role="tabpanel"
+                                    aria-labelledby="menu" tabindex="0">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></l1>
+                                        <li><a href="shop.html">Shop</a></l1>
+                                        <li><a href="blog.html">Beauty Tips</a></l1>
+                                        <li><a href="">About US</a></l1>
+                                        <li><a href="contact.html">contact us</a></l1>
+                                        <li><a href="order-track.html">Track Order</a></l1>
+                                        <li><a href="wishlist.html"> <i class="fa fa-heart"></i> Wishlist</a></l1>
+                                        <li><a href="login.html"><i class="fa fa-user"></i> Login</a></l1>
+                                    </ul>
+                                    <div class="language-selection-wrapper px-3 my-4">
+                                        <div class="custom-lang-selector" onclick="toggleLangList(this)">
+                                            <div class="selected-lang d-flex align-items-center gap-2">
+                                                <img class="currentFlag" src="https://flagcdn.com/w20/us.png" alt="en">
+                                                <span class="currentLangText">English</span>
+                                                <i class="fa-solid fa-chevron-down ms-auto"></i>
+                                            </div>
+                                            <ul class="lang-list langList">
+                                                <li
+                                                    onclick="selectLang('en', 'English', 'https://flagcdn.com/w20/us.png', event, this)">
+                                                    <img src="https://flagcdn.com/w20/us.png" alt="en"> English
+                                                </li>
+                                                <li
+                                                    onclick="selectLang('bn', 'বাংলা', 'https://flagcdn.com/w20/bd.png', event, this)">
+                                                    <img src="https://flagcdn.com/w20/bd.png" alt="bn"> বাংলা
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="offcanvas_mobile_social">
+                                        <a href="#" class="social-icon facebook"><i
+                                                class="fa-brands fa-facebook-f"></i></a>
+                                        <a href="#" class="social-icon instagram"><i
+                                                class="fa-brands fa-instagram"></i></a>
+                                        <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                                        <a href="#" class="social-icon envelope"><i
+                                                class="fa-solid fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo"><a href="index.html"><img
+                                src="https://najmulhasanbd.github.io/beautyproduct/images/logo.png" alt="logo"
+                                loading="lazy"></a>
+                    </div>
+                    <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                        aria-controls="offcanvasCart">
+                        <div class="cart_plus">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                        <div class="header_cart_count">
+                            <span>10000 </span>
+                            <span class="cart_count">10 items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header-search">
+                    <form action="" class="position-relative w-100">
+                        <input type="search" name="" class="rounded-0 form-control" placeholder="Search for Products">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- main start -->
+    <main>
+        <!-- breadcrumb -->
+        <div>
+            <img src="images/auth/breadcrumb.png" alt="login breadcrumb" loading="lazy" class="w-100">
+        </div>
+        <!-- breadcrumb -->
+
+        <!-- category start -->
+        <section class="category-area py-5 bg-light">
+            <div class="container">
+                <div class="row mb-5 align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="fw-bold" style="color: #4b2a89;">Explore Our Categories</h2>
+                        <p class="text-muted">Browse our wide range of beauty and skincare products.</p>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <div class="category-filter-search position-relative">
+                            <i
+                                class="fa-solid fa-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                            <select class="form-select category-search-select ps-5 shadow-sm border-0 rounded-pill">
+                                <option value="">Quickly find a category...</option>
+                                <option value="face">Face</option>
+                                <option value="body">Body</option>
+                                <option value="hair">Hair</option>
+                            </select>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div>
+                    <h3 class="my-4">
+                        <img src="images/category/1.png" style="width: 50px;" alt="">
+                        Skin Care
+                    </h3>
+                    <hr>
+                    <div class="category-grid">
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="my-4">
+                        <img src="images/category/1.png" style="width: 50px;" alt="">
+                        Skin Care
+                    </h3>
+                    <hr>
+                    <div class="category-grid">
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="my-4">
+                        <img src="images/category/1.png" style="width: 50px;" alt="">
+                        Skin Care
+                    </h3>
+                    <hr>
+                    <div class="category-grid">
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="my-4">
+                        <img src="images/category/1.png" style="width: 50px;" alt="">
+                        Skin Care
+                    </h3>
+                    <hr>
+                    <div class="category-grid">
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="my-4">
+                        <img src="images/category/1.png" style="width: 50px;" alt="">
+                        Skin Care
+                    </h3>
+                    <hr>
+                    <div class="category-grid">
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-category-card p-4 bg-white rounded-4 shadow-sm h-100">
+                            <div class="cat-header d-flex align-items-center mb-3">
+                                <div class="cat-icon me-2">
+                                    <i class="fa-solid fa-face-smile text-primary"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">FACE</h5>
+                            </div>
+                            <ul class="list-unstyled category-links">
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Night Cream</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Wash</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Moisturizer</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Sunscreen</a></li>
+                                <li><a href="#"><i class="fa-solid fa-chevron-right me-2"></i>Face Mask</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- category end -->
+
+    </main>
+    <!-- main end -->
+
+    <!-- footer start -->
+    <footer>
+        <div class="footer-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12 d-flex align-items-center">
+                        <div class="newsletter">
+                            <h3>Join Our Newsletter</h3>
+                            <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="newsletter-form">
+                            <form action="" class="d-flex gap-2">
+                                <input type="search" id="newsletter_email" class="form-control"
+                                    placeholder="Enter your email address">
+                                <button type="submit" class="btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr> <br>
+                <div class="footer_grid mb-2">
+                    <div class="footer_widget">
+                        <h5>Corporate Headquater</h5>
+                        <div class="footer_contact">
+                            <div class="footer_contact_single">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span><b>Address:</b> Jannat Tower, Mazukhan, Pubail, Gazipur</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-solid fa-phone"></i>
+                                <span><b>Call Us:</b> <a href="tel:+01768305720">01768305720</a>, <a
+                                        href="tel:+01729101592">01729101592</a></span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span><b>Email:</b> <a
+                                        href="mailto:beautyproductsbd@gmail.com">beautyproductsbd@gmail.com</a></span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-clock"></i>
+                                <span><b>Hours:</b> 10:00 - 8:00, Sa - Thu</span>
+                            </div>
+                            <div class="footer_contact_single">
+                                <i class="fa-regular fa-hourglass"></i>
+                                <span><b>TIN:</b> 691890290184</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Quick Links</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Sign In</a></li>
+                            <li><a href="">View Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Customer Service</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Track Your Order</a></li>
+                            <li><a href="">Shipping & Returns</a></li>
+                            <li><a href="">Payment Method</a></li>
+                            <li><a href="">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_widget">
+                        <h5>Terms & Policy</h5>
+                        <ul class="footer_menu">
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Return & Refund Policy</a></li>
+                            <li><a href="">Cancellation Policy</a></li>
+                            <li><a href="">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center pt-2 footer_social_payment">
+                    <!-- Logo -->
+                    <div class="col-8 offset-2 col-md-4 offset-md-0 col-lg-2 order-1 order-lg-1">
+                        <div class="footer-logo">
+                            <a href=""><img src="https://najmulhasanbd.github.io/beautyproduct/images/logo.png"
+                                    alt="footer logo" class="w-100" loading="lazy"></a>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="col-12 col-md-12 col-lg-8 order-3 order-lg-2">
+                        <div class="footer-payment">
+                            <img src="images/payment.png" class="w-100" alt="payment" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="col-12 col-md-6 offset-md-0 col-lg-2 order-2 order-lg-3">
+                        <div class="footer-social">
+                            <ul class="d-flex gap-2">
+                                <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-google-plus"></i></a></li>
+                                <li><a href=""><i class="fa-regular fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <a href="" target="_blank">Developed By <span>Classic IT</span></a>
+                    <span>&copy; All Rights Reserved <b>Beauty Products BD</b></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Social Icons -->
+        <div class="social-wrapper">
+            <div class="social-icons" id="socialIcons">
+                <a href="tel:+880987654321234" class="mobile" title="mobile"><img src="images/contact.png" alt=""></a>
+
+                <a href="#" class="social whatsapp" title="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social messenger" title=""><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#" class="social app" title="app"><i class="fa-brands fa-google-play"></i></a>
+            </div>
+
+            <!-- Arrow button always under social icons -->
+            <button class="toggle-btn" id="toggleBtn" title="Contact With Me">
+                <i class="fa-solid fa-arrow-right" id="toggleIcon"></i>
+            </button>
+        </div>
+
+    </footer>
+    <!-- footer end -->
+
+    <!-- footer fixed menu -->
+    <div class="gemini-nav-container d-block d-lg-none">
+        <div class="gemini-nav-bar">
+            <a href="#" class="gemini-nav-link active-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-shop"></i>
+                <span>Shop</span>
+            </a>
+
+            <div class="gemini-floating-wrapper" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                aria-controls="offcanvasCart">
+                <div class="gemini-fab-button">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </div>
+                <span class="gemini-fab-text">Cart (0)</span>
+            </div>
+
+            <a href="#" class="nav-link-gap"></a> <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="#" class="gemini-nav-link">
+                <i class="fa-solid fa-user"></i>
+                <span>Account</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.category-search-select').select2({
+                placeholder: "Search for a category...",
+                allowClear: true,
+                width: '100%'
+            });
+
+            // Filter functionality example
+            $('.category-search-select').on('change', function () {
+                var value = $(this).val();
+                // Your logic to filter the grid goes here
+                console.log("Filtering for: " + value);
+            });
+        });
+    </script>
+    <script>
+        function toggleLangList(element) {
+            const list = element.querySelector('.langList');
+
+            document.querySelectorAll('.custom-lang-selector').forEach(el => {
+                if (el !== element) {
+                    el.classList.remove('active');
+                    el.querySelector('.langList').classList.remove('show');
+                }
+            });
+
+            element.classList.toggle('active');
+            if (list) {
+                list.classList.toggle('show');
+            }
+        }
+
+        function selectLang(code, name, flag, event, listItem) {
+            event.stopPropagation();
+
+            const parentSelector = listItem.closest('.custom-lang-selector');
+
+            if (parentSelector) {
+                parentSelector.querySelector('.currentLangText').innerText = name;
+                parentSelector.querySelector('.currentFlag').src = flag;
+
+                parentSelector.classList.remove('active');
+                parentSelector.querySelector('.langList').classList.remove('show');
+            }
+
+            console.log("Language selected: " + code);
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.closest('.custom-lang-selector')) {
+                document.querySelectorAll('.langList').forEach(list => list.classList.remove('show'));
+                document.querySelectorAll('.custom-lang-selector').forEach(sel => sel.classList.remove('active'));
+            }
+        }
+    </script>
+</body>
+
+</html>

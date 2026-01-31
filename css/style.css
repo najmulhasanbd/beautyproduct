@@ -2517,3 +2517,9 @@ nav.shop-breadcrumb a {
 	left: 0;
 	top: 40px;
 }
+
+/* category page */
+.category-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
