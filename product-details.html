@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Beautyproducts BD</title>
 
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://najmulhasanbd.github.io/beautyproduct/images/logo.png" type="image/x-icon">
 
     <!-- Google Fonts (display=swap helps performance) -->
     <link
@@ -128,10 +128,6 @@
             border-width: 2px !important;
         }
 
-        .slider-nav .slick-slide {
-            padding: 0 5px;
-        }
-
         .animate-play {
             transition: transform 0.2s;
         }
@@ -163,57 +159,19 @@
             top: 50%;
             transform: translateY(-50%);
         }
-    </style>
-    <style>
-        .slider-for .slick-track {
-            display: flex !important;
-            align-items: stretch !important;
+
+        .slider-for,
+        .slider-for .product-item,
+        .slider-for .product-item img,
+        .zoomContainer,
+        .zoomWindow,
+        .zoom-img,
+        .rounded-4,
+        .thumb-box,
+        .thumb-box img {
+            border-radius: 0 !important;
         }
 
-        .slider-for .slick-slide {
-            height: auto !important;
-            display: flex !important;
-        }
-
-        .slider-for .slick-slide>div {
-            width: 100%;
-            height: 100%;
-        }
-
-        .product-item {
-            height: 100% !important;
-            width: 100% !important;
-            display: flex !important;
-        }
-
-        .zoom-img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            object-position: center;
-        }
-
-        @media (max-width: 767px) {
-
-            .slider-for {
-                height: 350px !important;
-            }
-
-            .video-slide iframe {
-                height: 100% !important;
-                min-height: 350px !important;
-            }
-        }
-
-        .product_name p {
-            margin: 0;
-        }
-
-        .product_name .rating i {
-            color: #ffb811;
-        }
-    </style>
-    <style>
         .product_scroll_info {
             position: fixed;
             bottom: 0;
@@ -257,6 +215,103 @@
             }
         }
     </style>
+    <style>
+        .slider-for .slick-track {
+            display: flex !important;
+            align-items: stretch !important;
+        }
+
+        .slider-for .slick-slide {
+            height: auto !important;
+            display: flex !important;
+        }
+
+        .slider-for .slick-slide>div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-item {
+            height: 100% !important;
+            width: 100% !important;
+            display: flex !important;
+        }
+
+        .zoom-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center;
+        }
+
+        @media (max-width: 767px) {
+            .video-slide iframe {
+                height: 100% !important;
+                min-height: 350px !important;
+            }
+        }
+
+        .product_name p {
+            margin: 0;
+        }
+
+        .product_name .rating i {
+            color: #ffb811;
+        }
+
+        .slider-nav {
+            position: relative;
+            padding: 0 45px;
+        }
+
+        .slider-nav .slick-prev,
+        .slider-nav .slick-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 35px;
+            height: 35px;
+            background: #472786;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-nav .slick-prev {
+            left: 5px;
+            margin-top: 0;
+        }
+
+        .slider-nav .slick-next {
+            right: 5px;
+            margin-top: 0;
+        }
+
+        .slider-nav .slick-prev:hover,
+        .slider-nav .slick-next:hover {
+            background: #333;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-nav .slick-prev i,
+        .slider-nav .slick-next i {
+            font-size: 14px;
+        }
+
+        .slider-nav .slick-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #ccc;
+        }
+    </style>
 </head>
 
 <body>
@@ -268,7 +323,8 @@
                 <div class="row align-items-center py-2">
                     <div class="col-xxl-2 col-xl-2 col-lg-2">
                         <div class="logo">
-                            <a href="index.html"><img class="w-100" src="/images/logo.png" alt="logo"
+                            <a href="index.html"><img class="w-100"
+                                    src="/https://najmulhasanbd.github.io/beautyproduct/images/logo.png" alt="logo"
                                     loading="lazy"></a>
                         </div>
                     </div>
@@ -677,7 +733,9 @@
                         </div>
                     </div>
 
-                    <div class="logo"><a href="index.html"><img src="images/logo.png" alt="logo" loading="lazy"></a>
+                    <div class="logo"><a href="index.html"><img
+                                src="https://najmulhasanbd.github.io/beautyproduct/images/logo.png" alt="logo"
+                                loading="lazy"></a>
                     </div>
                     <div class="header_cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                         aria-controls="offcanvasCart">
@@ -712,35 +770,86 @@
                         <div class="slider-for border rounded-4 overflow-hidden mb-3 shadow-sm bg-white">
                             <div class="product-item">
                                 <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
-                                    class="w-100 object-fit-contain zoom-img" style="cursor: crosshair;"
-                                    alt="Product 1">
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
                             </div>
                             <div class="product-item">
                                 <img src="images/product/product.webp" data-zoom-image="images/product/product.webp"
-                                    class="w-100 object-fit-contain zoom-img" style="cursor: crosshair;"
-                                    alt="Product 1">
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair; border-radius: 0;" alt="Product 1">
                             </div>
-                            <div class="product-item video-slide bg-black">
-                                <iframe src="https://www.youtube.com/embed/8LmEOBmMHLw?rel=0&autoplay=0"
-                                    class="w-100 h-100 border-0 d-block" title="Product Video" allowfullscreen></iframe>
+                            <div class="product-item">
+                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/product/product.webp" data-zoom-image="images/product/product.webp"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair; border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/product/product.webp" data-zoom-image="images/product/product.webp"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair; border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/product/product.webp" data-zoom-image="images/product/product.webp"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair; border-radius: 0;" alt="Product 1">
+                            </div>
+                            <div class="product-item">
+                                <img src="images/shop_by_look.png" data-zoom-image="images/shop_by_look.png"
+                                    class="w-100 object-fit-contain zoom-img"
+                                    style="cursor: crosshair;border-radius: 0;" alt="Product 1">
                             </div>
                         </div>
 
                         <div class="slider-nav row g-2">
-                            <div class="col-3">
-                                <div class="thumb-box border rounded-3 p-1">
-                                    <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
-                                </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
                             </div>
-                            <div class="col-3">
-                                <div class="thumb-box border rounded-3 p-1">
-                                    <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
-                                </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
                             </div>
-                            <div class="col-3">
-                                <div class="thumb-box border rounded-3 p-1">
-                                    <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
-                                </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/product/product.webp" class="img-fluid rounded-2" alt="Thumb 1">
+                            </div>
+                            <div class="thumb-box border rounded-3 p-1">
+                                <img src="images/shop_by_look.png" class="img-fluid rounded-2" alt="Thumb 1">
                             </div>
                         </div>
                     </div>
@@ -808,6 +917,11 @@
                                 7 People watching this product now!
                             </div>
                         </div>
+
+                        <div class="video_frame mt-3">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ho8yHjey-os?si=mGU_UF9i3qCo-CM_&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -1239,7 +1353,7 @@
         <!-- product content end -->
 
         <!-- featured start -->
-        <section class="featurea-area">
+        <section class="featurea-area pb-4">
             <div class="container">
                 <div class="section-title d-flex align-items-center justify-content-between mb-3">
                     <div class="d-flex flex-wrap align-items-center gap-2">
@@ -1394,7 +1508,8 @@
                     <div class="col-lg-6 col-12">
                         <div class="newsletter-form">
                             <form action="" class="d-flex gap-2">
-                                <input type="search" id="newsletter_email" class="form-control" placeholder="Enter your email address">
+                                <input type="search" id="newsletter_email" class="form-control"
+                                    placeholder="Enter your email address">
                                 <button type="submit" class="btn">Subscribe</button>
                             </form>
                         </div>
@@ -1461,7 +1576,8 @@
                     <!-- Logo -->
                     <div class="col-8 offset-2 col-md-4 offset-md-0 col-lg-2 order-1 order-lg-1">
                         <div class="footer-logo">
-                            <a href=""><img src="images/logo.png" alt="footer logo" class="w-100" loading="lazy"></a>
+                            <a href=""><img src="https://najmulhasanbd.github.io/beautyproduct/images/logo.png"
+                                    alt="footer logo" class="w-100" loading="lazy"></a>
                         </div>
                     </div>
 
@@ -1563,6 +1679,7 @@
         });
     </script>
 
+
     <script>
         $(document).ready(function () {
             var mainSlider = $('.slider-for').slick({
@@ -1572,28 +1689,25 @@
                 autoplay: false,
                 infinite: false,
                 fade: true,
-                asNavFor: '.slider-nav',
-                pauseOnHover: true
+                asNavFor: '.slider-nav'
             });
 
             var navSlider = $('.slider-nav').slick({
-                slidesToShow: 3,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 asNavFor: '.slider-for',
                 dots: false,
-                centerMode: true,
+                centerMode: false,
+                infinite: true,
                 autoplay: false,
-                arrows: false,
-                focusOnSelect: true
-            });
-
-            $('.slider-nav .slick-slide').on('mouseenter', function () {
-                var index = $(this).data('slick-index');
-                var currentIndex = $('.slider-for').slick('slickCurrentSlide');
-
-                if (index !== currentIndex) {
-                    $('.slider-for').slick('slickGoTo', index);
-                }
+                arrows: true,
+                focusOnSelect: true,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+                responsive: [
+                    { breakpoint: 768, settings: { slidesToShow: 4 } },
+                    { breakpoint: 480, settings: { slidesToShow: 3 } }
+                ]
             });
 
             function applyZoom() {
@@ -1607,17 +1721,14 @@
                         responsive: true,
                         borderSize: 0,
                         zoomWindowFadeIn: 300,
-                        zoomWindowFadeOut: 300
+                        zoomWindowFadeOut: 300,
+                        containLensZoom: true
                     });
                 }
             }
 
             $('.slider-for').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
                 $('.zoomContainer').remove();
-                var img = $(slick.$slides[currentSlide]).find('.zoom-img');
-                if (img.length > 0 && img.data('ezPlus')) {
-                    img.data('ezPlus').destroy();
-                }
             });
 
             $('.slider-for').on('afterChange', function (event, slick, currentSlide) {
@@ -1627,6 +1738,7 @@
             applyZoom();
         });
     </script>
+
     <script>
         $(document).ready(function () {
             $('.quantity__minus').on('click', function (e) {
@@ -1694,6 +1806,47 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function toggleLangList(element) {
+            const list = element.querySelector('.langList');
+
+            document.querySelectorAll('.custom-lang-selector').forEach(el => {
+                if (el !== element) {
+                    el.classList.remove('active');
+                    el.querySelector('.langList').classList.remove('show');
+                }
+            });
+
+            element.classList.toggle('active');
+            if (list) {
+                list.classList.toggle('show');
+            }
+        }
+
+        function selectLang(code, name, flag, event, listItem) {
+            event.stopPropagation();
+
+            const parentSelector = listItem.closest('.custom-lang-selector');
+
+            if (parentSelector) {
+                parentSelector.querySelector('.currentLangText').innerText = name;
+                parentSelector.querySelector('.currentFlag').src = flag;
+
+                parentSelector.classList.remove('active');
+                parentSelector.querySelector('.langList').classList.remove('show');
+            }
+
+            console.log("Language selected: " + code);
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.closest('.custom-lang-selector')) {
+                document.querySelectorAll('.langList').forEach(list => list.classList.remove('show'));
+                document.querySelectorAll('.custom-lang-selector').forEach(sel => sel.classList.remove('active'));
+            }
+        }
     </script>
 </body>
 
