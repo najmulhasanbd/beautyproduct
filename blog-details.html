@@ -210,7 +210,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3">
-                        <div class="all_category category-sticky">
+                        <div class="all_category category-sticky others_page_category_hover">
                             <div class="d-flex align-items-center gap-2">
                                 <i class="fa fa-bars"></i>
                                 <h5 title="All Category">Browse Categories</h5>
@@ -1021,7 +1021,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/main.js"></script>
+ <script>
+        function toggleLangList(element) {
+            const list = element.querySelector('.langList');
 
+            document.querySelectorAll('.custom-lang-selector').forEach(el => {
+                if (el !== element) {
+                    el.classList.remove('active');
+                    el.querySelector('.langList').classList.remove('show');
+                }
+            });
+
+            element.classList.toggle('active');
+            if (list) {
+                list.classList.toggle('show');
+            }
+        }
+
+        function selectLang(code, name, flag, event, listItem) {
+            event.stopPropagation();
+
+            const parentSelector = listItem.closest('.custom-lang-selector');
+
+            if (parentSelector) {
+                parentSelector.querySelector('.currentLangText').innerText = name;
+                parentSelector.querySelector('.currentFlag').src = flag;
+
+                parentSelector.classList.remove('active');
+                parentSelector.querySelector('.langList').classList.remove('show');
+            }
+
+            console.log("Language selected: " + code);
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.closest('.custom-lang-selector')) {
+                document.querySelectorAll('.langList').forEach(list => list.classList.remove('show'));
+                document.querySelectorAll('.custom-lang-selector').forEach(sel => sel.classList.remove('active'));
+            }
+        }
+    </script>
 </body>
 
 </html>
